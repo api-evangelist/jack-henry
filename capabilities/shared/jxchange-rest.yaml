@@ -1,0 +1,48 @@
+apiVersion: naftiko.io/v1alpha1
+kind: Capability
+metadata:
+  name: jxchange-rest
+  title: jXchange REST
+  provider: jack-henry
+  api: jxchange-rest
+  description: >-
+    REST surface for Jack Henry's jXchange translation layer fronting the
+    SilverLake and CIF 20/20 community-bank cores. Covers customer (CIF)
+    records, deposit accounts, loan accounts, account transactions, and
+    general-ledger inquiries.
+  tags:
+    - Core Banking
+    - SilverLake
+    - CIF 20/20
+    - Deposits
+    - Loans
+    - General Ledger
+spec:
+  baseUrl: https://jxchange.jackhenry.com
+  auth:
+    type: bearer
+  operations:
+    - id: searchCustomers
+      title: Search Customers
+      method: GET
+      path: /jxchange/v1/customers
+    - id: getCustomer
+      title: Get Customer
+      method: GET
+      path: /jxchange/v1/customers/{customerId}
+    - id: getDepositAccount
+      title: Get Deposit Account
+      method: GET
+      path: /jxchange/v1/deposit-accounts/{accountNumber}
+    - id: getLoanAccount
+      title: Get Loan Account
+      method: GET
+      path: /jxchange/v1/loan-accounts/{accountNumber}
+    - id: listAccountTransactions
+      title: List Account Transactions
+      method: GET
+      path: /jxchange/v1/accounts/{accountNumber}/transactions
+    - id: getGlAccount
+      title: Get GL Account
+      method: GET
+      path: /jxchange/v1/general-ledger/{glAccountNumber}

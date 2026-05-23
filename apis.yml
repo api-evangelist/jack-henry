@@ -1,0 +1,414 @@
+name: Jack Henry & Associates
+description: |
+  Jack Henry & Associates (Nasdaq: JKHY) is an S&P 500 financial technology
+  company that provides core banking, payments, lending, digital banking, and
+  fraud-prevention technology to community and regional financial institutions
+  in the United States. Approximately 7,400 client institutions and ~7,240
+  associates as of fiscal year-end June 30, 2025.
+
+  The developer surface centers on the Banno Digital Toolkit
+  (Plugin Framework, Consumer API, Admin API, Authentication Framework),
+  the jXchange and SymXchange core banking translation APIs, the Payments
+  Orchestrator + rails (ACH, A2A/Wire, Bill Pay, RDC, Cards, Zelle), the
+  Enterprise Event System, Operational Data Integration (ODI), and the
+  Digital Core. Banno's developer documentation site at jackhenry.dev
+  is mirrored at banno.github.io/open-api-docs.
+url: https://github.com/api-evangelist/jack-henry
+humanURL: https://www.jackhenry.com/
+baseURL: https://api.banno.com/
+image: https://avatars.githubusercontent.com/u/1130370?s=200&v=4
+tags:
+  - Financial Services
+  - Banking
+  - Core Banking
+  - Digital Banking
+  - Payments
+  - Lending
+  - Fraud
+  - Open Banking
+  - Community Banks
+  - Credit Unions
+  - Fintech
+  - OAuth
+  - OpenID Connect
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.18'
+type: Index
+
+common:
+  - type: Homepage
+    url: https://www.jackhenry.com/
+  - type: DeveloperPortal
+    url: https://jackhenry.dev/
+  - type: DigitalToolkit
+    url: https://jackhenry.dev/digital-toolkit/
+  - type: Documentation
+    url: https://banno.github.io/open-api-docs/
+  - type: Blog
+    url: https://www.jackhenry.com/fintalk
+  - type: PressReleases
+    url: https://ir.jackhenry.com/news-releases
+  - type: InvestorRelations
+    url: https://ir.jackhenry.com/
+  - type: GitHub
+    url: https://github.com/Banno
+  - type: StackOverflow
+    url: https://stackoverflow.com/questions/tagged/banno-digital-toolkit
+  - type: Support
+    url: https://jackhenry.dev/support/
+  - type: Status
+    url: https://status.banno.com/
+  - type: TermsOfService
+    url: https://www.jackhenry.com/legal/terms-of-use
+  - type: PrivacyPolicy
+    url: https://www.jackhenry.com/legal/privacy
+  - type: Careers
+    url: https://www.jackhenry.com/who-we-are/careers
+  - type: TwitterX
+    url: https://x.com/JackHenryAssoc
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/jack-henry-associates/
+  - type: YouTube
+    url: https://www.youtube.com/user/JackHenryAssociates
+
+apis:
+
+  - name: Banno Consumer API
+    description: |
+      Build apps and services using the same Consumer API that powers
+      Banno Mobile and Online. Provides authenticated, OAuth/OpenID
+      Connect protected access to accountholder data — accounts,
+      transactions, transfers, alerts, cards, bill pay, ACH, wires,
+      Zelle, RDC, documents/statements, messages, and forms — across
+      Jack Henry's digital banking platform.
+    humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+    baseURL: https://api.banno.com
+    tags:
+      - Consumer Banking
+      - Accounts
+      - Transactions
+      - Transfers
+      - Bill Pay
+      - Zelle
+      - ACH
+      - Wire Transfers
+      - Remote Deposit Capture
+      - Cards
+      - Alerts
+      - Messages
+      - OAuth
+      - OpenID Connect
+    properties:
+      - type: OpenAPI
+        url: openapi/banno-consumer-api-openapi.yml
+      - type: APIReference
+        url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+      - type: GettingStarted
+        url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+      - type: Authentication
+        url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+      - type: Quickstart
+        url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+      - type: SampleApp
+        url: https://github.com/Banno/consumer-api-openid-connect-example
+      - type: Capability
+        url: capabilities/shared/banno-consumer-api.yaml
+
+  - name: Banno Admin API
+    description: |
+      Manage and integrate the back office using the same Admin API that
+      Banno uses for its administrative interface. Surfaces institution
+      abilities/feature flags, consumer/business administration,
+      messaging, alerts, plugin management, segments, ads, RDC, reports,
+      offline mode, ACH, wires, Zelle, and OAuth/OpenID administration.
+    humanURL: https://jackhenry.dev/open-api-docs/admin-api/
+    baseURL: https://api.banno.com
+    tags:
+      - Back Office
+      - Institution Administration
+      - Consumer Administration
+      - Plugin Management
+      - Reports
+      - Segments
+      - Alerts
+      - Messages
+      - High-Risk Actions
+      - Compliance
+    properties:
+      - type: OpenAPI
+        url: openapi/banno-admin-api-openapi.yml
+      - type: APIReference
+        url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+      - type: SampleApp
+        url: https://github.com/Banno/admin-api-openid-connect-example
+      - type: Capability
+        url: capabilities/shared/banno-admin-api.yaml
+
+  - name: Banno Plugin Framework
+    description: |
+      Embed custom cards and expanded views directly into the Banno
+      Online and Mobile user dashboard. Plugins are web applications
+      (HTML + CSS + JavaScript) hosted on the partner's own infrastructure
+      and registered as External Applications inside Banno People. The
+      "@jack-henry/banno-plugin-framework-bridge" JavaScript module
+      routes events between the hosted plugin and the Banno chrome.
+    humanURL: https://jackhenry.dev/open-api-docs/plugins/
+    baseURL: https://digital.garden.banno-uat.com
+    tags:
+      - Plugin Framework
+      - Embedded Banking
+      - Dashboard Cards
+      - External Applications
+      - Web Components
+      - Fintech Integration
+    properties:
+      - type: OpenAPI
+        url: openapi/banno-plugin-framework-openapi.yml
+      - type: APIReference
+        url: https://jackhenry.dev/open-api-docs/plugins/
+      - type: GettingStarted
+        url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+      - type: Tutorial
+        url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+      - type: SDK
+        url: https://github.com/Banno/banno-plugin-framework-bridge
+      - type: SampleApp
+        url: https://github.com/Banno/simple-plugin-example
+      - type: SampleApp
+        url: https://github.com/Banno/basic-plugin-example
+      - type: SampleApp
+        url: https://github.com/Banno/simple-announcements-plugin
+      - type: Capability
+        url: capabilities/shared/banno-plugin-framework.yaml
+
+  - name: Banno Authentication Framework
+    description: |
+      Protect user data using OAuth 2.0 and OpenID Connect. Issues
+      access tokens, identity tokens, and refresh tokens; defines the
+      permissions flow that governs Consumer and Admin API scopes; and
+      maps customer identities to existing system IDs via unique
+      customer IDs, contact info, or Tax ID.
+    humanURL: https://jackhenry.dev/open-api-docs/authentication-framework/
+    baseURL: https://api.banno.com
+    tags:
+      - Authentication
+      - OAuth
+      - OpenID Connect
+      - Identity
+      - Tokens
+      - Permissions
+    properties:
+      - type: OpenAPI
+        url: openapi/banno-authentication-framework-openapi.yml
+      - type: Documentation
+        url: https://jackhenry.dev/open-api-docs/authentication-framework/
+      - type: Capability
+        url: capabilities/shared/banno-authentication-framework.yaml
+
+  - name: jXchange REST
+    description: |
+      Translates information between Jack Henry's SilverLake and CIF 20/20
+      core platforms and third-party applications via a REST surface.
+      Resources span deposits, loans, customers, accounts, transactions,
+      and general ledger — the system-of-record contract for community-bank
+      cores.
+    humanURL: https://jackhenry.dev/jxchange-rest/
+    baseURL: https://jxchange.jackhenry.com
+    tags:
+      - Core Banking
+      - jXchange
+      - SilverLake
+      - CIF 20/20
+      - Deposits
+      - Loans
+      - Customers
+      - General Ledger
+    properties:
+      - type: OpenAPI
+        url: openapi/jxchange-rest-openapi.yml
+      - type: Documentation
+        url: https://jackhenry.dev/jxchange-rest/
+      - type: Capability
+        url: capabilities/shared/jxchange-rest.yaml
+
+  - name: Jack Henry Payments
+    description: |
+      Jack Henry Payments unifies ACH origination, wire/A2A payments,
+      Bill Payments, Remote Deposit Capture (consumer + commercial),
+      card acceptance, and peer-to-peer rails behind a developer portal
+      with sandbox, SDKs, and downloadable tools. Includes the Payments
+      Orchestrator that routes across rails and supports virtual accounts.
+    humanURL: https://api.payments.jackhenry.com/developer/
+    baseURL: https://api.payments.jackhenry.com
+    tags:
+      - Payments
+      - ACH
+      - Wire Transfers
+      - Bill Pay
+      - Remote Deposit Capture
+      - Cards
+      - Zelle
+      - Payments Orchestrator
+    properties:
+      - type: OpenAPI
+        url: openapi/jack-henry-payments-openapi.yml
+      - type: DeveloperPortal
+        url: https://api.payments.jackhenry.com/developer/
+      - type: Sandbox
+        url: https://api.payments.jackhenry.com/developer/
+      - type: Capability
+        url: capabilities/shared/jack-henry-payments.yaml
+
+  - name: Enterprise Event System
+    description: |
+      Real-time, pub/sub-based event streaming surface. Lets institutions
+      and partners react to events emitted across Jack Henry's platform
+      (account events, transaction events, alert events, user-lifecycle
+      events) without polling.
+    humanURL: https://jackhenry.dev/ees/
+    baseURL: https://events.jackhenry.com
+    tags:
+      - Events
+      - Pub/Sub
+      - Streaming
+      - Webhooks
+      - Real-Time
+    properties:
+      - type: AsyncAPI
+        url: asyncapi/enterprise-event-system-asyncapi.yml
+      - type: Documentation
+        url: https://jackhenry.dev/ees/
+
+  - name: SymXchange
+    description: |
+      Translation surface for the Symitar credit-union core. Query
+      member accounts, post transactions, and execute PowerOn scripts.
+    humanURL: https://jackhenry.dev/symxchange-api-docs/
+    baseURL: https://symxchange.jackhenry.com
+    tags:
+      - Core Banking
+      - Symitar
+      - Credit Unions
+      - PowerOn
+      - Member Accounts
+    properties:
+      - type: Documentation
+        url: https://jackhenry.dev/symxchange-api-docs/
+      - type: SDK
+        url: https://github.com/Banno/banno-powerons
+
+  - name: Operational Data Integration (ODI)
+    description: |
+      Customized bulk-data query interface for institution data.
+      Sits alongside Data Hub for deeper analytics access.
+    humanURL: https://jackhenry.dev/odi/
+    baseURL: https://odi.jackhenry.com
+    tags:
+      - Data
+      - Bulk Data
+      - Reporting
+      - Analytics
+    properties:
+      - type: Documentation
+        url: https://jackhenry.dev/odi/
+
+  - name: Data Hub
+    description: |
+      Provides deeper access to financial institution data for partners
+      building analytics, BI, and personalization solutions on top of
+      Jack Henry core systems.
+    humanURL: https://jackhenry.dev/data-hub/
+    baseURL: https://datahub.jackhenry.com
+    tags:
+      - Data
+      - Analytics
+      - Reporting
+      - Data Sharing
+    properties:
+      - type: Documentation
+        url: https://jackhenry.dev/data-hub/
+
+  - name: Digital Core
+    description: |
+      Cloud-native core banking platform — the next-generation successor
+      surface alongside SilverLake, CIF 20/20, and Symitar. Targets
+      modern API-first deployments for de novo banks and modernization
+      programs.
+    humanURL: https://jackhenry.dev/digital-core-api-docs/
+    baseURL: https://digital-core.jackhenry.com
+    tags:
+      - Core Banking
+      - Cloud Native
+      - Modernization
+      - De Novo
+    properties:
+      - type: Documentation
+        url: https://jackhenry.dev/digital-core-api-docs/
+
+artifacts:
+  openapi:
+    - openapi/banno-consumer-api-openapi.yml
+    - openapi/banno-admin-api-openapi.yml
+    - openapi/banno-plugin-framework-openapi.yml
+    - openapi/banno-authentication-framework-openapi.yml
+    - openapi/jxchange-rest-openapi.yml
+    - openapi/jack-henry-payments-openapi.yml
+  asyncapi:
+    - asyncapi/enterprise-event-system-asyncapi.yml
+  capabilities:
+    - capabilities/digital-banking-experience.yaml
+    - capabilities/payments-orchestration.yaml
+    - capabilities/shared/banno-consumer-api.yaml
+    - capabilities/shared/banno-admin-api.yaml
+    - capabilities/shared/banno-plugin-framework.yaml
+    - capabilities/shared/banno-authentication-framework.yaml
+    - capabilities/shared/jxchange-rest.yaml
+    - capabilities/shared/jack-henry-payments.yaml
+  jsonSchema:
+    - json-schema/banno-account-schema.json
+    - json-schema/banno-transaction-schema.json
+    - json-schema/banno-transfer-schema.json
+    - json-schema/banno-institution-abilities-schema.json
+    - json-schema/jxchange-customer-schema.json
+    - json-schema/jxchange-loan-account-schema.json
+    - json-schema/payments-ach-transaction-schema.json
+  jsonStructure:
+    - json-structure/banno-account-structure.json
+    - json-structure/banno-transaction-structure.json
+    - json-structure/payments-orchestrator-request-structure.json
+  jsonLd:
+    - json-ld/jack-henry-context.jsonld
+  examples:
+    - examples/banno-consumer-list-accounts-response-example.json
+    - examples/banno-consumer-list-transactions-response-example.json
+    - examples/banno-consumer-create-transfer-request-example.json
+    - examples/banno-consumer-create-transfer-response-example.json
+    - examples/banno-admin-institution-abilities-response-example.json
+    - examples/payments-ach-credit-request-example.json
+    - examples/payments-ach-credit-response-example.json
+    - examples/payments-orchestrator-route-request-example.json
+    - examples/payments-orchestrator-route-response-example.json
+    - examples/jxchange-customer-response-example.json
+  rules:
+    - rules/banno-consumer-api-rules.yml
+    - rules/banno-admin-api-rules.yml
+    - rules/jxchange-rest-rules.yml
+    - rules/jack-henry-payments-rules.yml
+  vocabulary:
+    - vocabulary/jack-henry-vocabulary.yml
+  plans:
+    - plans/jack-henry-plans-pricing.yml
+  rateLimits:
+    - rate-limits/jack-henry-rate-limits.yml
+  finops:
+    - finops/jack-henry-finops.yml
+
+maintainers:
+  - FN: Kin Lane
+    email: kinlane@apievangelist.com
+    url: https://kinlane.com
+
+x-common:
+  - type: Network
+    url: https://github.com/api-evangelist

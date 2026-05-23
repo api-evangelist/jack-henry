@@ -1,0 +1,64 @@
+apiVersion: naftiko.io/v1alpha1
+kind: Capability
+metadata:
+  name: jack-henry-payments
+  title: Jack Henry Payments
+  provider: jack-henry
+  api: jack-henry-payments
+  description: >-
+    Unified payments surface — ACH origination, wires, bill pay, RDC, card
+    acceptance, P2P, and Payments Orchestrator multi-rail routing — for
+    Jack Henry institutions and their partners.
+  tags:
+    - Payments
+    - ACH
+    - Wire Transfers
+    - Bill Pay
+    - Remote Deposit Capture
+    - Cards
+    - Peer To Peer
+    - Payments Orchestrator
+spec:
+  baseUrl: https://api.payments.jackhenry.com
+  sandbox: https://api.payments.sandbox.jackhenry.com
+  auth:
+    type: bearer
+  operations:
+    - id: originateAchCredit
+      title: Originate ACH Credit
+      method: POST
+      path: /payments/v1/ach/credits
+      examples:
+        - request: ../../examples/payments-ach-credit-request-example.json
+          response: ../../examples/payments-ach-credit-response-example.json
+    - id: originateAchDebit
+      title: Originate ACH Debit
+      method: POST
+      path: /payments/v1/ach/debits
+    - id: sendWire
+      title: Send Wire
+      method: POST
+      path: /payments/v1/wires
+    - id: submitBillPayment
+      title: Submit Bill Payment
+      method: POST
+      path: /payments/v1/bill-pay/payments
+    - id: submitRemoteDeposit
+      title: Submit Remote Deposit
+      method: POST
+      path: /payments/v1/rdc/deposits
+    - id: authorizeCard
+      title: Authorize Card Payment
+      method: POST
+      path: /payments/v1/cards/authorizations
+    - id: sendP2P
+      title: Send Peer To Peer Transfer
+      method: POST
+      path: /payments/v1/p2p/transfers
+    - id: routePayment
+      title: Route Payment Through Orchestrator
+      method: POST
+      path: /payments/v1/orchestrator/payments
+      examples:
+        - request: ../../examples/payments-orchestrator-route-request-example.json
+          response: ../../examples/payments-orchestrator-route-response-example.json

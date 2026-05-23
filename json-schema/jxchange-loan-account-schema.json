@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/jack-henry/json-schema/jxchange-loan-account-schema.json",
+  "title": "jXchange Loan Account",
+  "type": "object",
+  "required": ["accountNumber", "loanType", "status"],
+  "properties": {
+    "accountNumber": { "type": "string" },
+    "product": { "type": "string" },
+    "loanType": {
+      "type": "string",
+      "enum": ["Mortgage", "HELOC", "Auto", "Consumer", "Commercial", "SBA"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Current", "PastDue", "ChargedOff", "PaidOff"]
+    },
+    "originalAmount": { "type": "number" },
+    "currentBalance": { "type": "number" },
+    "interestRate": { "type": "number" },
+    "nextPaymentAmount": { "type": "number" },
+    "nextPaymentDate": { "type": "string", "format": "date" },
+    "maturityDate": { "type": "string", "format": "date" },
+    "primaryOwnerCustomerId": { "type": "string" }
+  }
+}

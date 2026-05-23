@@ -1,0 +1,68 @@
+apiCommonsRateLimitsVersion: '0.1'
+provider:
+  id: jack-henry
+  name: Jack Henry & Associates
+
+description: |
+  Jack Henry does NOT publish explicit per-key request-rate or concurrency
+  limits on its public developer documentation for the Banno Digital
+  Toolkit, jXchange, or Jack Henry Payments. Limits exist (the Banno
+  platform protects itself with throttling and abuse controls), but the
+  exact numbers are governed by the partner / institution contract and are
+  not surfaced in the docs site as of this profiling pass.
+
+  The platform-level controls below summarize what IS documented or
+  observable through the abilities map and developer-portal language.
+
+modified: '2026-05-23'
+
+policies:
+  - api: banno-consumer-api
+    surface: Per OAuth client / per user
+    requestRate: not publicly documented
+    concurrency: not publicly documented
+    quota: not publicly documented
+    notes: |
+      Sandbox / production access requires a developer-portal account.
+      Throttling is enforced server-side but specific numbers are not
+      published on jackhenry.dev.
+
+  - api: banno-admin-api
+    surface: Per OAuth client / per institution
+    requestRate: not publicly documented
+    concurrency: not publicly documented
+    quota: not publicly documented
+
+  - api: banno-plugin-framework
+    surface: Per plugin / per institution
+    requestRate: not publicly documented
+    concurrency: not publicly documented
+    quota: not publicly documented
+    notes: Plugin runtime is browser-side; HTTP bridge endpoints share the same Banno throttling envelope.
+
+  - api: jxchange-rest
+    surface: Per core gateway / per institution
+    requestRate: not publicly documented
+    concurrency: not publicly documented
+    notes: Core gateways are sized per institution; capacity is part of the contract.
+
+  - api: jack-henry-payments
+    surface: Per rail / per FI
+    requestRate: not publicly documented
+    rails:
+      - ach: Subject to NACHA windows and Jack Henry origination cutoffs (1130 AM CT for Same-Day ACH typical industry pattern; cutoffs are per-FI).
+      - wire: Subject to Fedwire operating hours.
+      - rdc: Per-consumer daily-limit ability `rdc_consumer_daily_limit` (default examples document $5,000).
+
+  - api: enterprise-event-system
+    surface: Per subscription
+    notes: Throughput governed by Kafka consumer-group configuration; partner-specific.
+
+caveats:
+  - All numbers above are absent from public documentation; "not publicly documented" means Jack Henry enforces limits but does not advertise the values.
+  - Per-institution abilities (the AbilitiesMap returned by /institutions/{institutionId}/abilities) DO carry some user-facing limits like `rdc_consumer_daily_limit`.
+
+sources:
+  - https://jackhenry.dev/
+  - https://banno.github.io/open-api-docs/
+  - https://banno.github.io/open-api-docs/admin-api/api-reference/v0/abilities/details/

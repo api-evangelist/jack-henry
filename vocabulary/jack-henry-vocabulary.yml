@@ -1,0 +1,141 @@
+name: Jack Henry & Associates Vocabulary
+description: |
+  Domain vocabulary spanning Jack Henry's developer surfaces — Banno digital
+  banking (Consumer + Admin + Plugin + Authentication frameworks), jXchange
+  core translation, Jack Henry Payments orchestration and rails, the
+  Enterprise Event System, SymXchange (Symitar), ODI, Data Hub, and the
+  Digital Core. Terms are grouped by domain to support cross-API mapping,
+  schema alignment, and capability composition.
+modified: '2026-05-23'
+
+terms:
+
+  # ----- Identity & access -----
+  - term: OpenID Connect
+    definition: Identity layer over OAuth 2.0 used by the Banno Authentication Framework.
+  - term: Access Token
+    definition: Short-lived JWT used to call protected Banno APIs.
+  - term: Identity Token
+    definition: JWT carrying user identity claims (sub, email, institution_id).
+  - term: Refresh Token
+    definition: Long-lived token used to mint new access tokens without re-prompting.
+  - term: Scope
+    definition: 'OAuth permission URI under https://api.banno.com/* gating an endpoint.'
+  - term: Permissions Flow
+    definition: Banno's user-driven consent flow that grants scopes to a relying app.
+
+  # ----- Banno Consumer domain -----
+  - term: User
+    definition: An authenticated Banno consumer (accountholder).
+  - term: Account
+    definition: Deposit, Debt, LineOfCredit, or Investment account exposed to the user.
+  - term: Transaction
+    definition: A posting against an account (Debit, Credit, Fee, Interest, Transfer).
+  - term: Transfer
+    definition: A scheduled movement of funds between two accounts.
+  - term: Bill Payment
+    definition: A scheduled payment from a user account to a registered Payee.
+  - term: Payee
+    definition: A configured biller (Electronic or Check delivery).
+  - term: Wire Transfer
+    definition: A real-time domestic A2A wire payment.
+  - term: Zelle Payment
+    definition: A peer-to-peer payment delivered via the Zelle network.
+  - term: Alert
+    definition: A user-configured condition (BalanceLow, CardActivity, etc.) that fires across Email/SMS/Push/InApp channels.
+  - term: Card
+    definition: A debit or credit card linked to an account.
+  - term: Message
+    definition: A secure two-way message between a user and the institution.
+
+  # ----- Banno Admin domain -----
+  - term: Institution
+    definition: A bank or credit union running on Banno.
+  - term: Abilities Map
+    definition: Per-institution feature-flag map (bill_pay, zelle_enabled, rdc_consumer_daily_limit, etc.).
+  - term: Consumer Admin
+    definition: Back-office record for a consumer (status, enrollment, contact info).
+  - term: Segment
+    definition: A targeting rule set used for personalized cards, ads, and plugins.
+  - term: Marketing Ad
+    definition: A configurable promotional card displayed in the user dashboard.
+  - term: Plugin Management
+    definition: Admin surface for registering external applications and configuring plugins.
+  - term: High Risk Action
+    definition: A sensitive operation gated by an additional approval step.
+  - term: Offline Mode
+    definition: Scheduled or emergency state that disables user-facing surfaces.
+
+  # ----- Plugin Framework -----
+  - term: Plugin
+    definition: A web app hosted by a partner that surfaces a card inside the Banno dashboard.
+  - term: External Application
+    definition: A registered third-party OAuth client that backs one or more plugins.
+  - term: Plugin Bridge
+    definition: 'The @jack-henry/banno-plugin-framework-bridge postMessage channel.'
+  - term: Card Face
+    definition: The collapsed plugin presentation shown on the dashboard grid.
+  - term: Expanded View
+    definition: A larger plugin presentation surfaced on user interaction.
+
+  # ----- jXchange & cores -----
+  - term: jXchange
+    definition: Jack Henry's information-translation layer fronting SilverLake and CIF 20/20.
+  - term: SilverLake
+    definition: Jack Henry's flagship bank core platform.
+  - term: CIF 20/20
+    definition: Jack Henry's community-bank core platform.
+  - term: SymXchange
+    definition: Translation surface for the Symitar credit-union core.
+  - term: Symitar
+    definition: Jack Henry's credit-union core platform.
+  - term: PowerOn
+    definition: Symitar's procedural scripting language for member-account automation.
+  - term: Digital Core
+    definition: Jack Henry's cloud-native, API-first next-generation core banking platform.
+  - term: Customer (CIF)
+    definition: A Customer Information File record on a bank core.
+
+  # ----- Payments rails -----
+  - term: ACH Origination
+    definition: NACHA-rules-based credit/debit origination via the ACH network.
+  - term: Same-Day ACH
+    definition: An ACH window settling the same business day.
+  - term: SEC Code
+    definition: Standard Entry Class for an ACH entry (PPD, CCD, WEB, TEL).
+  - term: Wire
+    definition: A real-time funds transfer over Fedwire (IMAD/OMAD references).
+  - term: Real-Time Payments (RTP)
+    definition: The Clearing House's instant 24x7 payment rail.
+  - term: Zelle Network
+    definition: Bank-owned P2P payments network.
+  - term: Remote Deposit Capture
+    definition: Image-based check deposit (consumer or commercial).
+  - term: Payments Orchestrator
+    definition: Cross-rail routing layer that selects the appropriate payment rail per intent.
+  - term: Virtual Account
+    definition: A logical sub-account used for reconciliation under a master account.
+
+  # ----- Events & data -----
+  - term: Enterprise Event System (EES)
+    definition: Jack Henry's pub/sub event surface for real-time platform events.
+  - term: Account Event
+    definition: An event emitted on account open/close/balance change.
+  - term: Transaction Event
+    definition: An event emitted when a transaction is posted, returned, or marked pending.
+  - term: Alert Event
+    definition: An event emitted when a user-configured alert fires.
+  - term: User Lifecycle Event
+    definition: An event emitted on enrollment, login, profile change, lockout, or deletion.
+  - term: Operational Data Integration (ODI)
+    definition: Bulk-data query surface for institution data.
+  - term: Data Hub
+    definition: Deeper data-sharing surface for partners building analytics/BI on Jack Henry data.
+
+  # ----- Company -----
+  - term: Jack Henry & Associates
+    definition: 'Nasdaq: JKHY — S&P 500 financial technology provider serving ~7,400 client institutions and employing ~7,240 associates (FY2025).'
+  - term: Banno
+    definition: Jack Henry's digital banking platform for community and regional financial institutions.
+  - term: Fintech Integration Network (FIN)
+    definition: Jack Henry's program for certifying fintech integrations with its platforms.

@@ -1,0 +1,10 @@
+{
+  "originatorAccountId": "ACCT-00917-DDA",
+  "beneficiaryRoutingNumber": "081904808",
+  "beneficiaryAccountNumber": "98765432",
+  "beneficiaryName": "Acme Supplies LLC",
+  "amount": 1250.75,
+  "secCode": "CCD",
+  "effectiveDate": "2026-05-26",
+  "memo": "Invoice 2026-1142"
+}

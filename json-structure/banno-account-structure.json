@@ -1,0 +1,23 @@
+{
+  "name": "Banno Account",
+  "description": "Top-level structure of a Banno consumer account resource as returned by GET /a/consumer/api/v0/users/{userId}/accounts/{accountId}.",
+  "fields": [
+    { "name": "id", "type": "uuid", "required": true, "description": "Account identifier." },
+    { "name": "name", "type": "string", "required": true, "description": "Human-readable account nickname." },
+    { "name": "numbers.masked", "type": "string", "description": "Masked account number for display." },
+    { "name": "accountType", "type": "enum", "values": ["Deposit", "Debt", "LineOfCredit", "Investment"], "required": true },
+    { "name": "accountStatus", "type": "enum", "values": ["Active", "Closed", "Dormant", "Frozen"], "required": true },
+    { "name": "balance", "type": "decimal", "required": true },
+    { "name": "availableBalance", "type": "decimal" },
+    { "name": "fetchedDate", "type": "datetime" },
+    { "name": "institution.id", "type": "uuid" },
+    { "name": "institution.name", "type": "string" },
+    { "name": "canCreatePayments", "type": "boolean" },
+    { "name": "canTransferFrom", "type": "boolean" },
+    { "name": "hidden", "type": "boolean" },
+    { "name": "regD.limit", "type": "integer", "description": "Reg D maximum withdrawals per statement cycle." },
+    { "name": "regD.used", "type": "integer" },
+    { "name": "formattedMetaData[].label", "type": "string" },
+    { "name": "formattedMetaData[].value", "type": "string" }
+  ]
+}

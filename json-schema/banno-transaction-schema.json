@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/jack-henry/json-schema/banno-transaction-schema.json",
+  "title": "Banno Transaction",
+  "type": "object",
+  "required": ["id", "amount", "date", "type", "status"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "amount": { "type": "number" },
+    "date": { "type": "string", "format": "date" },
+    "postedDate": { "type": "string", "format": "date" },
+    "type": { "type": "string", "enum": ["Debit", "Credit", "Fee", "Interest", "Transfer"] },
+    "status": { "type": "string", "enum": ["Posted", "Pending"] },
+    "description": { "type": "string" },
+    "memo": { "type": "string" },
+    "merchant": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "logo": { "type": "string", "format": "uri" }
+      }
+    },
+    "runningBalance": { "type": "number" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "pending": { "type": "boolean" },
+    "notes": { "type": "string" }
+  }
+}

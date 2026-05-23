@@ -1,0 +1,17 @@
+{
+  "name": "Payments Orchestrator Request",
+  "description": "Cross-rail payment intent posted to POST /payments/v1/orchestrator/payments.",
+  "fields": [
+    { "name": "originatorAccountId", "type": "string", "required": true },
+    { "name": "beneficiary.name", "type": "string" },
+    { "name": "beneficiary.accountNumber", "type": "string" },
+    { "name": "beneficiary.routingNumber", "type": "string", "description": "Nine-digit ABA routing number." },
+    { "name": "beneficiary.email", "type": "email" },
+    { "name": "beneficiary.phone", "type": "string" },
+    { "name": "amount", "type": "decimal", "required": true },
+    { "name": "currency", "type": "string", "default": "USD" },
+    { "name": "speed", "type": "enum", "values": ["SameDay", "NextDay", "Standard", "Instant"] },
+    { "name": "memo", "type": "string" },
+    { "name": "policyHints", "type": "object", "description": "Free-form routing hints (preferred rails, cost ceilings, etc.)." }
+  ]
+}

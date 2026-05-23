@@ -1,0 +1,30 @@
+{
+  "transactions": [
+    {
+      "id": "f1a2b3c4-d5e6-7890-ab12-345678901234",
+      "amount": -42.18,
+      "date": "2026-05-22",
+      "postedDate": "2026-05-23",
+      "type": "Debit",
+      "status": "Posted",
+      "description": "TRADER JOES #114",
+      "merchant": { "name": "Trader Joe's", "category": "Grocery" },
+      "runningBalance": 4321.55,
+      "tags": ["Groceries"],
+      "pending": false
+    },
+    {
+      "id": "f2b3c4d5-e6f7-8901-bc23-456789012345",
+      "amount": 2500.00,
+      "date": "2026-05-20",
+      "postedDate": "2026-05-20",
+      "type": "Credit",
+      "status": "Posted",
+      "description": "ACME PAYROLL DEPOSIT",
+      "runningBalance": 4363.73,
+      "tags": ["Income"],
+      "pending": false
+    }
+  ],
+  "nextCursor": null
+}

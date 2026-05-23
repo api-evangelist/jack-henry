@@ -1,0 +1,26 @@
+extends: [[spectral:oas, all]]
+rules:
+  banno-admin-paths-versioned:
+    description: All Banno Admin paths MUST live under /a/mobile/api/v0.
+    given: $.paths.*~
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/a/mobile/api/v0/'
+  banno-admin-institution-scoped:
+    description: Admin endpoints SHOULD be scoped under /institutions/{institutionId}/ for multi-tenant isolation.
+    given: $.paths.*~
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '/institutions/\{institutionId\}/'
+  banno-admin-summary-title-case:
+    description: Operation summaries should use Title Case.
+    given: $.paths[*][get,post,put,delete,patch].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][a-zA-Z0-9]*\s?)+$'

@@ -1,0 +1,26 @@
+extends: [[spectral:oas, all]]
+rules:
+  jxchange-paths-versioned:
+    description: jXchange REST paths MUST live under /jxchange/v1.
+    given: $.paths.*~
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/jxchange/v1/'
+  jxchange-summary-title-case:
+    description: Operation summaries should use Title Case.
+    given: $.paths[*][get,post,put,delete,patch].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][a-zA-Z0-9]*\s?)+$'
+  jxchange-routing-number-pattern:
+    description: routingNumber properties MUST be 9 digits.
+    given: "$..properties.routingNumber.pattern,$..properties.beneficiaryRoutingNumber.pattern"
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '\^\[0-9\]\{9\}\$'

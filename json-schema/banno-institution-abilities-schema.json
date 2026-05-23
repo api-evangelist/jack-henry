@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/jack-henry/json-schema/banno-institution-abilities-schema.json",
+  "title": "Banno Institution Abilities Map",
+  "description": "Map of ability/feature-flag names to JSON values for a given institution. Common abilities include bill_pay, zelle_enabled, export_transactions_enabled, rdc_consumer_daily_limit.",
+  "type": "object",
+  "additionalProperties": true,
+  "examples": [
+    {
+      "bill_pay": true,
+      "zelle_enabled": true,
+      "export_transactions_enabled": true,
+      "rdc_consumer_daily_limit": 5000
+    }
+  ]
+}

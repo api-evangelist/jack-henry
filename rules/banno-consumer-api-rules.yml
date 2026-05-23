@@ -1,0 +1,46 @@
+extends: [[spectral:oas, all]]
+rules:
+  banno-consumer-paths-versioned:
+    description: All Banno Consumer paths MUST live under /a/consumer/api/v0.
+    given: $.paths.*~
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/a/consumer/api/v0/'
+  banno-summary-title-case:
+    description: Operation summaries should use Title Case.
+    given: $.paths[*][get,post,put,delete,patch].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][a-zA-Z0-9]*\s?)+$'
+  banno-oidc-required:
+    description: Consumer endpoints (except discovery) MUST declare openIdConnect security with explicit scopes.
+    given: $.paths[*][get,post,put,delete,patch].security
+    severity: error
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          items:
+            type: object
+            required: [openIdConnect]
+  banno-scopes-banno-domain:
+    description: All declared scopes MUST be Banno-issued URIs under https://api.banno.com/.
+    given: $.paths[*][get,post,put,delete,patch].security[*].openIdConnect[*]
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://api\.banno\.com/'
+  banno-userid-uuid:
+    description: userId path parameters MUST be uuid-formatted.
+    given: "$..parameters[?(@.name=='userId')].schema.format"
+    severity: error
+    then:
+      function: enumeration
+      functionOptions:
+        values: [uuid]

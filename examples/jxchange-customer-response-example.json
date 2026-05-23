@@ -1,0 +1,16 @@
+{
+  "customerId": "CUST-009923871",
+  "firstName": "Maria",
+  "lastName": "Rivera",
+  "ssnLast4": "4421",
+  "dateOfBirth": "1982-07-14",
+  "primaryAddress": {
+    "line1": "1408 Cherry Ln",
+    "city": "Springfield",
+    "state": "MO",
+    "postalCode": "65802"
+  },
+  "primaryPhone": "+1-417-555-0143",
+  "primaryEmail": "maria.rivera@example.com",
+  "relationshipOpenDate": "2018-03-09"
+}

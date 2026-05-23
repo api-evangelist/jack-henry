@@ -1,0 +1,21 @@
+{
+  "name": "Banno Transaction",
+  "description": "Structure of a Banno transaction record returned by GET /a/consumer/api/v0/users/{userId}/accounts/{accountId}/transactions/{transactionId}.",
+  "fields": [
+    { "name": "id", "type": "uuid", "required": true },
+    { "name": "amount", "type": "decimal", "required": true },
+    { "name": "date", "type": "date", "required": true, "description": "Effective date." },
+    { "name": "postedDate", "type": "date" },
+    { "name": "type", "type": "enum", "values": ["Debit", "Credit", "Fee", "Interest", "Transfer"], "required": true },
+    { "name": "status", "type": "enum", "values": ["Posted", "Pending"], "required": true },
+    { "name": "description", "type": "string" },
+    { "name": "memo", "type": "string" },
+    { "name": "merchant.name", "type": "string" },
+    { "name": "merchant.category", "type": "string" },
+    { "name": "merchant.logo", "type": "uri" },
+    { "name": "runningBalance", "type": "decimal" },
+    { "name": "tags", "type": "array<string>" },
+    { "name": "pending", "type": "boolean" },
+    { "name": "notes", "type": "string" }
+  ]
+}

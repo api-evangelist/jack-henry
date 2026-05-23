@@ -1,0 +1,36 @@
+extends: [[spectral:oas, all]]
+rules:
+  jh-payments-paths-versioned:
+    description: Jack Henry Payments paths MUST live under /payments/v1.
+    given: $.paths.*~
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/payments/v1/'
+  jh-payments-sandbox-present:
+    description: Payments specs MUST advertise both production and sandbox servers.
+    given: $.servers
+    severity: warn
+    then:
+      function: length
+      functionOptions:
+        min: 2
+  jh-payments-summary-title-case:
+    description: Operation summaries should use Title Case.
+    given: $.paths[*][get,post,put,delete,patch].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][a-zA-Z0-9]*\s?)+$'
+  jh-payments-amount-required:
+    description: Payment request schemas MUST require an amount property.
+    given: $.components.schemas[?(@property.match(/Request$/i))].required
+    severity: warn
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains: { const: amount }

@@ -1,0 +1,62 @@
+apiVersion: naftiko.io/v1alpha1
+kind: Capability
+metadata:
+  name: banno-admin-api
+  title: Banno Admin API
+  provider: jack-henry
+  api: banno-admin-api
+  description: >-
+    Back-office administration surface for Banno-powered institutions.
+    Lookup feature-flag abilities; manage consumers, contact info, plugin
+    configuration, segments, ads, reports, high-risk actions, history, and
+    institution offline mode.
+  tags:
+    - Back Office
+    - Institution Admin
+    - Plugin Management
+    - Compliance
+spec:
+  baseUrl: https://api.banno.com
+  auth:
+    type: openIdConnect
+    discoveryUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration
+  operations:
+    - id: getInstitutionAbilities
+      title: Lookup Institution Abilities
+      method: GET
+      path: /a/mobile/api/v0/institutions/{institutionId}/abilities
+      summary: Lookup the abilities for the given institution.
+      examples:
+        - response: ../../examples/banno-admin-institution-abilities-response-example.json
+    - id: listConsumers
+      title: List Consumers
+      method: GET
+      path: /a/mobile/api/v0/institutions/{institutionId}/consumers
+    - id: getConsumer
+      title: Get Consumer
+      method: GET
+      path: /a/mobile/api/v0/institutions/{institutionId}/consumers/{consumerId}
+    - id: updateContactInfo
+      title: Update Consumer Contact Info
+      method: PUT
+      path: /a/mobile/api/v0/institutions/{institutionId}/consumers/{consumerId}/contact-info
+    - id: listPlugins
+      title: List Plugins
+      method: GET
+      path: /a/mobile/api/v0/institutions/{institutionId}/plugins
+    - id: updatePlugin
+      title: Update Plugin Configuration
+      method: PUT
+      path: /a/mobile/api/v0/institutions/{institutionId}/plugins/{pluginId}
+    - id: listSegments
+      title: List Segments
+      method: GET
+      path: /a/mobile/api/v0/institutions/{institutionId}/segments
+    - id: createAd
+      title: Create Marketing Ad
+      method: POST
+      path: /a/mobile/api/v0/institutions/{institutionId}/ads
+    - id: setOfflineMode
+      title: Set Institution Offline Status
+      method: PUT
+      path: /a/mobile/api/v0/institutions/{institutionId}/offline-mode

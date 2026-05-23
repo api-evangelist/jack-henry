@@ -1,0 +1,15 @@
+{
+  "bill_pay": true,
+  "zelle_enabled": true,
+  "export_transactions_enabled": true,
+  "card_management_enabled": true,
+  "rdc_consumer_enabled": true,
+  "rdc_consumer_daily_limit": 5000,
+  "wire_transfers_enabled": true,
+  "ach_external_transfers_enabled": true,
+  "positive_pay_enabled": false,
+  "messaging_enabled": true,
+  "alerts_enabled": true,
+  "documents_enabled": true,
+  "marketing_ads_enabled": true
+}

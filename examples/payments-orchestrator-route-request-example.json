@@ -1,0 +1,14 @@
+{
+  "originatorAccountId": "ACCT-00917-DDA",
+  "beneficiary": {
+    "name": "Jane Doe",
+    "accountNumber": "555000111",
+    "routingNumber": "021000021",
+    "email": "jane.doe@example.com"
+  },
+  "amount": 250.00,
+  "currency": "USD",
+  "speed": "Instant",
+  "memo": "Rent split",
+  "policyHints": { "preferRTPOverACH": true }
+}

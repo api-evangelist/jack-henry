@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/jack-henry/json-schema/banno-transfer-schema.json",
+  "title": "Banno Transfer",
+  "type": "object",
+  "required": ["fromAccountId", "toAccountId", "amount"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "fromAccountId": { "type": "string", "format": "uuid" },
+    "toAccountId": { "type": "string", "format": "uuid" },
+    "amount": { "type": "number", "exclusiveMinimum": 0 },
+    "scheduledDate": { "type": "string", "format": "date" },
+    "frequency": { "type": "string", "enum": ["OneTime", "Weekly", "BiWeekly", "Monthly"] },
+    "status": { "type": "string", "enum": ["Scheduled", "Processing", "Complete", "Failed", "Cancelled"] },
+    "memo": { "type": "string" }
+  }
+}

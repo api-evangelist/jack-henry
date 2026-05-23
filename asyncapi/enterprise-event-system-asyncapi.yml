@@ -1,0 +1,119 @@
+asyncapi: 2.6.0
+info:
+  title: Jack Henry Enterprise Event System
+  version: v0
+  description: |
+    Real-time, pub/sub-based event system for Jack Henry platform events.
+    Lets partners and institutions subscribe to account events, transaction
+    events, alert events, and user-lifecycle events without polling.
+servers:
+  production:
+    url: events.jackhenry.com
+    protocol: kafka-secure
+    description: Jack Henry Enterprise Event System (TLS + SASL).
+defaultContentType: application/json
+channels:
+  jh.consumer.accounts.v1:
+    description: Consumer-account lifecycle events.
+    subscribe:
+      operationId: subscribeAccountEvents
+      message: { $ref: '#/components/messages/AccountEvent' }
+  jh.consumer.transactions.v1:
+    description: Transaction postings (debits, credits, fees, interest).
+    subscribe:
+      operationId: subscribeTransactionEvents
+      message: { $ref: '#/components/messages/TransactionEvent' }
+  jh.consumer.alerts.v1:
+    description: Alert-fired events triggered by user-configured rules.
+    subscribe:
+      operationId: subscribeAlertEvents
+      message: { $ref: '#/components/messages/AlertEvent' }
+  jh.consumer.user-lifecycle.v1:
+    description: User enrollment, profile updates, lockouts, deletions.
+    subscribe:
+      operationId: subscribeUserLifecycleEvents
+      message: { $ref: '#/components/messages/UserLifecycleEvent' }
+components:
+  messages:
+    AccountEvent:
+      name: AccountEvent
+      payload: { $ref: '#/components/schemas/AccountEvent' }
+    TransactionEvent:
+      name: TransactionEvent
+      payload: { $ref: '#/components/schemas/TransactionEvent' }
+    AlertEvent:
+      name: AlertEvent
+      payload: { $ref: '#/components/schemas/AlertEvent' }
+    UserLifecycleEvent:
+      name: UserLifecycleEvent
+      payload: { $ref: '#/components/schemas/UserLifecycleEvent' }
+  schemas:
+    BaseEnvelope:
+      type: object
+      properties:
+        eventId: { type: string, format: uuid }
+        eventTime: { type: string, format: date-time }
+        institutionId: { type: string, format: uuid }
+        eventType: { type: string }
+        version: { type: string, example: v1 }
+    AccountEvent:
+      allOf:
+        - $ref: '#/components/schemas/BaseEnvelope'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                accountId: { type: string, format: uuid }
+                userId: { type: string, format: uuid }
+                changeType:
+                  type: string
+                  enum: [Opened, Closed, BalanceChanged, StatusChanged, Renamed]
+                balance: { type: number }
+                accountType: { type: string }
+    TransactionEvent:
+      allOf:
+        - $ref: '#/components/schemas/BaseEnvelope'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                transactionId: { type: string, format: uuid }
+                accountId: { type: string, format: uuid }
+                userId: { type: string, format: uuid }
+                amount: { type: number }
+                type:
+                  type: string
+                  enum: [Debit, Credit, Fee, Interest, Transfer]
+                status:
+                  type: string
+                  enum: [Pending, Posted, Returned]
+                description: { type: string }
+    AlertEvent:
+      allOf:
+        - $ref: '#/components/schemas/BaseEnvelope'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                alertId: { type: string, format: uuid }
+                userId: { type: string, format: uuid }
+                accountId: { type: string, format: uuid, nullable: true }
+                alertType: { type: string }
+                channels:
+                  type: array
+                  items: { type: string }
+    UserLifecycleEvent:
+      allOf:
+        - $ref: '#/components/schemas/BaseEnvelope'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                userId: { type: string, format: uuid }
+                changeType:
+                  type: string
+                  enum: [Enrolled, LoggedIn, ProfileUpdated, Locked, Unlocked, Deleted]

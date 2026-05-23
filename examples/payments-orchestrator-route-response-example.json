@@ -1,0 +1,6 @@
+{
+  "id": "orch-aabbcc-1122-3344-5566-77889900aabb",
+  "chosenRail": "RTP",
+  "status": "Routed",
+  "downstreamId": "rtp-2026-05-23-000412"
+}

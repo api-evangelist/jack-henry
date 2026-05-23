@@ -1,0 +1,10 @@
+{
+  "id": "c0ffee01-1111-2222-3333-444455556666",
+  "fromAccountId": "9a4f2bd1-1f2a-4d6e-8c1a-9f4b5d2c1e7a",
+  "toAccountId": "2b8d3f12-77a0-4c1e-8b3a-aa11bb22cc33",
+  "amount": 500.00,
+  "scheduledDate": "2026-05-24",
+  "frequency": "OneTime",
+  "status": "Scheduled",
+  "memo": "Savings sweep"
+}

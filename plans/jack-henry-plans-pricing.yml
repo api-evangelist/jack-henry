@@ -1,0 +1,73 @@
+apiCommonsPlansVersion: '0.1'
+provider:
+  id: jack-henry
+  name: Jack Henry & Associates
+  url: https://www.jackhenry.com/
+
+description: |
+  Jack Henry's commercial surface is enterprise-only: pricing is negotiated
+  per institution as part of a master services agreement that bundles the
+  chosen core platform (SilverLake, CIF 20/20, Symitar, or the cloud-native
+  Digital Core), digital banking (Banno), payments rails (ACH, Wire, Bill
+  Pay, RDC, Cards, Zelle, RTP, Payments Orchestrator), lending, and fraud
+  technology. Jack Henry does NOT publish per-API list prices, per-call
+  pricing, or self-serve plan tiers on the developer portal. The Fintech
+  Integration Network (FIN) provides certified-integration tiers for
+  third-party fintechs, but pricing remains contract-driven.
+
+  Public IR disclosures (FY2025) document the segment mix and overall
+  revenue model rather than per-API pricing.
+
+modified: '2026-05-23'
+
+plans:
+  - id: enterprise
+    name: Enterprise Master Services Agreement
+    audience: Financial institution (bank or credit union)
+    surfaces:
+      - jXchange (REST + SOAP)
+      - SymXchange
+      - Digital Core
+      - Banno Consumer API
+      - Banno Admin API
+      - Banno Plugin Framework
+      - Banno Authentication Framework
+      - Jack Henry Payments (ACH, Wire, Bill Pay, RDC, Cards, P2P, Orchestrator)
+      - Enterprise Event System
+      - Operational Data Integration (ODI)
+      - Data Hub
+    pricingModel: contract
+    pricingDescription: |
+      Negotiated per institution. Typical structure: implementation +
+      conversion fees, monthly recurring core-license fees, per-account
+      digital-banking fees, per-transaction payments-rail fees, and
+      revenue-share on interchange where applicable.
+    contact:
+      url: https://www.jackhenry.com/contact-us
+    publishedPrice: false
+
+  - id: fintech-integration-network
+    name: Fintech Integration Network (FIN)
+    audience: Fintech / ISV partners building plugins or integrations
+    surfaces:
+      - Banno Plugin Framework
+      - Banno Consumer API
+      - Banno Admin API
+    pricingModel: contract
+    pricingDescription: |
+      Certification + program fees plus institution-paid integration fees;
+      individual plugin/marketplace economics negotiated case by case.
+    contact:
+      url: https://jackhenry.dev/
+    publishedPrice: false
+
+caveats:
+  - No public per-API list prices.
+  - No self-serve developer plan (sandbox access requires a developer-portal account through the FIN program or an institution sponsor).
+  - No published per-call pricing for the Payments rails on the public developer portal.
+
+sources:
+  - https://www.jackhenry.com/
+  - https://jackhenry.dev/
+  - https://ir.jackhenry.com/news-releases
+  - https://ir.jackhenry.com/news-releases/news-release-details/jack-henry-associates-inc-reports-fourth-quarter-and-full-year-1

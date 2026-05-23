@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/jack-henry/json-schema/payments-ach-transaction-schema.json",
+  "title": "Jack Henry Payments ACH Transaction",
+  "type": "object",
+  "required": ["id", "status", "amount"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "status": { "type": "string", "enum": ["Submitted", "Processing", "Settled", "Returned", "Failed"] },
+    "traceNumber": { "type": "string" },
+    "effectiveDate": { "type": "string", "format": "date" },
+    "amount": { "type": "number" },
+    "secCode": { "type": "string", "enum": ["PPD", "CCD", "WEB", "TEL"] }
+  }
+}

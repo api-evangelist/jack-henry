@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/jack-henry/json-schema/banno-account-schema.json",
+  "title": "Banno Account",
+  "type": "object",
+  "required": ["id", "name", "accountType", "accountStatus", "balance"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "name": { "type": "string" },
+    "numbers": {
+      "type": "object",
+      "properties": {
+        "masked": { "type": "string", "pattern": "^[*0-9]+$" }
+      }
+    },
+    "accountType": {
+      "type": "string",
+      "enum": ["Deposit", "Debt", "LineOfCredit", "Investment"]
+    },
+    "accountStatus": {
+      "type": "string",
+      "enum": ["Active", "Closed", "Dormant", "Frozen"]
+    },
+    "balance": { "type": "number" },
+    "availableBalance": { "type": "number" },
+    "fetchedDate": { "type": "string", "format": "date-time" },
+    "institution": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name": { "type": "string" }
+      }
+    },
+    "canCreatePayments": { "type": "boolean" },
+    "canTransferFrom": { "type": "boolean" },
+    "hidden": { "type": "boolean" },
+    "regD": {
+      "type": "object",
+      "properties": {
+        "limit": { "type": "integer" },
+        "used": { "type": "integer" }
+      }
+    },
+    "formattedMetaData": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    }
+  }
+}

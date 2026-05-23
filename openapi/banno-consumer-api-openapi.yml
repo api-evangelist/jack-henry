@@ -1,0 +1,626 @@
+openapi: 3.0.3
+info:
+  title: Banno Consumer API
+  description: |
+    Build apps and services using the same Consumer API that powers Banno
+    Mobile and Online. OAuth 2.0 / OpenID Connect protects every endpoint;
+    scopes are enforced per resource (e.g. `user.profile.readonly`,
+    `transactions.detail.readonly`). All endpoints are scoped under
+    `/a/consumer/api/v0` and operate within the context of a `userId`.
+
+    Resource groups documented at
+    https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+    include: Abilities, Account Aggregation, Accounts, ACH, Alerts,
+    Bill Pay, Cards, Documents and Statements, Forms, Institutions,
+    Messages, OAuth and OpenID Connect, Positive Pay, Routing Numbers,
+    Task Events, Transactions, Transfers, User, Wire Transfers, and Zelle.
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+    url: https://www.jackhenry.com/legal/terms-of-use
+servers:
+  - url: https://api.banno.com
+    description: Banno production
+tags:
+  - name: User
+    description: Profile and identity of the authenticated user.
+  - name: Accounts
+    description: Deposit, loan, line-of-credit, and investment accounts.
+  - name: Transactions
+    description: Posted and pending transactions per account.
+  - name: Transfers
+    description: Account-to-account and external transfers.
+  - name: Bill Pay
+    description: Bill-payment payees and payments.
+  - name: ACH
+    description: ACH origination and history.
+  - name: Wire Transfers
+    description: Outbound wire requests.
+  - name: Zelle
+    description: Zelle peer-to-peer payments.
+  - name: Cards
+    description: Debit and credit card management.
+  - name: Alerts
+    description: Account and security alerts.
+  - name: Messages
+    description: Two-way secure messaging with the institution.
+  - name: Documents And Statements
+    description: Statement and document delivery.
+  - name: Institutions
+    description: Public institution profile lookup.
+  - name: Routing Numbers
+    description: Routing number validation.
+security:
+  - openIdConnect: []
+paths:
+  /a/consumer/api/v0/users/{userId}:
+    get:
+      summary: Get User Profile
+      operationId: getUser
+      tags: [User]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/user.profile.readonly]
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: User profile.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /a/consumer/api/v0/users/{userId}/accounts:
+    get:
+      summary: List Accounts
+      operationId: listAccounts
+      tags: [Accounts]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/accounts.readonly]
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: All accounts the user owns or has access to.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Account'
+  /a/consumer/api/v0/users/{userId}/accounts/{accountId}:
+    get:
+      summary: Get Account Details
+      operationId: getAccount
+      tags: [Accounts]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/accounts.detail.readonly]
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+        - $ref: '#/components/parameters/AccountId'
+      responses:
+        '200':
+          description: Account detail.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+  /a/consumer/api/v0/users/{userId}/accounts/{accountId}/transactions:
+    get:
+      summary: List Account Transactions
+      operationId: listTransactions
+      tags: [Transactions]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/transactions.readonly]
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+        - $ref: '#/components/parameters/AccountId'
+        - name: startDate
+          in: query
+          schema: { type: string, format: date }
+        - name: endDate
+          in: query
+          schema: { type: string, format: date }
+        - name: cursor
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: Paged list of transactions.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transactions:
+                    type: array
+                    items: { $ref: '#/components/schemas/Transaction' }
+                  nextCursor: { type: string, nullable: true }
+  /a/consumer/api/v0/users/{userId}/accounts/{accountId}/transactions/{transactionId}:
+    get:
+      summary: Get Transaction Details
+      operationId: getTransaction
+      tags: [Transactions]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/transactions.detail.readonly]
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+        - $ref: '#/components/parameters/AccountId'
+        - name: transactionId
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Transaction detail. Returns a user's account's transaction in greater detail.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  /a/consumer/api/v0/users/{userId}/transfers:
+    get:
+      summary: List Transfers
+      operationId: listTransfers
+      tags: [Transfers]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/transfers.readonly]
+      parameters: [{ $ref: '#/components/parameters/UserId' }]
+      responses:
+        '200':
+          description: Scheduled and historical transfers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transfers:
+                    type: array
+                    items: { $ref: '#/components/schemas/Transfer' }
+    post:
+      summary: Create Transfer
+      operationId: createTransfer
+      tags: [Transfers]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/transfers.write]
+      parameters: [{ $ref: '#/components/parameters/UserId' }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TransferRequest' }
+      responses:
+        '201':
+          description: Transfer created.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Transfer' }
+  /a/consumer/api/v0/users/{userId}/bill-pay/payees:
+    get:
+      summary: List Bill Pay Payees
+      operationId: listPayees
+      tags: [Bill Pay]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/bill-pay.readonly]
+      parameters: [{ $ref: '#/components/parameters/UserId' }]
+      responses:
+        '200':
+          description: Payees.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  payees:
+                    type: array
+                    items: { $ref: '#/components/schemas/Payee' }
+  /a/consumer/api/v0/users/{userId}/bill-pay/payments:
+    post:
+      summary: Create Bill Pay Payment
+      operationId: createBillPayPayment
+      tags: [Bill Pay]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/bill-pay.write]
+      parameters: [{ $ref: '#/components/parameters/UserId' }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/BillPayPaymentRequest' }
+      responses:
+        '201':
+          description: Bill-pay payment scheduled.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BillPayPayment' }
+  /a/consumer/api/v0/users/{userId}/alerts:
+    get:
+      summary: List Alerts
+      operationId: listAlerts
+      tags: [Alerts]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/alerts.readonly]
+      parameters: [{ $ref: '#/components/parameters/UserId' }]
+      responses:
+        '200':
+          description: Alerts configured by the user.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  alerts:
+                    type: array
+                    items: { $ref: '#/components/schemas/Alert' }
+  /a/consumer/api/v0/users/{userId}/cards:
+    get:
+      summary: List Cards
+      operationId: listCards
+      tags: [Cards]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/cards.readonly]
+      parameters: [{ $ref: '#/components/parameters/UserId' }]
+      responses:
+        '200':
+          description: Cards linked to the user.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  cards:
+                    type: array
+                    items: { $ref: '#/components/schemas/Card' }
+  /a/consumer/api/v0/users/{userId}/messages:
+    get:
+      summary: List Messages
+      operationId: listMessages
+      tags: [Messages]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/messages.readonly]
+      parameters: [{ $ref: '#/components/parameters/UserId' }]
+      responses:
+        '200':
+          description: Secure-message threads.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items: { $ref: '#/components/schemas/Message' }
+  /a/consumer/api/v0/users/{userId}/wire-transfers:
+    post:
+      summary: Create Wire Transfer
+      operationId: createWireTransfer
+      tags: [Wire Transfers]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/wire-transfers.write]
+      parameters: [{ $ref: '#/components/parameters/UserId' }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/WireTransferRequest' }
+      responses:
+        '201':
+          description: Wire submitted.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/WireTransfer' }
+  /a/consumer/api/v0/users/{userId}/zelle/payments:
+    post:
+      summary: Send Zelle Payment
+      operationId: sendZellePayment
+      tags: [Zelle]
+      security:
+        - openIdConnect: [https://api.banno.com/consumer/auth/zelle.write]
+      parameters: [{ $ref: '#/components/parameters/UserId' }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ZellePaymentRequest' }
+      responses:
+        '201':
+          description: Zelle payment submitted.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ZellePayment' }
+  /a/consumer/api/v0/institutions/{institutionId}:
+    get:
+      summary: Get Institution
+      operationId: getInstitution
+      tags: [Institutions]
+      parameters:
+        - name: institutionId
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Institution profile.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Institution' }
+  /a/consumer/api/v0/routing-numbers/{routingNumber}:
+    get:
+      summary: Lookup Routing Number
+      operationId: lookupRoutingNumber
+      tags: [Routing Numbers]
+      parameters:
+        - name: routingNumber
+          in: path
+          required: true
+          schema: { type: string, pattern: '^[0-9]{9}$' }
+      responses:
+        '200':
+          description: Routing-number metadata.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/RoutingNumber' }
+components:
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema: { type: string, format: uuid }
+    AccountId:
+      name: accountId
+      in: path
+      required: true
+      description: ID of the desired account (UUID format).
+      schema: { type: string, format: uuid }
+  schemas:
+    User:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        firstName: { type: string }
+        lastName: { type: string }
+        email: { type: string, format: email }
+        phone: { type: string }
+        loginName: { type: string }
+        institutionId: { type: string, format: uuid }
+    Account:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        name: { type: string }
+        numbers:
+          type: object
+          properties:
+            masked: { type: string }
+        accountType:
+          type: string
+          enum: [Deposit, Debt, LineOfCredit, Investment]
+        accountStatus:
+          type: string
+          enum: [Active, Closed, Dormant, Frozen]
+        balance: { type: number, format: double }
+        availableBalance: { type: number, format: double }
+        fetchedDate: { type: string, format: date-time }
+        institution:
+          type: object
+          properties:
+            id: { type: string, format: uuid }
+            name: { type: string }
+        canCreatePayments: { type: boolean }
+        canTransferFrom: { type: boolean }
+        hidden: { type: boolean }
+        regD:
+          type: object
+          properties:
+            limit: { type: integer }
+            used: { type: integer }
+        formattedMetaData:
+          type: array
+          items:
+            type: object
+            properties:
+              label: { type: string }
+              value: { type: string }
+    Transaction:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        amount: { type: number, format: double }
+        date: { type: string, format: date }
+        postedDate: { type: string, format: date }
+        type:
+          type: string
+          enum: [Debit, Credit, Fee, Interest, Transfer]
+        status:
+          type: string
+          enum: [Posted, Pending]
+        description: { type: string }
+        memo: { type: string }
+        merchant:
+          type: object
+          properties:
+            name: { type: string }
+            category: { type: string }
+            logo: { type: string, format: uri }
+        runningBalance: { type: number, format: double }
+        tags:
+          type: array
+          items: { type: string }
+        pending: { type: boolean }
+        notes: { type: string }
+        enrichments:
+          type: object
+          additionalProperties: true
+    Transfer:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        fromAccountId: { type: string, format: uuid }
+        toAccountId: { type: string, format: uuid }
+        amount: { type: number, format: double }
+        scheduledDate: { type: string, format: date }
+        frequency:
+          type: string
+          enum: [OneTime, Weekly, BiWeekly, Monthly]
+        status:
+          type: string
+          enum: [Scheduled, Processing, Complete, Failed, Cancelled]
+        memo: { type: string }
+    TransferRequest:
+      type: object
+      required: [fromAccountId, toAccountId, amount]
+      properties:
+        fromAccountId: { type: string, format: uuid }
+        toAccountId: { type: string, format: uuid }
+        amount: { type: number, format: double }
+        scheduledDate: { type: string, format: date }
+        frequency: { type: string }
+        memo: { type: string }
+    Payee:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        name: { type: string }
+        nickname: { type: string }
+        accountNumber: { type: string }
+        address:
+          type: object
+          properties:
+            line1: { type: string }
+            line2: { type: string }
+            city: { type: string }
+            state: { type: string }
+            postalCode: { type: string }
+        deliveryMethod:
+          type: string
+          enum: [Electronic, Check]
+    BillPayPayment:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        payeeId: { type: string, format: uuid }
+        fromAccountId: { type: string, format: uuid }
+        amount: { type: number }
+        scheduledDate: { type: string, format: date }
+        status:
+          type: string
+          enum: [Scheduled, Processing, Complete, Failed, Cancelled]
+    BillPayPaymentRequest:
+      type: object
+      required: [payeeId, fromAccountId, amount, scheduledDate]
+      properties:
+        payeeId: { type: string, format: uuid }
+        fromAccountId: { type: string, format: uuid }
+        amount: { type: number }
+        scheduledDate: { type: string, format: date }
+        memo: { type: string }
+    Alert:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        type:
+          type: string
+          enum: [BalanceLow, BalanceHigh, LargeWithdrawal, LargeDeposit, CardActivity, LoginActivity]
+        channels:
+          type: array
+          items:
+            type: string
+            enum: [Email, SMS, Push, InApp]
+        threshold: { type: number }
+        enabled: { type: boolean }
+    Card:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        last4: { type: string }
+        cardType:
+          type: string
+          enum: [Debit, Credit]
+        status:
+          type: string
+          enum: [Active, Locked, Lost, Stolen, Expired]
+        expirationDate: { type: string, pattern: '^[0-9]{2}/[0-9]{2}$' }
+        nameOnCard: { type: string }
+    Message:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        subject: { type: string }
+        body: { type: string }
+        sentDate: { type: string, format: date-time }
+        read: { type: boolean }
+        author:
+          type: object
+          properties:
+            id: { type: string, format: uuid }
+            type:
+              type: string
+              enum: [User, Institution]
+    WireTransfer:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        fromAccountId: { type: string, format: uuid }
+        beneficiaryName: { type: string }
+        beneficiaryAccountNumber: { type: string }
+        beneficiaryBankRoutingNumber: { type: string }
+        amount: { type: number }
+        currency: { type: string }
+        status:
+          type: string
+          enum: [Pending, Processing, Sent, Failed, Cancelled]
+    WireTransferRequest:
+      type: object
+      required: [fromAccountId, beneficiaryName, beneficiaryAccountNumber, beneficiaryBankRoutingNumber, amount]
+      properties:
+        fromAccountId: { type: string, format: uuid }
+        beneficiaryName: { type: string }
+        beneficiaryAccountNumber: { type: string }
+        beneficiaryBankRoutingNumber: { type: string }
+        amount: { type: number }
+        currency: { type: string, default: USD }
+        memo: { type: string }
+    ZellePayment:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        fromAccountId: { type: string, format: uuid }
+        recipientToken: { type: string }
+        amount: { type: number }
+        memo: { type: string }
+        status:
+          type: string
+          enum: [Pending, Sent, Delivered, Failed]
+    ZellePaymentRequest:
+      type: object
+      required: [fromAccountId, recipientToken, amount]
+      properties:
+        fromAccountId: { type: string, format: uuid }
+        recipientToken: { type: string, description: Email or phone number }
+        amount: { type: number }
+        memo: { type: string }
+    Institution:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        name: { type: string }
+        routingNumber: { type: string }
+        primaryWebsiteUrl: { type: string, format: uri }
+        logoUrl: { type: string, format: uri }
+    RoutingNumber:
+      type: object
+      properties:
+        routingNumber: { type: string }
+        institutionName: { type: string }
+        institutionAddress: { type: string }
+        valid: { type: boolean }

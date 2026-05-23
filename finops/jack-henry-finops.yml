@@ -1,0 +1,115 @@
+finopsFrameworkVersion: '2024'
+focusVersion: '1.0'
+provider:
+  id: jack-henry
+  name: Jack Henry & Associates
+  ticker: JKHY
+  exchange: Nasdaq
+
+description: |
+  Jack Henry's commercial model is enterprise SaaS + transaction-processing,
+  billed at the institution level rather than at the API-call level. FinOps
+  mapping here therefore aligns to the major segments documented in
+  Jack Henry's FY2025 10-K and quarterly earnings disclosures (deconversion,
+  core, payments, complementary, etc.) rather than to per-endpoint metering.
+
+  This file maps the FinOps Framework's capability domains to Jack Henry's
+  documented surfaces and FOCUS-style billing dimensions to what is
+  externally visible.
+
+modified: '2026-05-23'
+
+capabilities:
+
+  - capability: Inform - Data Ingestion
+    description: Pull billing + usage data from the master MSA (no per-call API).
+    sources:
+      - Quarterly invoice
+      - Annual MSA addenda
+      - Statement of Work line items
+
+  - capability: Inform - Allocation
+    description: |
+      Allocate Jack Henry charges across cost centers / business lines.
+      Allocation keys typically include: number of accounts, ACH origination
+      volume, wire count, RDC item count, card transactions, statement
+      counts, and digital-banking enrolled users.
+    suggestedAllocationKeys:
+      - openAccountCount
+      - achOriginationCount
+      - wireCount
+      - rdcItemCount
+      - cardTransactionCount
+      - statementCount
+      - digitalEnrolledUserCount
+
+  - capability: Quantify - Forecasting
+    description: |
+      Forecast based on projected institution growth and rail mix shifts
+      (e.g., wire-to-RTP substitution, ACH-to-RTP substitution under the
+      Payments Orchestrator).
+
+  - capability: Optimize - Rate Optimization
+    description: |
+      Renegotiate per-rail unit pricing at MSA renewal; use Payments
+      Orchestrator to route lower-cost rails when SLA permits.
+
+  - capability: Operate - Cost Anomaly Management
+    description: |
+      Detect spend anomalies by joining EES TransactionEvent stream with
+      the institution's GL — no first-party cost-anomaly API surfaced.
+
+focusMapping:
+  - focusField: ServiceName
+    source: Jack Henry MSA line item (e.g., "Banno Digital Banking", "ACH Origination", "SilverLake Core")
+  - focusField: ServiceCategory
+    values:
+      - Core Banking
+      - Digital Banking
+      - Payments
+      - Lending
+      - Fraud
+      - Data & Analytics
+  - focusField: BillingPeriodStart / BillingPeriodEnd
+    source: Monthly invoice cycle (typically calendar month)
+  - focusField: ChargeCategory
+    values: [Usage, Subscription, OneTime]
+    notes: |
+      - Subscription: per-account or per-enrolled-user monthly fee (digital, core)
+      - Usage: per-transaction (ACH item, wire, RDC item, card auth)
+      - OneTime: implementation, conversion, deconversion charges
+  - focusField: BilledCurrency
+    value: USD
+  - focusField: BillingAccountId
+    source: Jack Henry MSA client number
+  - focusField: SubAccountId
+    source: Per-institution / per-branch cost center
+
+unitMetrics:
+  - name: Open Account
+    unit: account-month
+  - name: Enrolled Digital User
+    unit: user-month
+  - name: ACH Item
+    unit: count
+  - name: Wire
+    unit: count
+  - name: RDC Item
+    unit: count
+  - name: Card Transaction
+    unit: count
+  - name: Bill Payment
+    unit: count
+  - name: Statement
+    unit: count
+
+caveats:
+  - No public per-API list prices or per-call billing dimensions.
+  - FOCUS export is not available from Jack Henry as a first-party feed; FinOps teams must reconstruct it from invoices + EES TransactionEvent telemetry.
+  - Deconversion fees are a material one-time category disclosed separately in IR releases.
+
+sources:
+  - https://ir.jackhenry.com/
+  - https://ir.jackhenry.com/news-releases/news-release-details/jack-henry-associates-inc-reports-fourth-quarter-and-full-year-1
+  - https://ir.jackhenry.com/news-releases/news-release-details/jack-henry-announces-fiscal-fourth-quarter-full-fiscal-year-2025
+  - https://en.wikipedia.org/wiki/Jack_Henry_%26_Associates
