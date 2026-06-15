@@ -1,0 +1,213 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jack Henry Payments",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ACH Origination",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Originate ACH Credit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.payments.jackhenry.com/payments/v1/ach/credits",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Originate ACH Credit"
+        },
+        {
+          "info": {
+            "name": "Originate ACH Debit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.payments.jackhenry.com/payments/v1/ach/debits",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Originate ACH Debit"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Wire Transfers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send Wire",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.payments.jackhenry.com/payments/v1/wires",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send Wire"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bill Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit Bill Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.payments.jackhenry.com/payments/v1/bill-pay/payments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Bill Payment"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Remote Deposit Capture",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit Remote Deposit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.payments.jackhenry.com/payments/v1/rdc/deposits",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "accountNumber",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "amount",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "frontImage",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "backImage",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Submit Remote Deposit"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authorize Card Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.payments.jackhenry.com/payments/v1/cards/authorizations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authorize Card Payment"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Peer To Peer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send Peer To Peer Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.payments.jackhenry.com/payments/v1/p2p/transfers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send Peer To Peer Transfer"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Payments Orchestrator",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Route Payment Through Orchestrator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.payments.jackhenry.com/payments/v1/orchestrator/payments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a single payment intent; the Orchestrator selects the\nappropriate rail (ACH, Wire, Card, RTP) based on cost, speed,\nand policy.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

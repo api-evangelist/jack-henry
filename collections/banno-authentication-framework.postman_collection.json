@@ -1,0 +1,605 @@
+{
+  "item": [
+    {
+      "id": "d304c119-40cb-481b-a6b4-182905bfe941",
+      "name": "Discovery",
+      "description": {
+        "content": "OpenID Connect discovery and JWKS.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c7a4d871-f7f5-43e4-9957-635491628857",
+          "name": "Get OpenID Connect Discovery Document",
+          "request": {
+            "name": "Get OpenID Connect Discovery Document",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "oidc",
+                ".well-known",
+                "openid-configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6dcdcafb-316a-48d6-a92d-51834e4391ab",
+              "name": "OIDC discovery document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "oidc",
+                    ".well-known",
+                    "openid-configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"issuer\": \"https://fjkqzHaBx.ljZSujl8P5peTwvQSVYRi-LmiVoEy-yimsbFXO\",\n  \"authorization_endpoint\": \"https://jKkaRSyFxPuaZi.pwxMe6TpidM58bwuKoix-+SOmq\",\n  \"token_endpoint\": \"http://oxFVQJtZERasOAWzD.pziqrEarYnjGPXPltuJd5-xKpScb3BFbxjbeOGcmbbAWC3pAZX\",\n  \"userinfo_endpoint\": \"https://oLdHCXNjqLyYnhnMQmCJEYxXePn.fppcn2qJLIkhxZlLCjJirwWnCL-wQpwOKkCSPy+\",\n  \"jwks_uri\": \"http://cAxyDb.dtflh1mxLrDG8IalCj9Gv7EkYPCP2nTnP3W,I1Rsnr2xnaYFe.zVXYhVZNr35ST0RT3HryqUrbhkGFK\",\n  \"response_types_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"scopes_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"grant_types_supported\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c48c584a-52e5-4baf-bfcd-9af392c7bc03",
+          "name": "Get JWKS",
+          "request": {
+            "name": "Get JWKS",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "oidc",
+                ".well-known",
+                "jwks.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc4853f3-f997-4a69-842a-ac1136d1b991",
+              "name": "JSON Web Key Set used to validate ID tokens.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "oidc",
+                    ".well-known",
+                    "jwks.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"keys\": [\n    {\n      \"kid\": \"string\",\n      \"kty\": \"string\",\n      \"alg\": \"string\",\n      \"use\": \"string\",\n      \"n\": \"string\",\n      \"e\": \"string\"\n    },\n    {\n      \"kid\": \"string\",\n      \"kty\": \"string\",\n      \"alg\": \"string\",\n      \"use\": \"string\",\n      \"n\": \"string\",\n      \"e\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "90d0131c-5c06-43b6-bc72-88e0f8d3d6fa",
+      "name": "Authorization",
+      "description": {
+        "content": "OAuth authorization endpoint.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34f45d43-d179-4605-844f-7f5e8366a687",
+          "name": "Authorize OAuth Request",
+          "request": {
+            "name": "Authorize OAuth Request",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "oidc",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<uri>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge_method",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b04e76df-db73-4c33-9a1c-45ec6cfdc070",
+              "name": "Redirect to the registered redirect URI with a code or error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "oidc",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "response_type",
+                      "value": "code"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "openid profile https://api.banno.com/consumer/auth/accounts.readonly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge_method",
+                      "value": "S256"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "97f84c81-e06c-472b-82fa-f23873f8cdc9",
+      "name": "Token",
+      "description": {
+        "content": "OAuth token exchange.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d64f39f6-ec80-4c21-9dc0-b637af5a6ee0",
+          "name": "Exchange Token",
+          "request": {
+            "name": "Exchange Token",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "oidc",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<uri>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_verifier",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "refresh_token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "97cf06f3-41c9-4fe4-a6b5-925bff2f842d",
+              "name": "Token response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "oidc",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "code_verifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"id_token\": \"string\",\n  \"refresh_token\": \"string\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 3394,\n  \"scope\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "40abc376-89be-4156-9eb9-54a3e2e02014",
+      "name": "UserInfo",
+      "description": {
+        "content": "OpenID Connect UserInfo endpoint.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dedb5565-fbb3-4034-bcd4-b6e72295f2f1",
+          "name": "Get UserInfo",
+          "request": {
+            "name": "Get UserInfo",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "oidc",
+                "userinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "36441942-51fe-445f-9984-a27984156879",
+              "name": "Claims about the authenticated user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "oidc",
+                    "userinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sub\": \"string\",\n  \"name\": \"string\",\n  \"given_name\": \"string\",\n  \"family_name\": \"string\",\n  \"email\": \"Zzb7p9e@mcGhxLeC.rb\",\n  \"email_verified\": false,\n  \"institution_id\": \"1dd86933-9196-d058-f706-2313f65bf6a5\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "30e4fa77-79fd-4937-aa02-1f62c3f20aa8",
+      "name": "Permissions",
+      "description": {
+        "content": "Per-scope permissions flow.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "74a2707d-3149-4333-8620-5e0f214d7552",
+    "name": "Banno Authentication Framework",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OAuth 2.0 and OpenID Connect surface that issues access tokens,\nidentity tokens, and refresh tokens for the Banno Consumer API,\nAdmin API, and Plugin Framework. Implements the permissions flow\nused to enforce scopes on protected endpoints. Per the documentation:\n\"Protect user data using industry standard OAuth 2.0 and OpenID\nConnect to provide authenticated information in the form of secure\naccess and identity tokens.\"\n",
+      "type": "text/plain"
+    }
+  }
+}

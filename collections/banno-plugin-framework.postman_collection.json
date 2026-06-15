@@ -1,0 +1,342 @@
+{
+  "item": [
+    {
+      "id": "95f9e671-045e-40ae-bfbe-5e41c316ed93",
+      "name": "Plugin Configuration",
+      "description": {
+        "content": "Plugin metadata published by the host.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e27f99f3-768a-4c77-ba82-b0f787b9af4e",
+          "name": "Get Plugin Manifest",
+          "request": {
+            "name": "Get Plugin Manifest",
+            "description": {},
+            "url": {
+              "path": [
+                "plugins",
+                "api",
+                "v0",
+                "plugins",
+                ":pluginId",
+                "manifest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pluginId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d89686f-8f9c-4467-a3e9-5f5036594667",
+              "name": "Manifest describing the plugin's cards, sizes, and entry points.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plugins",
+                    "api",
+                    "v0",
+                    "plugins",
+                    ":pluginId",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pluginId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"120c7def-1b16-c68a-624f-3423d01c3315\",\n  \"name\": \"string\",\n  \"version\": \"string\",\n  \"entryUrl\": \"https://yAmmkEEwfgHvKrvfOn.kvxVng8qQQSqPMsHu0.G-iMXthvN,T.BjvoLdVBTDRhb9Z1\",\n  \"cards\": [\n    {\n      \"kind\": \"CardFace\",\n      \"size\": \"Small\",\n      \"actionLabel\": \"string\"\n    },\n    {\n      \"kind\": \"FullScreen\",\n      \"size\": \"Medium\",\n      \"actionLabel\": \"string\"\n    }\n  ],\n  \"permissions\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cac37749-8ac4-48a9-9588-8553d84238df",
+      "name": "Plugin Bridge",
+      "description": {
+        "content": "Bridge handshake and lifecycle.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9e7ad9c2-bbf8-4137-b0a3-256ab508d727",
+          "name": "Exchange Bridge Token",
+          "request": {
+            "name": "Exchange Bridge Token",
+            "description": {
+              "content": "Exchanges the parent-window handshake nonce for a short-lived\nbridge token used by the @jack-henry/banno-plugin-framework-bridge\nlibrary to call host-side functions.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "plugins",
+                "api",
+                "v0",
+                "plugins",
+                ":pluginId",
+                "bridge",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pluginId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nonce\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a62af81d-7af7-4611-af9a-682c755892ea",
+              "name": "Bridge token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plugins",
+                    "api",
+                    "v0",
+                    "plugins",
+                    ":pluginId",
+                    "bridge",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pluginId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nonce\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\",\n  \"expiresIn\": 8638\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "49efc40b-ef23-4e87-b9ee-1e024ad1a6f6",
+      "name": "User Context",
+      "description": {
+        "content": "Authenticated user/account context surfaced to a plugin.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e9441773-8db1-4fa7-b863-9a353c981b6c",
+          "name": "Get Plugin User Context",
+          "request": {
+            "name": "Get Plugin User Context",
+            "description": {
+              "content": "Returns the authenticated user/account context the host hands the\nplugin (institution ID, user ID, environment, locale). Subject to\nthe plugin's authorized scopes in Banno People.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "plugins",
+                "api",
+                "v0",
+                "context"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a8794e9e-3f4d-435e-b853-52b383a970b3",
+              "name": "Plugin context.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plugins",
+                    "api",
+                    "v0",
+                    "context"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"institutionId\": \"ed64dd6f-bd53-ccb8-c5dd-6d630b7cd833\",\n  \"userId\": \"68559783-73b3-9ffa-3d5b-5154f544aa02\",\n  \"environment\": \"UAT\",\n  \"locale\": \"en-US\",\n  \"bridgeVersion\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://digital.garden.banno-uat.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "050f6e63-528c-4195-9821-c0e31a13426f",
+    "name": "Banno Plugin Framework",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Plugin Framework lets partners build custom cards that appear in\na user's Banno Online and Mobile dashboard. Plugins are web\napplications (HTML + CSS + JavaScript) hosted on the partner's own\ninfrastructure and registered as External Applications in Banno\nPeople.\n\nThis OpenAPI documents the host-side surface a plugin uses against\nBanno (configuration metadata + bridge handshake). The browser-side\nruntime interactions happen over the @jack-henry/banno-plugin-framework-bridge\n`postMessage` channel rather than HTTP — see the bridge SDK README.\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,974 @@
+{
+  "item": [
+    {
+      "id": "7431a073-7420-4029-a03b-da0a3c9fd07e",
+      "name": "ACH Origination",
+      "description": {
+        "content": "ACH credit and debit origination.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a2e292c9-5ce9-40d0-a98e-d6a1d99d50b6",
+          "name": "Originate ACH Credit",
+          "request": {
+            "name": "Originate ACH Credit",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "ach",
+                "credits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiaryRoutingNumber\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"secCode\": \"<string>\",\n  \"beneficiaryName\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "55b9a85d-114e-4702-9813-e1393c302222",
+              "name": "ACH credit accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "ach",
+                    "credits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiaryRoutingNumber\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"secCode\": \"<string>\",\n  \"beneficiaryName\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3a7f75b7-0fc9-1703-28f1-bc6f05aa5268\",\n  \"status\": \"Returned\",\n  \"traceNumber\": \"string\",\n  \"effectiveDate\": \"1953-07-14\",\n  \"amount\": 9996.054305372261\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa465218-6cf4-4842-a1f2-9bbc102364ea",
+          "name": "Originate ACH Debit",
+          "request": {
+            "name": "Originate ACH Debit",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "ach",
+                "debits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiaryRoutingNumber\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"secCode\": \"<string>\",\n  \"beneficiaryName\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bd6d9662-07a3-4948-86a8-cb99c284b776",
+              "name": "ACH debit accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "ach",
+                    "debits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiaryRoutingNumber\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"secCode\": \"<string>\",\n  \"beneficiaryName\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3a7f75b7-0fc9-1703-28f1-bc6f05aa5268\",\n  \"status\": \"Returned\",\n  \"traceNumber\": \"string\",\n  \"effectiveDate\": \"1953-07-14\",\n  \"amount\": 9996.054305372261\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b495f853-46b7-4dc6-9ae7-b627da3f4160",
+      "name": "Wire Transfers",
+      "description": {
+        "content": "Domestic A2A wire payments.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2bb3e565-dbe6-490e-876e-d4e6497fff73",
+          "name": "Send Wire",
+          "request": {
+            "name": "Send Wire",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "wires"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiaryName\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"beneficiaryRoutingNumber\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"currency\": \"USD\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "928b9ac2-8a16-45d3-acd0-0045d76ba316",
+              "name": "Wire submitted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "wires"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiaryName\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"beneficiaryRoutingNumber\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"currency\": \"USD\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"ee7483db-4feb-f8a1-4443-4ce29e52842f\",\n  \"status\": \"Cancelled\",\n  \"imadOmad\": \"string\",\n  \"amount\": 1591.3383754299425,\n  \"sentAt\": \"1995-05-22T20:05:44.086Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ede4dffc-1b43-4dfa-b72c-b92325811381",
+      "name": "Bill Payments",
+      "description": {
+        "content": "Consumer and small-business bill pay.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9c5ebc14-bcb5-458a-bc41-003a5d492adb",
+          "name": "Submit Bill Payment",
+          "request": {
+            "name": "Submit Bill Payment",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "bill-pay",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payerAccountId\": \"<string>\",\n  \"payeeId\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"dueDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "81a9801c-f884-403d-bc97-2f7850fbd64b",
+              "name": "Bill payment scheduled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "bill-pay",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payerAccountId\": \"<string>\",\n  \"payeeId\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"dueDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"21d11ab8-8a9f-ce83-ec26-818debb69ccc\",\n  \"deliveryMethod\": \"Electronic\",\n  \"estimatedDeliveryDate\": \"1961-01-15\",\n  \"status\": \"Scheduled\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "71fd54d4-23bd-4c6a-920b-d1d8085ac425",
+      "name": "Remote Deposit Capture",
+      "description": {
+        "content": "Consumer and commercial RDC.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9c121ab3-c6ca-40f7-bd18-0ec7e7b1bd39",
+          "name": "Submit Remote Deposit",
+          "request": {
+            "name": "Submit Remote Deposit",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "rdc",
+                "deposits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "accountNumber",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) "
+                },
+                {
+                  "key": "amount",
+                  "value": "<double>",
+                  "type": "text",
+                  "description": "(Required) "
+                },
+                {
+                  "key": "frontImage",
+                  "type": "file",
+                  "description": "(Required) "
+                },
+                {
+                  "key": "backImage",
+                  "type": "file",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0ffda15b-5672-4fed-8670-00db8b756f14",
+              "name": "RDC deposit accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "rdc",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "accountNumber",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<double>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "frontImage",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "backImage",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"0ef73057-be76-b85f-b147-b24efe38c00d\",\n  \"status\": \"Rejected\",\n  \"availableDate\": \"2023-03-01\",\n  \"amount\": 2676.402397957445\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d7823770-3c7d-4ce7-bf96-10054291cc97",
+      "name": "Cards",
+      "description": {
+        "content": "Card acceptance and processing.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2dee70b5-50bd-4859-8a51-9adbd8cdaf6d",
+          "name": "Authorize Card Payment",
+          "request": {
+            "name": "Authorize Card Payment",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "cards",
+                "authorizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cardToken\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"merchantId\": \"<string>\",\n  \"currency\": \"USD\",\n  \"cvvProvided\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "850eee95-d3d5-44df-a67f-0de751496f0a",
+              "name": "Card authorization result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "cards",
+                    "authorizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cardToken\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"merchantId\": \"<string>\",\n  \"currency\": \"USD\",\n  \"cvvProvided\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"418ade19-3973-0047-d4b2-e836ae12e3a1\",\n  \"approved\": false,\n  \"responseCode\": \"string\",\n  \"authCode\": \"string\",\n  \"networkReference\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "65fae3ca-2695-42c5-8f1e-314d4b56c4df",
+      "name": "Peer To Peer",
+      "description": {
+        "content": "P2P transfers via partner networks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b6c1abbb-7bf1-4c26-812b-d15bd05efbb2",
+          "name": "Send Peer To Peer Transfer",
+          "request": {
+            "name": "Send Peer To Peer Transfer",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "p2p",
+                "transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"senderAccountId\": \"<string>\",\n  \"recipientToken\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"network\": \"<string>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2681116f-b20b-4dfc-9ae0-195de5fe94af",
+              "name": "P2P transfer submitted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "p2p",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"senderAccountId\": \"<string>\",\n  \"recipientToken\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"network\": \"<string>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"2f768144-a5b0-79b5-342a-b050c1b8c943\",\n  \"status\": \"Delivered\",\n  \"network\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cb59abb6-1080-40eb-8ee4-32016cf593d5",
+      "name": "Payments Orchestrator",
+      "description": {
+        "content": "Cross-rail routing and virtual accounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f4e5f58-df84-4d00-a337-eb9c580d49f6",
+          "name": "Route Payment Through Orchestrator",
+          "request": {
+            "name": "Route Payment Through Orchestrator",
+            "description": {
+              "content": "Submit a single payment intent; the Orchestrator selects the\nappropriate rail (ACH, Wire, Card, RTP) based on cost, speed,\nand policy.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "orchestrator",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiary\": {\n    \"name\": \"<string>\",\n    \"accountNumber\": \"<string>\",\n    \"routingNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\"\n  },\n  \"amount\": \"<double>\",\n  \"currency\": \"USD\",\n  \"speed\": \"<string>\",\n  \"memo\": \"<string>\",\n  \"policyHints\": {\n    \"key_0\": \"string\",\n    \"key_1\": 6790.036635237113,\n    \"key_2\": 9104.695942204666,\n    \"key_3\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8c8b5dc5-38e6-4bca-b1ef-0155609c02db",
+              "name": "Payment routed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "orchestrator",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiary\": {\n    \"name\": \"<string>\",\n    \"accountNumber\": \"<string>\",\n    \"routingNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\"\n  },\n  \"amount\": \"<double>\",\n  \"currency\": \"USD\",\n  \"speed\": \"<string>\",\n  \"memo\": \"<string>\",\n  \"policyHints\": {\n    \"key_0\": 861\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"bbc28b3e-b6eb-f28f-876c-c1046575e350\",\n  \"chosenRail\": \"RTP\",\n  \"status\": \"Pending\",\n  \"downstreamId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.payments.jackhenry.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "75281feb-86aa-4806-8363-15ac97e69131",
+    "name": "Jack Henry Payments",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Jack Henry Payments developer portal — described as \"Everything you\nneed to simplify and seamlessly make, take, and manage payments.\"\nUnifies ACH origination, wire / A2A payments, Bill Payments, Remote\nDeposit Capture (consumer + commercial), card acceptance, and\npeer-to-peer rails behind a single sandbox-equipped developer surface.\nThe Payments Orchestrator routes across rails and supports virtual\naccounts.\n",
+      "type": "text/plain"
+    }
+  }
+}

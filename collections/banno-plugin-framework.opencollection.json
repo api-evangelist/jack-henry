@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Plugin Framework",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plugin Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Plugin Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://digital.garden.banno-uat.com/plugins/api/v0/plugins/:pluginId/manifest",
+            "params": [
+              {
+                "name": "pluginId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Plugin Manifest"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Plugin Bridge",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Exchange Bridge Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://digital.garden.banno-uat.com/plugins/api/v0/plugins/:pluginId/bridge/token",
+            "params": [
+              {
+                "name": "pluginId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Exchanges the parent-window handshake nonce for a short-lived\nbridge token used by the @jack-henry/banno-plugin-framework-bridge\nlibrary to call host-side functions.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "User Context",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Plugin User Context",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://digital.garden.banno-uat.com/plugins/api/v0/context"
+          },
+          "docs": "Returns the authenticated user/account context the host hands the\nplugin (institution ID, user ID, environment, locale). Subject to\nthe plugin's authorized scopes in Banno People.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

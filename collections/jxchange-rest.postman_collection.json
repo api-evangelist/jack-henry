@@ -1,0 +1,710 @@
+{
+  "item": [
+    {
+      "id": "3664b172-c85c-44c0-bc33-fc0b89980bbb",
+      "name": "Customers",
+      "description": {
+        "content": "Customer (CIF) records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e16bb4f4-5908-4915-841a-845b1f885759",
+          "name": "Search Customers",
+          "request": {
+            "name": "Search Customers",
+            "description": {},
+            "url": {
+              "path": [
+                "jxchange",
+                "v1",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ssn",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0bfcfff4-71fa-4bb5-bbd5-773b5eeabdc4",
+              "name": "Customer matches.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jxchange",
+                    "v1",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ssn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customers\": [\n    {\n      \"customerId\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"ssnLast4\": \"string\",\n      \"dateOfBirth\": \"2021-03-29\",\n      \"primaryAddress\": {\n        \"line1\": \"string\",\n        \"line2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\"\n      },\n      \"primaryPhone\": \"string\",\n      \"primaryEmail\": \"Bpmz@EELXZVPayIzFIQkCkRnQdtopkNEAuOrd.wl\",\n      \"relationshipOpenDate\": \"1955-12-06\"\n    },\n    {\n      \"customerId\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"ssnLast4\": \"string\",\n      \"dateOfBirth\": \"1997-10-22\",\n      \"primaryAddress\": {\n        \"line1\": \"string\",\n        \"line2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\"\n      },\n      \"primaryPhone\": \"string\",\n      \"primaryEmail\": \"fswmyLAgjI@mwdGGvNtKOYIajJOkicNgPIqFDeaBYwK.djql\",\n      \"relationshipOpenDate\": \"1951-08-15\"\n    }\n  ],\n  \"nextCursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8950668e-f844-43f8-8d5f-3076554df89e",
+          "name": "Get Customer",
+          "request": {
+            "name": "Get Customer",
+            "description": {},
+            "url": {
+              "path": [
+                "jxchange",
+                "v1",
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0076cef-f24b-4e4c-8777-695274fa9c05",
+              "name": "Customer record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jxchange",
+                    "v1",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerId\": \"string\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"ssnLast4\": \"string\",\n  \"dateOfBirth\": \"1982-03-02\",\n  \"primaryAddress\": {\n    \"line1\": \"string\",\n    \"line2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\"\n  },\n  \"primaryPhone\": \"string\",\n  \"primaryEmail\": \"AP0v5MsQsP-m@WSxgNDAaJygZgRHwGGwuhbSJUBdkYqbr.scm\",\n  \"relationshipOpenDate\": \"1992-11-04\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e5821d42-fbea-46b3-9417-ddae44608db7",
+      "name": "Deposit Accounts",
+      "description": {
+        "content": "DDA/savings/CD deposit accounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a2c9b4a3-d800-4239-b005-7e6c1c6ac9df",
+          "name": "Get Deposit Account",
+          "request": {
+            "name": "Get Deposit Account",
+            "description": {},
+            "url": {
+              "path": [
+                "jxchange",
+                "v1",
+                "deposit-accounts",
+                ":accountNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a94be31b-2817-482c-9766-d75780d14c23",
+              "name": "Deposit-account record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jxchange",
+                    "v1",
+                    "deposit-accounts",
+                    ":accountNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accountNumber\": \"string\",\n  \"product\": \"string\",\n  \"productType\": \"Savings\",\n  \"status\": \"Open\",\n  \"currentBalance\": 6116.837709540762,\n  \"availableBalance\": 1691.8728854918986,\n  \"interestYTD\": 9978.600159065158,\n  \"openDate\": \"2014-09-12\",\n  \"primaryOwnerCustomerId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5cd29674-1e36-4950-84d6-0177d2b9c8bc",
+      "name": "Loan Accounts",
+      "description": {
+        "content": "Consumer and commercial loans.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a29fcb5b-5621-4ca6-ac97-d493a3e2cf14",
+          "name": "Get Loan Account",
+          "request": {
+            "name": "Get Loan Account",
+            "description": {},
+            "url": {
+              "path": [
+                "jxchange",
+                "v1",
+                "loan-accounts",
+                ":accountNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3d93f00-6158-4718-8fa9-a4d537af18b8",
+              "name": "Loan-account record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jxchange",
+                    "v1",
+                    "loan-accounts",
+                    ":accountNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accountNumber\": \"string\",\n  \"product\": \"string\",\n  \"loanType\": \"SBA\",\n  \"status\": \"PaidOff\",\n  \"originalAmount\": 8466.62278529994,\n  \"currentBalance\": 1512.0270072077712,\n  \"interestRate\": 5050.040115784274,\n  \"nextPaymentAmount\": 2271.3265259371406,\n  \"nextPaymentDate\": \"2002-12-06\",\n  \"maturityDate\": \"1956-12-14\",\n  \"primaryOwnerCustomerId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "00532c96-a0a3-49a0-acbd-867613f59758",
+      "name": "Transactions",
+      "description": {
+        "content": "Account postings and history.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2d8d01af-725e-443b-bf2f-7c48dcbb0215",
+          "name": "List Account Transactions",
+          "request": {
+            "name": "List Account Transactions",
+            "description": {},
+            "url": {
+              "path": [
+                "jxchange",
+                "v1",
+                "accounts",
+                ":accountNumber",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<date>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a0a0542-bd3b-4974-bde8-a1ce941b6fa1",
+              "name": "Transactions for the account.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jxchange",
+                    "v1",
+                    "accounts",
+                    ":accountNumber",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactions\": [\n    {\n      \"transactionId\": \"string\",\n      \"postDate\": \"1971-03-20\",\n      \"effectiveDate\": \"1989-01-01\",\n      \"amount\": 8255.927096129371,\n      \"type\": \"Debit\",\n      \"description\": \"string\",\n      \"memo\": \"string\",\n      \"runningBalance\": 1916.2381714990718,\n      \"sourceCode\": \"string\"\n    },\n    {\n      \"transactionId\": \"string\",\n      \"postDate\": \"2004-11-15\",\n      \"effectiveDate\": \"1951-05-13\",\n      \"amount\": 8780.114446459984,\n      \"type\": \"Adjustment\",\n      \"description\": \"string\",\n      \"memo\": \"string\",\n      \"runningBalance\": 4212.612453722932,\n      \"sourceCode\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6a6502f0-cb6b-4fd9-b409-a42b3c6c3764",
+      "name": "General Ledger",
+      "description": {
+        "content": "GL account inquiry.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ccaba03f-570f-4a03-b1b6-0470ff954890",
+          "name": "Get GL Account",
+          "request": {
+            "name": "Get GL Account",
+            "description": {},
+            "url": {
+              "path": [
+                "jxchange",
+                "v1",
+                "general-ledger",
+                ":glAccountNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "glAccountNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7fa86c69-1028-4738-b07d-4e3b00c33e4b",
+              "name": "General-ledger account.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jxchange",
+                    "v1",
+                    "general-ledger",
+                    ":glAccountNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "glAccountNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"glAccountNumber\": \"string\",\n  \"name\": \"string\",\n  \"balance\": 9810.21652303162,\n  \"accountClass\": \"Income\",\n  \"branch\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5f5d4e40-61f6-4ad1-9e4d-68eb55051342",
+      "name": "Cards",
+      "description": {
+        "content": "Card relationships on accounts.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://jxchange.jackhenry.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "42ff46ab-0302-42dd-8b55-5b2faffb8491",
+    "name": "jXchange REST",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "jXchange is Jack Henry's information-translation surface that brokers\nrequests between third-party applications and the SilverLake or\nCIF 20/20 community-bank cores. The REST variant exposes deposits,\nloans, customers, accounts, transactions, and general-ledger domains.\nA SOAP variant is also published at jackhenry.dev/jxchange-soap/.\n",
+      "type": "text/plain"
+    }
+  }
+}

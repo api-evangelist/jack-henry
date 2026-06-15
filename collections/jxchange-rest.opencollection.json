@@ -1,0 +1,184 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "jXchange REST",
+    "version": "2024"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jxchange.jackhenry.com/jxchange/v1/customers",
+            "params": [
+              {
+                "name": "ssn",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lastName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search Customers"
+        },
+        {
+          "info": {
+            "name": "Get Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jxchange.jackhenry.com/jxchange/v1/customers/:customerId",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Customer"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Deposit Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Deposit Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jxchange.jackhenry.com/jxchange/v1/deposit-accounts/:accountNumber",
+            "params": [
+              {
+                "name": "accountNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Deposit Account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Loan Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Loan Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jxchange.jackhenry.com/jxchange/v1/loan-accounts/:accountNumber",
+            "params": [
+              {
+                "name": "accountNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Loan Account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Account Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jxchange.jackhenry.com/jxchange/v1/accounts/:accountNumber/transactions",
+            "params": [
+              {
+                "name": "accountNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Account Transactions"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "General Ledger",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get GL Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jxchange.jackhenry.com/jxchange/v1/general-ledger/:glAccountNumber",
+            "params": [
+              {
+                "name": "glAccountNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get GL Account"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

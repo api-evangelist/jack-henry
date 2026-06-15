@@ -1,0 +1,1860 @@
+{
+  "item": [
+    {
+      "id": "52f0b0ad-b691-4b46-ac4f-c2f6902ca0d3",
+      "name": "User",
+      "description": {
+        "content": "Profile and identity of the authenticated user.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "66b96695-241d-474b-b34d-94acb4f5f31f",
+          "name": "Get User Profile",
+          "request": {
+            "name": "Get User Profile",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "0dd10386-2bcb-4491-bbe7-9ac201c179c4",
+              "name": "User profile.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"af572d1a-00c2-522a-1a3a-b806cd7a7aa7\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"email\": \"ODOMDj5XtI@QQQYyX.wr\",\n  \"phone\": \"string\",\n  \"loginName\": \"string\",\n  \"institutionId\": \"03349319-8f40-3f79-ec30-5f2f27ed5a80\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "055fb4d4-a060-4913-8c0c-db05050f9122",
+      "name": "Accounts",
+      "description": {
+        "content": "Deposit, loan, line-of-credit, and investment accounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca3a29ad-9fa7-4182-af19-65671b4d3b55",
+          "name": "List Accounts",
+          "request": {
+            "name": "List Accounts",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "bca780fa-21c8-4c85-b74a-808293a1945d",
+              "name": "All accounts the user owns or has access to.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"id\": \"9df452dc-a986-fe4d-ce5d-9316402c37e0\",\n      \"name\": \"string\",\n      \"numbers\": {\n        \"masked\": \"string\"\n      },\n      \"accountType\": \"Debt\",\n      \"accountStatus\": \"Closed\",\n      \"balance\": 4730.451006673849,\n      \"availableBalance\": 1673.1100068406813,\n      \"fetchedDate\": \"1964-08-28T18:39:22.396Z\",\n      \"institution\": {\n        \"id\": \"41a84fc2-2f00-c50d-c0aa-25220865c5a2\",\n        \"name\": \"string\"\n      },\n      \"canCreatePayments\": true,\n      \"canTransferFrom\": true,\n      \"hidden\": true,\n      \"regD\": {\n        \"limit\": 4075,\n        \"used\": 3593\n      },\n      \"formattedMetaData\": [\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"8974c589-8f29-1e65-f7a3-e4f83082dee2\",\n      \"name\": \"string\",\n      \"numbers\": {\n        \"masked\": \"string\"\n      },\n      \"accountType\": \"Deposit\",\n      \"accountStatus\": \"Active\",\n      \"balance\": 9729.233728269537,\n      \"availableBalance\": 9596.101157377812,\n      \"fetchedDate\": \"1950-11-22T00:24:46.338Z\",\n      \"institution\": {\n        \"id\": \"edcd8e74-af6b-92ff-eb7b-2569d3e3a762\",\n        \"name\": \"string\"\n      },\n      \"canCreatePayments\": false,\n      \"canTransferFrom\": false,\n      \"hidden\": false,\n      \"regD\": {\n        \"limit\": 1606,\n        \"used\": 3774\n      },\n      \"formattedMetaData\": [\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1097c93a-bf24-4875-8f36-4f53aa6190a5",
+          "name": "Get Account Details",
+          "request": {
+            "name": "Get Account Details",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "accounts",
+                ":accountId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountId",
+                  "description": "(Required) ID of the desired account (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "ecbda3fe-d640-47e5-b1d6-f7e1e591a87e",
+              "name": "Account detail.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "accounts",
+                    ":accountId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountId",
+                      "description": "(Required) ID of the desired account (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"96063dc0-5837-c0ad-b408-5f8f738a156a\",\n  \"name\": \"string\",\n  \"numbers\": {\n    \"masked\": \"string\"\n  },\n  \"accountType\": \"Deposit\",\n  \"accountStatus\": \"Active\",\n  \"balance\": 3979.062491955968,\n  \"availableBalance\": 7355.37329933606,\n  \"fetchedDate\": \"2025-04-18T22:09:44.650Z\",\n  \"institution\": {\n    \"id\": \"d4351c93-a077-0348-9352-0be9b8cf950f\",\n    \"name\": \"string\"\n  },\n  \"canCreatePayments\": false,\n  \"canTransferFrom\": false,\n  \"hidden\": true,\n  \"regD\": {\n    \"limit\": 8511,\n    \"used\": 9468\n  },\n  \"formattedMetaData\": [\n    {\n      \"label\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"label\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "32500576-351b-4520-b8d5-4d76099b5232",
+      "name": "Transactions",
+      "description": {
+        "content": "Posted and pending transactions per account.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f4b6b892-fb3f-4512-8732-c8744f1672a6",
+          "name": "List Account Transactions",
+          "request": {
+            "name": "List Account Transactions",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "accounts",
+                ":accountId",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountId",
+                  "description": "(Required) ID of the desired account (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f235c061-19b9-47c6-82a6-d89efe2a489a",
+              "name": "Paged list of transactions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "accounts",
+                    ":accountId",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountId",
+                      "description": "(Required) ID of the desired account (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactions\": [\n    {\n      \"id\": \"396836a8-6f29-f076-87ee-2ea9bffd47fd\",\n      \"amount\": 5189.087617033749,\n      \"date\": \"2009-09-03\",\n      \"postedDate\": \"2017-07-26\",\n      \"type\": \"Interest\",\n      \"status\": \"Pending\",\n      \"description\": \"string\",\n      \"memo\": \"string\",\n      \"merchant\": {\n        \"name\": \"string\",\n        \"category\": \"string\",\n        \"logo\": \"http://dEWBAXIdgtZH.vltpE5s8liwUX23C-zA.tSRDm-bPImG\"\n      },\n      \"runningBalance\": 5697.963025553253,\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"pending\": false,\n      \"notes\": \"string\",\n      \"enrichments\": {\n        \"key_0\": true,\n        \"key_1\": true\n      }\n    },\n    {\n      \"id\": \"e529662d-86e7-7d1b-c549-ca1d7fa1ca8c\",\n      \"amount\": 9887.45765574722,\n      \"date\": \"2020-10-23\",\n      \"postedDate\": \"1951-02-03\",\n      \"type\": \"Transfer\",\n      \"status\": \"Posted\",\n      \"description\": \"string\",\n      \"memo\": \"string\",\n      \"merchant\": {\n        \"name\": \"string\",\n        \"category\": \"string\",\n        \"logo\": \"https://MJZxrnPLrHXLL.gugcLQMDHIZV1ZFuUeKF6i9sreJVTVsJCRgc\"\n      },\n      \"runningBalance\": 6630.348905145419,\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"pending\": true,\n      \"notes\": \"string\",\n      \"enrichments\": {\n        \"key_0\": 5840.564224085954,\n        \"key_1\": true\n      }\n    }\n  ],\n  \"nextCursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51425004-ec4a-40fd-a8a6-5ac7dd24cc61",
+          "name": "Get Transaction Details",
+          "request": {
+            "name": "Get Transaction Details",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "accounts",
+                ":accountId",
+                "transactions",
+                ":transactionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountId",
+                  "description": "(Required) ID of the desired account (UUID format)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "transactionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "a44137a7-ef89-4fc1-aa91-479b1c533929",
+              "name": "Transaction detail. Returns a user's account's transaction in greater detail.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "accounts",
+                    ":accountId",
+                    "transactions",
+                    ":transactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountId",
+                      "description": "(Required) ID of the desired account (UUID format)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "transactionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"0bd664f1-e794-00c0-0db9-8b5f23644fc3\",\n  \"amount\": 567.4718821107372,\n  \"date\": \"1962-06-26\",\n  \"postedDate\": \"2019-10-08\",\n  \"type\": \"Debit\",\n  \"status\": \"Posted\",\n  \"description\": \"string\",\n  \"memo\": \"string\",\n  \"merchant\": {\n    \"name\": \"string\",\n    \"category\": \"string\",\n    \"logo\": \"https://oxYPVeTGOwcgw.gwePBzttWbPw5\"\n  },\n  \"runningBalance\": 9003.549091494237,\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"pending\": true,\n  \"notes\": \"string\",\n  \"enrichments\": {\n    \"key_0\": \"string\",\n    \"key_1\": false,\n    \"key_2\": 6674\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b1625c55-f5bc-40dc-8efa-9320f5272471",
+      "name": "Transfers",
+      "description": {
+        "content": "Account-to-account and external transfers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "850d23a8-e9dc-49fc-b60b-426eb88d7851",
+          "name": "List Transfers",
+          "request": {
+            "name": "List Transfers",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "d7b07658-c1cd-4330-8e22-0d3ee2cd7f40",
+              "name": "Scheduled and historical transfers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transfers\": [\n    {\n      \"id\": \"b74c392f-2df0-9c61-cb5e-7776e90bb151\",\n      \"fromAccountId\": \"0fe3e2ab-423a-5cc2-f960-c00093297f56\",\n      \"toAccountId\": \"5b798dbc-d917-b5c9-c6ed-4f8e9444d387\",\n      \"amount\": 6803.930165221494,\n      \"scheduledDate\": \"1960-11-27\",\n      \"frequency\": \"OneTime\",\n      \"status\": \"Failed\",\n      \"memo\": \"string\"\n    },\n    {\n      \"id\": \"daa9a8ec-e835-b0a7-28e2-2f8aa0c23ba9\",\n      \"fromAccountId\": \"d3878f6a-5a1c-5707-d6a4-41f1b0df7f1c\",\n      \"toAccountId\": \"6b28a930-5f64-b1e3-dcf2-51725fc01deb\",\n      \"amount\": 6785.469634922619,\n      \"scheduledDate\": \"1959-03-25\",\n      \"frequency\": \"BiWeekly\",\n      \"status\": \"Complete\",\n      \"memo\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7229c0d-22a7-4a98-b31d-2d5fdbe8cf9f",
+          "name": "Create Transfer",
+          "request": {
+            "name": "Create Transfer",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fromAccountId\": \"<uuid>\",\n  \"toAccountId\": \"<uuid>\",\n  \"amount\": \"<double>\",\n  \"scheduledDate\": \"<date>\",\n  \"frequency\": \"<string>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7b4efb6f-e6c3-403b-9457-6aead2e44df5",
+              "name": "Transfer created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromAccountId\": \"<uuid>\",\n  \"toAccountId\": \"<uuid>\",\n  \"amount\": \"<double>\",\n  \"scheduledDate\": \"<date>\",\n  \"frequency\": \"<string>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"5cef5662-5e0d-7fc1-9ea5-3d74df612bc0\",\n  \"fromAccountId\": \"a99cd730-e320-8282-b494-a69d92136d60\",\n  \"toAccountId\": \"9e1cec88-2ce5-fa24-31a4-ceff89a66af5\",\n  \"amount\": 7696.915896397607,\n  \"scheduledDate\": \"2014-04-27\",\n  \"frequency\": \"BiWeekly\",\n  \"status\": \"Cancelled\",\n  \"memo\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5764088d-463b-4881-8398-41732e67c974",
+      "name": "Bill Pay",
+      "description": {
+        "content": "Bill-payment payees and payments.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d21aef54-94f1-4dff-8840-2a2148500f31",
+          "name": "List Bill Pay Payees",
+          "request": {
+            "name": "List Bill Pay Payees",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "bill-pay",
+                "payees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "0d9bf839-7e33-4c9e-86e8-6d2151b2bda8",
+              "name": "Payees.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "bill-pay",
+                    "payees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payees\": [\n    {\n      \"id\": \"46d3ffb1-09f8-c3c4-c771-5ac760a9ca32\",\n      \"name\": \"string\",\n      \"nickname\": \"string\",\n      \"accountNumber\": \"string\",\n      \"address\": {\n        \"line1\": \"string\",\n        \"line2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\"\n      },\n      \"deliveryMethod\": \"Electronic\"\n    },\n    {\n      \"id\": \"d252ba7a-79cb-4d2d-22ae-40f85e66efe3\",\n      \"name\": \"string\",\n      \"nickname\": \"string\",\n      \"accountNumber\": \"string\",\n      \"address\": {\n        \"line1\": \"string\",\n        \"line2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\"\n      },\n      \"deliveryMethod\": \"Electronic\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b15104f-78c1-4356-9acf-2247e143c872",
+          "name": "Create Bill Pay Payment",
+          "request": {
+            "name": "Create Bill Pay Payment",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "bill-pay",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payeeId\": \"<uuid>\",\n  \"fromAccountId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"scheduledDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "15d7a715-fda3-4519-aede-10be19f85fd4",
+              "name": "Bill-pay payment scheduled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "bill-pay",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payeeId\": \"<uuid>\",\n  \"fromAccountId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"scheduledDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"fa154fdf-31b4-295b-e010-144f802ccfc2\",\n  \"payeeId\": \"c871c616-6a44-478e-6989-8b7eca14c4ff\",\n  \"fromAccountId\": \"a4fcf174-c28a-959b-1624-c03ed90d30db\",\n  \"amount\": 7784.398042890221,\n  \"scheduledDate\": \"1999-11-12\",\n  \"status\": \"Processing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "efae142c-87f7-459e-89f8-96bbfc075b0f",
+      "name": "ACH",
+      "description": {
+        "content": "ACH origination and history.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "18c6d0a0-7c4b-4c0e-89d1-2cd2705c7dcd",
+      "name": "Wire Transfers",
+      "description": {
+        "content": "Outbound wire requests.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6154622a-783f-4507-abcd-c9add54e1115",
+          "name": "Create Wire Transfer",
+          "request": {
+            "name": "Create Wire Transfer",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "wire-transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fromAccountId\": \"<uuid>\",\n  \"beneficiaryName\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"beneficiaryBankRoutingNumber\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"currency\": \"USD\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9f2a7772-fb9c-45a7-8c54-a36faf1a8268",
+              "name": "Wire submitted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "wire-transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromAccountId\": \"<uuid>\",\n  \"beneficiaryName\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"beneficiaryBankRoutingNumber\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"currency\": \"USD\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"bd444c0e-f89b-17fc-d737-4179cf23d884\",\n  \"fromAccountId\": \"0e368f1d-61e2-c2e6-5de8-318384192a84\",\n  \"beneficiaryName\": \"string\",\n  \"beneficiaryAccountNumber\": \"string\",\n  \"beneficiaryBankRoutingNumber\": \"string\",\n  \"amount\": 1588.273590382542,\n  \"currency\": \"string\",\n  \"status\": \"Failed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "48c1e462-abe1-4ad6-b203-1cb1a44c6699",
+      "name": "Zelle",
+      "description": {
+        "content": "Zelle peer-to-peer payments.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "017c3ee6-6a8f-44d5-ba60-71b208b68f10",
+          "name": "Send Zelle Payment",
+          "request": {
+            "name": "Send Zelle Payment",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "zelle",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fromAccountId\": \"<uuid>\",\n  \"recipientToken\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63494452-ad9f-4f14-96a5-28ff11809a8a",
+              "name": "Zelle payment submitted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "zelle",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromAccountId\": \"<uuid>\",\n  \"recipientToken\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"b4689fff-1bed-54a5-afe5-e927d74a541b\",\n  \"fromAccountId\": \"bc9da170-97aa-22e0-1cc8-b3c16133b8c1\",\n  \"recipientToken\": \"string\",\n  \"amount\": 8898.389000250556,\n  \"memo\": \"string\",\n  \"status\": \"Failed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8937a5c6-88e5-41f9-84a5-e67d184dcdbe",
+      "name": "Cards",
+      "description": {
+        "content": "Debit and credit card management.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "998f5647-308b-4c95-839d-265e6b6c78d1",
+          "name": "List Cards",
+          "request": {
+            "name": "List Cards",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "cards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "db0ed86e-c0f6-4bfc-af7a-038e824e5d99",
+              "name": "Cards linked to the user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "cards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cards\": [\n    {\n      \"id\": \"a35fad34-f66c-419e-baa0-734f50fa6456\",\n      \"last4\": \"string\",\n      \"cardType\": \"Debit\",\n      \"status\": \"Active\",\n      \"expirationDate\": \"09/39\",\n      \"nameOnCard\": \"string\"\n    },\n    {\n      \"id\": \"fbf8844a-6c5a-2fec-32d2-da948ca94d4a\",\n      \"last4\": \"string\",\n      \"cardType\": \"Credit\",\n      \"status\": \"Active\",\n      \"expirationDate\": \"69/00\",\n      \"nameOnCard\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ebc91a60-4865-4102-b773-8fb1ebcec474",
+      "name": "Alerts",
+      "description": {
+        "content": "Account and security alerts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "672be207-abad-4a2c-a9be-60260d9dab01",
+          "name": "List Alerts",
+          "request": {
+            "name": "List Alerts",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "alerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "dd9adcf4-3020-410e-8728-4c785552f700",
+              "name": "Alerts configured by the user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"id\": \"f12cfad4-7c30-f03a-6eb9-57818bbb5aa4\",\n      \"type\": \"LoginActivity\",\n      \"channels\": [\n        \"Push\",\n        \"InApp\"\n      ],\n      \"threshold\": 394.61219174645737,\n      \"enabled\": true\n    },\n    {\n      \"id\": \"bd53639c-ea51-2010-3488-722a0090c240\",\n      \"type\": \"CardActivity\",\n      \"channels\": [\n        \"SMS\",\n        \"Push\"\n      ],\n      \"threshold\": 6440.934300902551,\n      \"enabled\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d3a27d3f-1c65-475a-a423-a1fb66de1e76",
+      "name": "Messages",
+      "description": {
+        "content": "Two-way secure messaging with the institution.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "350ef95e-f557-40f5-acac-3ee506bf8229",
+          "name": "List Messages",
+          "request": {
+            "name": "List Messages",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "107e2186-f0e2-4298-9f7e-bf1b78e57170",
+              "name": "Secure-message threads.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"id\": \"2018737b-2214-5c54-3c43-2c221450467a\",\n      \"subject\": \"string\",\n      \"body\": \"string\",\n      \"sentDate\": \"1982-02-14T22:38:34.109Z\",\n      \"read\": false,\n      \"author\": {\n        \"id\": \"99388e13-c222-f9c0-1480-f7a907884ad0\",\n        \"type\": \"Institution\"\n      }\n    },\n    {\n      \"id\": \"13db1447-3844-fa43-5041-d2e405a83d05\",\n      \"subject\": \"string\",\n      \"body\": \"string\",\n      \"sentDate\": \"1964-05-09T16:49:08.265Z\",\n      \"read\": false,\n      \"author\": {\n        \"id\": \"870dcfd0-0735-4e57-8149-e1b85d846b76\",\n        \"type\": \"User\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ef5a8c4c-40d7-4d8a-ab56-17d2c752c995",
+      "name": "Documents And Statements",
+      "description": {
+        "content": "Statement and document delivery.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "29a12394-b42e-430e-a6ba-91fcbd351f7c",
+      "name": "Institutions",
+      "description": {
+        "content": "Public institution profile lookup.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "13872d83-6d11-45ea-9cef-a73fd3f23f86",
+          "name": "Get Institution",
+          "request": {
+            "name": "Get Institution",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "423a443d-0cdf-4ec4-9d7e-b935ddeed5c9",
+              "name": "Institution profile.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"9973300f-742b-4fef-5737-95316c966722\",\n  \"name\": \"string\",\n  \"routingNumber\": \"string\",\n  \"primaryWebsiteUrl\": \"https://AnzLHhGyEZmoh.zpsicRN4QfgJRGdk0pqR7hN\",\n  \"logoUrl\": \"http://s.xjlKgmufJbvb2pwbv9fdIYy.mES6KUXgtYXLO0wvqWwhzDjPJk\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e043bd39-032b-471e-859f-2916a6be6e3f",
+      "name": "Routing Numbers",
+      "description": {
+        "content": "Routing number validation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9ac56d98-f554-45ea-adc7-690ce92bd75a",
+          "name": "Lookup Routing Number",
+          "request": {
+            "name": "Lookup Routing Number",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "routing-numbers",
+                ":routingNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "routingNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d5493f5-ad50-45fc-ad86-c9138337d935",
+              "name": "Routing-number metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "routing-numbers",
+                    ":routingNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routingNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"routingNumber\": \"string\",\n  \"institutionName\": \"string\",\n  \"institutionAddress\": \"string\",\n  \"valid\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ab72fdb5-44cc-4495-ab5b-40c4d93dd30c",
+    "name": "Banno Consumer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Build apps and services using the same Consumer API that powers Banno\nMobile and Online. OAuth 2.0 / OpenID Connect protects every endpoint;\nscopes are enforced per resource (e.g. `user.profile.readonly`,\n`transactions.detail.readonly`). All endpoints are scoped under\n`/a/consumer/api/v0` and operate within the context of a `userId`.\n\nResource groups documented at\nhttps://banno.github.io/open-api-docs/consumer-api/api-reference/v0/\ninclude: Abilities, Account Aggregation, Accounts, ACH, Alerts,\nBill Pay, Cards, Documents and Statements, Forms, Institutions,\nMessages, OAuth and OpenID Connect, Positive Pay, Routing Numbers,\nTask Events, Transactions, Transfers, User, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

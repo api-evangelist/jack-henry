@@ -1,0 +1,1719 @@
+{
+  "item": [
+    {
+      "id": "2f18e3ae-01c7-4549-bd3c-5aa8ed621d36",
+      "name": "Abilities",
+      "description": {
+        "content": "Institution feature-flag map.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a010855-18ac-47d7-98d3-fe548d66ed23",
+          "name": "Lookup Institution Abilities",
+          "request": {
+            "name": "Lookup Institution Abilities",
+            "description": {
+              "content": "Lookup the abilities for the given institution.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "abilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "acdf955b-7c56-49cc-a332-6914fb714434",
+              "name": "Map of ability names to JSON values.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "abilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bill_pay\": true,\n  \"zelle_enabled\": true,\n  \"export_transactions_enabled\": true,\n  \"rdc_consumer_daily_limit\": 5000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5b00188a-b71c-42dc-8489-76d48fb16125",
+      "name": "Consumers",
+      "description": {
+        "content": "Consumer account administration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cce46f64-99d3-4b59-b1e9-1a7e7f8704cd",
+          "name": "List Consumers",
+          "request": {
+            "name": "List Consumers",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "consumers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "226806a6-e812-46c6-add1-db2352ef337e",
+              "name": "Paged consumer list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "consumers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"consumers\": [\n    {\n      \"id\": \"59613627-f893-5e86-a671-7cdb8bc760de\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"email\": \"Ql-GwG8TnHaVhps@osiGjJZj.yc\",\n      \"phone\": \"string\",\n      \"status\": \"Locked\",\n      \"enrolledDate\": \"1960-03-30T05:33:21.240Z\"\n    },\n    {\n      \"id\": \"389d8353-ccfd-3d71-8a08-a6ecda138e9b\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"email\": \"APcs7wI@HBC.gk\",\n      \"phone\": \"string\",\n      \"status\": \"Suspended\",\n      \"enrolledDate\": \"2004-03-18T15:27:56.291Z\"\n    }\n  ],\n  \"nextCursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "194f5f50-6bb5-4181-bedf-674d4201005a",
+          "name": "Get Consumer",
+          "request": {
+            "name": "Get Consumer",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "consumers",
+                ":consumerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "consumerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b083f515-2448-4be4-843b-d1ec7c3bfe67",
+              "name": "Consumer profile.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "consumers",
+                    ":consumerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "consumerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"281e35a1-492f-1736-ddb2-3ebbc8845115\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"email\": \"4pvb6Rmnv@fPWoVVmBLSIUIKVvm.nvz\",\n  \"phone\": \"string\",\n  \"status\": \"Deleted\",\n  \"enrolledDate\": \"1990-10-23T11:07:59.900Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40c671e8-1ac1-4855-8e8d-346e7628a5f0",
+          "name": "Update Consumer Contact Info",
+          "request": {
+            "name": "Update Consumer Contact Info",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "consumers",
+                ":consumerId",
+                "contact-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "consumerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a4f475a-1cb2-464a-b8a2-d7803483a682",
+              "name": "Updated contact info.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "consumers",
+                    ":consumerId",
+                    "contact-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "consumerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6e6ecae7-60d0-4731-acbd-a1b0d264009d",
+      "name": "Accounts",
+      "description": {
+        "content": "Account administration across consumers.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "576e5f08-d27e-4bf1-a4f6-37a579c48dbd",
+      "name": "Plugin Management",
+      "description": {
+        "content": "Configure external applications and plugins.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c7a285d-c796-406c-801c-ac47e873741c",
+          "name": "List Plugins",
+          "request": {
+            "name": "List Plugins",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "plugins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e524b61-b0ce-4fa8-85f1-47857ce49567",
+              "name": "Plugins configured for the institution.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"plugins\": [\n    {\n      \"id\": \"69845c6b-a196-761b-5605-318a70f8275e\",\n      \"name\": \"string\",\n      \"externalApplicationId\": \"bf7ec99e-700d-cc62-4344-1e351d103e25\",\n      \"pluginUrl\": \"https://rTFmccnVVkIuKSXVIPSIR.ofJxlc.EKCCaHbKH6VkeYrpuk1wKVunffN.7U+cC6iO\",\n      \"cardConfig\": {\n        \"key_0\": \"string\",\n        \"key_1\": true\n      },\n      \"enabled\": true,\n      \"segmentIds\": [\n        \"8bdcf894-b211-7208-4aa7-1d266226649e\",\n        \"3ad2af69-3ff5-9be7-a96d-7ac1f1b124f8\"\n      ]\n    },\n    {\n      \"id\": \"52d3cc90-8d61-2096-20a0-8d5345d7bdb6\",\n      \"name\": \"string\",\n      \"externalApplicationId\": \"7e351aa5-3253-7e3a-9775-777f0c95122b\",\n      \"pluginUrl\": \"https://rCVkUFZGdIGJISA.kgcqHhOZGR8bIiru3JEH7Kswu+22LKCmQzVByixUZGIvX-tRCPMlFX0D9G-+eqtcLV9,\",\n      \"cardConfig\": {\n        \"key_0\": true\n      },\n      \"enabled\": true,\n      \"segmentIds\": [\n        \"31e9b3fc-1b68-6a1e-65ad-85c9b3d4a040\",\n        \"ae1e5734-d07e-bbd9-cf9f-a8f927a0fdd3\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1557c11e-0baf-4460-a680-53497baca240",
+          "name": "Update Plugin Configuration",
+          "request": {
+            "name": "Update Plugin Configuration",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "plugins",
+                ":pluginId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pluginId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"externalApplicationId\": \"<uuid>\",\n  \"pluginUrl\": \"<uri>\",\n  \"cardConfig\": {\n    \"key_0\": 2258\n  },\n  \"enabled\": \"<boolean>\",\n  \"segmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57adfcc1-e57b-4379-9774-6dc43bca1c67",
+              "name": "Plugin updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "plugins",
+                    ":pluginId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pluginId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"externalApplicationId\": \"<uuid>\",\n  \"pluginUrl\": \"<uri>\",\n  \"cardConfig\": {\n    \"key_0\": 1877,\n    \"key_1\": 6588.554590173458,\n    \"key_2\": false,\n    \"key_3\": true\n  },\n  \"enabled\": \"<boolean>\",\n  \"segmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"externalApplicationId\": \"<uuid>\",\n  \"pluginUrl\": \"<uri>\",\n  \"cardConfig\": {\n    \"key_0\": 1877,\n    \"key_1\": 6588.554590173458,\n    \"key_2\": false,\n    \"key_3\": true\n  },\n  \"enabled\": \"<boolean>\",\n  \"segmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c0c37af7-85cb-4fcc-b947-975e710a9f43",
+      "name": "Reports",
+      "description": {
+        "content": "Operational and audit reports.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "109e4770-b049-4731-8304-64bb6af8fad6",
+          "name": "List Reports",
+          "request": {
+            "name": "List Reports",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5563f685-22c9-49cc-9826-0273e4464bf0",
+              "name": "Available reports.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reports\": [\n    {\n      \"id\": \"fa2d808b-5650-5bfb-4e10-5dc85708c7ab\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"url\": \"https://rDyrjKZqEhMUZjr.ivIWu1xQvdjGD5\",\n      \"generatedDate\": \"2003-04-27T03:39:09.718Z\"\n    },\n    {\n      \"id\": \"ed7ff913-e1ca-8bbd-a5f3-44078d5ef1e6\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"url\": \"http://kaohN.gdIBf3hqRvKalANzSSB,agibedNt,XISbXKXPBItEFn3J53cPPSfU2ju.WzFq\",\n      \"generatedDate\": \"1988-09-04T20:51:09.587Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3f05580d-b643-4f0a-a899-736a843f5926",
+      "name": "Segments",
+      "description": {
+        "content": "User segments for targeted experiences.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07870da2-641b-430f-868c-675668bdc614",
+          "name": "List Segments",
+          "request": {
+            "name": "List Segments",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "segments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e1b631c-1a62-491f-8e2a-49a49cb51013",
+              "name": "Segments configured for the institution.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "segments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"segments\": [\n    {\n      \"id\": \"fb834e2c-2b31-e189-7967-4f88474a3b0b\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"criteria\": {\n        \"key_0\": \"string\",\n        \"key_1\": 5910\n      }\n    },\n    {\n      \"id\": \"0ed5e4cb-c162-851b-9399-254e08132b07\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"criteria\": {\n        \"key_0\": false,\n        \"key_1\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7228ce7f-0d12-470c-9b68-c408564c3259",
+          "name": "Create Segment",
+          "request": {
+            "name": "Create Segment",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "segments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"criteria\": {\n    \"key_0\": 6267.652697907047,\n    \"key_1\": true\n  },\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ee9348de-c41c-4005-bbbd-9d3918970e2e",
+              "name": "Segment created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "segments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"criteria\": {\n    \"key_0\": 1775\n  },\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"42d8885b-56a5-2a47-e861-4552eb83deda\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"criteria\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ec2a1b42-b179-4fa8-8468-853282e78be4",
+      "name": "Marketing Ads",
+      "description": {
+        "content": "Configure marketing/ad cards in the dashboard.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7c2623a7-e868-43aa-acb0-cea561fb2a1f",
+          "name": "List Marketing Ads",
+          "request": {
+            "name": "List Marketing Ads",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "ads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "474cb7ad-16f3-4756-8539-75b266c9dbfa",
+              "name": "Configured ads.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "ads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ads\": [\n    {\n      \"id\": \"08a0b53b-5a5c-009f-4839-1446492bd285\",\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"imageUrl\": \"http://PXDu.akKCIgUtWhSKMRjJmAU+aJ-w8EPH-t6ofKzGbL9GYf9g1Q,qBZwpt9Kr3-\",\n      \"targetUrl\": \"http://cmiZlU.hutJBpZnMXTVr5uNQCpaPY6p\",\n      \"segmentIds\": [\n        \"d58bd693-3c51-155f-8b7f-037449e19109\",\n        \"f1274889-e232-2554-de02-fdfc3eda7e67\"\n      ],\n      \"startDate\": \"1966-05-03\",\n      \"endDate\": \"2015-06-12\",\n      \"active\": false\n    },\n    {\n      \"id\": \"2462d591-7e6a-1991-6155-5f6f0cac2420\",\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"imageUrl\": \"https://DWDTGPpIIw.gjjkPnRYSp6wl,yOBsdNaBxl50A4EeA2OQ0V8BSo,WnicdgfY,7SuxM0lEK7oNlxovJ\",\n      \"targetUrl\": \"http://NUAbeJTm.kojcgrrBLubs-Jo7Ap8RD\",\n      \"segmentIds\": [\n        \"781e6141-8781-ca64-1888-fee273963bf8\",\n        \"d57366b8-fbea-1b2d-6a85-414c19a0aa3e\"\n      ],\n      \"startDate\": \"1951-10-11\",\n      \"endDate\": \"1959-01-26\",\n      \"active\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c47a251-6f79-4f1b-9bc4-1019abb5cc4a",
+          "name": "Create Marketing Ad",
+          "request": {
+            "name": "Create Marketing Ad",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "ads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"imageUrl\": \"<uri>\",\n  \"targetUrl\": \"<uri>\",\n  \"segmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "36eb9526-4063-460a-98b7-fdbb85cdc3af",
+              "name": "Ad created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "ads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"imageUrl\": \"<uri>\",\n  \"targetUrl\": \"<uri>\",\n  \"segmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"39fe4349-2073-74a8-243d-872aada442bc\",\n  \"title\": \"string\",\n  \"body\": \"string\",\n  \"imageUrl\": \"https://GTXMQwwbWWeqVDeiRxywBSasmob.loSWkxnaUPqSEwI50YrqG8pSC3rPUpGx2TZMO.+H+XC3VlktBxP0hXeS5\",\n  \"targetUrl\": \"http://ACnsahovCVfbAkrICuLVyDppyy.urtP5chnqxfX7wB4H1c7lciEzE,TAAyBfll3R8vOaB\",\n  \"segmentIds\": [\n    \"982824d5-16c0-5415-0417-460c03da4d6b\",\n    \"fb2ecca1-fbb6-5a8e-f3e6-e1c4a5d0c6ff\"\n  ],\n  \"startDate\": \"2006-09-02\",\n  \"endDate\": \"1960-10-03\",\n  \"active\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9754f1da-4425-4909-bf5e-969d654430c9",
+      "name": "High Risk Actions",
+      "description": {
+        "content": "Sensitive operations requiring elevated authorization.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "68b9eb35-76fb-41e0-979e-096b4411565a",
+          "name": "List High Risk Actions",
+          "request": {
+            "name": "List High Risk Actions",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "high-risk-actions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11068bac-2255-4a24-8b7b-51cc24f25fa9",
+              "name": "High-risk action events for review.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "high-risk-actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actions\": [\n    {\n      \"id\": \"acc3b7de-ba24-5b45-2a91-5adfb81ef22e\",\n      \"actionType\": \"string\",\n      \"consumerId\": \"460038d5-086a-f52d-dfc3-620777ab41ee\",\n      \"timestamp\": \"1992-01-21T02:02:42.461Z\",\n      \"status\": \"Pending\"\n    },\n    {\n      \"id\": \"1ab391b6-b2d1-6ca6-0402-b4f3330ac1c9\",\n      \"actionType\": \"string\",\n      \"consumerId\": \"5fe23e99-cd43-c29e-153a-0d0b61f725d0\",\n      \"timestamp\": \"1979-08-03T08:55:00.142Z\",\n      \"status\": \"Expired\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "844f8246-8940-4c43-9323-4b38b57b4ff0",
+      "name": "History",
+      "description": {
+        "content": "Audit and activity history.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e985c82c-a12b-4e62-be68-13c58164748c",
+          "name": "List History Events",
+          "request": {
+            "name": "List History Events",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "actor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "489645e2-5280-4413-a0cf-b13fd94cf225",
+              "name": "Audit history.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"events\": [\n    {\n      \"id\": \"1bc2f86d-9795-d4b2-0ccc-f88d91060815\",\n      \"actorId\": \"82b60d00-10ea-bd84-19fb-d49a9c1df713\",\n      \"actorType\": \"System\",\n      \"action\": \"string\",\n      \"targetId\": \"string\",\n      \"timestamp\": \"1965-06-04T13:11:29.336Z\",\n      \"metadata\": {\n        \"key_0\": true\n      }\n    },\n    {\n      \"id\": \"9438143a-2f07-469c-d46e-0dfc40260e61\",\n      \"actorId\": \"93c1d8d9-40dd-cdae-306e-aa48c8f86aa3\",\n      \"actorType\": \"Consumer\",\n      \"action\": \"string\",\n      \"targetId\": \"string\",\n      \"timestamp\": \"1999-05-14T19:41:51.911Z\",\n      \"metadata\": {\n        \"key_0\": 6768.784472749858,\n        \"key_1\": 7243.65552968519\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "356d042e-65e4-49ce-b34c-1188fa30907a",
+      "name": "Institution Offline Status",
+      "description": {
+        "content": "Drive scheduled or emergency offline modes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4d6a3abc-17b0-4333-a69b-e6573e77dea7",
+          "name": "Set Institution Offline Status",
+          "request": {
+            "name": "Set Institution Offline Status",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "offline-mode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offline\": \"<boolean>\",\n  \"scheduledStart\": \"<dateTime>\",\n  \"scheduledEnd\": \"<dateTime>\",\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fdf3e737-0757-44cc-8c51-94b4cfb26ec4",
+              "name": "Offline status updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "offline-mode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offline\": \"<boolean>\",\n  \"scheduledStart\": \"<dateTime>\",\n  \"scheduledEnd\": \"<dateTime>\",\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"offline\": \"<boolean>\",\n  \"scheduledStart\": \"<dateTime>\",\n  \"scheduledEnd\": \"<dateTime>\",\n  \"message\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8f778e81-a92a-450a-9e47-59ad96eeae15",
+      "name": "Forms",
+      "description": {
+        "content": "Configurable forms used inside the experience.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "ce7402b7-1fb8-464e-87d3-a64d81bf0a32",
+      "name": "Documents",
+      "description": {
+        "content": "Document delivery configuration.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "6e726c0f-4190-4c97-b6b2-f6367bd889c3",
+      "name": "Messages",
+      "description": {
+        "content": "Two-way secure messaging on the institution side.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "7d7fa9f0-bb80-41a7-975e-215b3f0ea4fc",
+      "name": "ACH",
+      "description": {
+        "content": "ACH origination administration.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "be80657a-0c6a-4783-bbd6-f1b000bc78db",
+      "name": "Wire Transfers",
+      "description": {
+        "content": "Wire-transfer administration.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "be8834b0-34aa-424b-82e1-a1723fec0bc4",
+      "name": "Zelle",
+      "description": {
+        "content": "Zelle-network administration.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "0d0dd38d-9f6c-46c4-9a12-7a502f5d6b0c",
+      "name": "Remote Deposit Capture",
+      "description": {
+        "content": "RDC administration.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e4c3d61e-1144-49c4-b3ae-e41cee914c17",
+    "name": "Banno Admin API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
