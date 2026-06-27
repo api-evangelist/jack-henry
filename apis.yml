@@ -37,7 +37,7 @@ specificationVersion: '0.18'
 type: Index
 
 common:
-  - type: Homepage
+  - type: Website
     url: https://www.jackhenry.com/
   - type: DeveloperPortal
     url: https://jackhenry.dev/
@@ -108,7 +108,7 @@ apis:
         url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
       - type: Authentication
         url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
-      - type: Quickstart
+      - type: GettingStarted
         url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
       - type: SampleApp
         url: https://github.com/Banno/consumer-api-openid-connect-example
@@ -171,7 +171,7 @@ apis:
         url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
       - type: Tutorial
         url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
-      - type: SDK
+      - type: SDKs
         url: https://github.com/Banno/banno-plugin-framework-bridge
       - type: SampleApp
         url: https://github.com/Banno/simple-plugin-example
@@ -295,7 +295,7 @@ apis:
     properties:
       - type: Documentation
         url: https://jackhenry.dev/symxchange-api-docs/
-      - type: SDK
+      - type: SDKs
         url: https://github.com/Banno/banno-powerons
 
   - name: Operational Data Integration (ODI)
