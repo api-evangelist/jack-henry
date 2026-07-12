@@ -1,0 +1,33 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.jackhenry.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 16 01:03:39 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: jackhenry.dev
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 31 11:46:25 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: api.banno.com
+  https: true
+  tls_cert_error: '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has
+    expired (_ssl.c:1082)'
+  hsts: null
+domains:
+- domain: jackhenry.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: jackhenry.dev
+  dnssec: true
+  caa: []
+  spf: false
+  dmarc: false

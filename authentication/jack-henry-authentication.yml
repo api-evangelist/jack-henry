@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/banno-admin-api-openapi.yml, openapi/banno-authentication-framework-openapi.yml,
+  openapi/banno-consumer-api-openapi.yml, openapi/jack-henry-payments-openapi.yml, openapi/jxchange-rest-openapi.yml
+summary:
+  types:
+  - http
+  - openIdConnect
+schemes:
+- name: openIdConnect
+  type: openIdConnect
+  openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration
+  sources:
+  - openapi/banno-admin-api-openapi.yml
+  - openapi/banno-consumer-api-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/banno-authentication-framework-openapi.yml
+  - openapi/jack-henry-payments-openapi.yml
+  - openapi/jxchange-rest-openapi.yml

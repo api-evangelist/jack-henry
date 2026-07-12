@@ -37,6 +37,10 @@ specificationVersion: '0.18'
 type: Index
 
 common:
+  - type: DomainSecurity
+    url: security/jack-henry-domain-security.yml
+  - type: Authentication
+    url: authentication/jack-henry-authentication.yml
   - type: Website
     url: https://www.jackhenry.com/
   - type: DeveloperPortal
