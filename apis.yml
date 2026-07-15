@@ -37,6 +37,8 @@ specificationVersion: '0.18'
 type: Index
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/jack-henry-agentic-access.yml
   - type: DomainSecurity
     url: security/jack-henry-domain-security.yml
   - type: Authentication

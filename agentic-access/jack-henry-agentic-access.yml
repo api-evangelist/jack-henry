@@ -1,0 +1,705 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/banno-admin-api-openapi.yml, openapi/banno-authentication-framework-openapi.yml,
+  openapi/banno-consumer-api-openapi.yml, openapi/banno-plugin-framework-openapi.yml, openapi/jack-henry-payments-openapi.yml,
+  openapi/jxchange-rest-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 52
+  by_action_class:
+    connected: 33
+    acting: 19
+  by_consequence:
+    read: 33
+    write: 7
+    physical: 12
+  human_in_the_loop_required: 0
+operations:
+- path: /a/mobile/api/v0/institutions/{institutionId}/abilities
+  method: get
+  operationId: getInstitutionAbilities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/mobile/api/v0/institutions/{institutionId}/consumers
+  method: get
+  operationId: listConsumers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/mobile/api/v0/institutions/{institutionId}/consumers/{consumerId}
+  method: get
+  operationId: getConsumer
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/mobile/api/v0/institutions/{institutionId}/consumers/{consumerId}/contact-info
+  method: put
+  operationId: updateContactInfo
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /a/mobile/api/v0/institutions/{institutionId}/segments
+  method: get
+  operationId: listSegments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/mobile/api/v0/institutions/{institutionId}/segments
+  method: post
+  operationId: createSegment
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /a/mobile/api/v0/institutions/{institutionId}/ads
+  method: get
+  operationId: listAds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/mobile/api/v0/institutions/{institutionId}/ads
+  method: post
+  operationId: createAd
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /a/mobile/api/v0/institutions/{institutionId}/plugins
+  method: get
+  operationId: listPlugins
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/mobile/api/v0/institutions/{institutionId}/plugins/{pluginId}
+  method: put
+  operationId: updatePlugin
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /a/mobile/api/v0/institutions/{institutionId}/reports
+  method: get
+  operationId: listReports
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/mobile/api/v0/institutions/{institutionId}/high-risk-actions
+  method: get
+  operationId: listHighRiskActions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/mobile/api/v0/institutions/{institutionId}/history
+  method: get
+  operationId: listHistory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/mobile/api/v0/institutions/{institutionId}/offline-mode
+  method: put
+  operationId: setOfflineMode
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /a/oidc/.well-known/openid-configuration
+  method: get
+  operationId: getDiscovery
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/oidc/.well-known/jwks.json
+  method: get
+  operationId: getJwks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/oidc/authorize
+  method: get
+  operationId: authorize
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/oidc/token
+  method: post
+  operationId: exchangeToken
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /a/oidc/userinfo
+  method: get
+  operationId: getUserInfo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/consumer/api/v0/users/{userId}
+  method: get
+  operationId: getUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - https://api.banno.com/consumer/auth/user.profile.readonly
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/consumer/api/v0/users/{userId}/accounts
+  method: get
+  operationId: listAccounts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - https://api.banno.com/consumer/auth/accounts.readonly
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/consumer/api/v0/users/{userId}/accounts/{accountId}
+  method: get
+  operationId: getAccount
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - https://api.banno.com/consumer/auth/accounts.detail.readonly
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/consumer/api/v0/users/{userId}/accounts/{accountId}/transactions
+  method: get
+  operationId: listTransactions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - https://api.banno.com/consumer/auth/transactions.readonly
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/consumer/api/v0/users/{userId}/accounts/{accountId}/transactions/{transactionId}
+  method: get
+  operationId: getTransaction
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - https://api.banno.com/consumer/auth/transactions.detail.readonly
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/consumer/api/v0/users/{userId}/transfers
+  method: get
+  operationId: listTransfers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - https://api.banno.com/consumer/auth/transfers.readonly
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/consumer/api/v0/users/{userId}/transfers
+  method: post
+  operationId: createTransfer
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - https://api.banno.com/consumer/auth/transfers.write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /a/consumer/api/v0/users/{userId}/bill-pay/payees
+  method: get
+  operationId: listPayees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - https://api.banno.com/consumer/auth/bill-pay.readonly
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/consumer/api/v0/users/{userId}/bill-pay/payments
+  method: post
+  operationId: createBillPayPayment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - https://api.banno.com/consumer/auth/bill-pay.write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /a/consumer/api/v0/users/{userId}/alerts
+  method: get
+  operationId: listAlerts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - https://api.banno.com/consumer/auth/alerts.readonly
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/consumer/api/v0/users/{userId}/cards
+  method: get
+  operationId: listCards
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - https://api.banno.com/consumer/auth/cards.readonly
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/consumer/api/v0/users/{userId}/messages
+  method: get
+  operationId: listMessages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - https://api.banno.com/consumer/auth/messages.readonly
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/consumer/api/v0/users/{userId}/wire-transfers
+  method: post
+  operationId: createWireTransfer
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - https://api.banno.com/consumer/auth/wire-transfers.write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /a/consumer/api/v0/users/{userId}/zelle/payments
+  method: post
+  operationId: sendZellePayment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - https://api.banno.com/consumer/auth/zelle.write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /a/consumer/api/v0/institutions/{institutionId}
+  method: get
+  operationId: getInstitution
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /a/consumer/api/v0/routing-numbers/{routingNumber}
+  method: get
+  operationId: lookupRoutingNumber
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /plugins/api/v0/plugins/{pluginId}/manifest
+  method: get
+  operationId: getPluginManifest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /plugins/api/v0/plugins/{pluginId}/bridge/token
+  method: post
+  operationId: exchangeBridgeToken
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /plugins/api/v0/context
+  method: get
+  operationId: getPluginUserContext
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payments/v1/ach/credits
+  method: post
+  operationId: originateAchCredit
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /payments/v1/ach/debits
+  method: post
+  operationId: originateAchDebit
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /payments/v1/wires
+  method: post
+  operationId: sendWire
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /payments/v1/bill-pay/payments
+  method: post
+  operationId: submitBillPayment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /payments/v1/rdc/deposits
+  method: post
+  operationId: submitRemoteDeposit
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /payments/v1/cards/authorizations
+  method: post
+  operationId: authorizeCard
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /payments/v1/p2p/transfers
+  method: post
+  operationId: sendP2P
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /payments/v1/orchestrator/payments
+  method: post
+  operationId: routePayment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /jxchange/v1/customers
+  method: get
+  operationId: searchCustomers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /jxchange/v1/customers/{customerId}
+  method: get
+  operationId: getCustomer
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /jxchange/v1/deposit-accounts/{accountNumber}
+  method: get
+  operationId: getDepositAccount
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /jxchange/v1/loan-accounts/{accountNumber}
+  method: get
+  operationId: getLoanAccount
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /jxchange/v1/accounts/{accountNumber}/transactions
+  method: get
+  operationId: listAccountTransactions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /jxchange/v1/general-ledger/{glAccountNumber}
+  method: get
+  operationId: getGlAccount
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
