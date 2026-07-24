@@ -1,0 +1,182 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Bill Pay API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Bill Pay
+  description: Bill-payment payees and payments.
+paths:
+  /a/consumer/api/v0/users/{userId}/bill-pay/payees:
+    get:
+      summary: List Bill Pay Payees
+      operationId: listPayees
+      tags:
+      - Bill Pay
+      security:
+      - openIdConnect:
+        - https://api.banno.com/consumer/auth/bill-pay.readonly
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: Payees.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  payees:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Payee'
+  /a/consumer/api/v0/users/{userId}/bill-pay/payments:
+    post:
+      summary: Create Bill Pay Payment
+      operationId: createBillPayPayment
+      tags:
+      - Bill Pay
+      security:
+      - openIdConnect:
+        - https://api.banno.com/consumer/auth/bill-pay.write
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillPayPaymentRequest'
+      responses:
+        '201':
+          description: Bill-pay payment scheduled.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillPayPayment'
+components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    BillPayPaymentRequest:
+      type: object
+      required:
+      - payeeId
+      - fromAccountId
+      - amount
+      - scheduledDate
+      properties:
+        payeeId:
+          type: string
+          format: uuid
+        fromAccountId:
+          type: string
+          format: uuid
+        amount:
+          type: number
+        scheduledDate:
+          type: string
+          format: date
+        memo:
+          type: string
+    BillPayPayment:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        payeeId:
+          type: string
+          format: uuid
+        fromAccountId:
+          type: string
+          format: uuid
+        amount:
+          type: number
+        scheduledDate:
+          type: string
+          format: date
+        status:
+          type: string
+          enum:
+          - Scheduled
+          - Processing
+          - Complete
+          - Failed
+          - Cancelled
+    Payee:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        nickname:
+          type: string
+        accountNumber:
+          type: string
+        address:
+          type: object
+          properties:
+            line1:
+              type: string
+            line2:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            postalCode:
+              type: string
+        deliveryMethod:
+          type: string
+          enum:
+          - Electronic
+          - Check
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

@@ -1,0 +1,126 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Discovery API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Discovery
+  description: OpenID Connect discovery and JWKS.
+paths:
+  /a/oidc/.well-known/openid-configuration:
+    get:
+      summary: Get OpenID Connect Discovery Document
+      operationId: getDiscovery
+      tags:
+      - Discovery
+      responses:
+        '200':
+          description: OIDC discovery document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Discovery'
+  /a/oidc/.well-known/jwks.json:
+    get:
+      summary: Get JWKS
+      operationId: getJwks
+      tags:
+      - Discovery
+      responses:
+        '200':
+          description: JSON Web Key Set used to validate ID tokens.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Jwks'
+components:
+  schemas:
+    Discovery:
+      type: object
+      properties:
+        issuer:
+          type: string
+          format: uri
+        authorization_endpoint:
+          type: string
+          format: uri
+        token_endpoint:
+          type: string
+          format: uri
+        userinfo_endpoint:
+          type: string
+          format: uri
+        jwks_uri:
+          type: string
+          format: uri
+        response_types_supported:
+          type: array
+          items:
+            type: string
+        scopes_supported:
+          type: array
+          items:
+            type: string
+        grant_types_supported:
+          type: array
+          items:
+            type: string
+    Jwks:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            type: object
+            properties:
+              kid:
+                type: string
+              kty:
+                type: string
+              alg:
+                type: string
+              use:
+                type: string
+              n:
+                type: string
+              e:
+                type: string
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

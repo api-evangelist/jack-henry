@@ -1,0 +1,109 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Token API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Token
+  description: OAuth token exchange.
+paths:
+  /a/oidc/token:
+    post:
+      summary: Exchange Token
+      operationId: exchangeToken
+      tags:
+      - Token
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - authorization_code
+                  - refresh_token
+                  - client_credentials
+                code:
+                  type: string
+                redirect_uri:
+                  type: string
+                  format: uri
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                code_verifier:
+                  type: string
+                refresh_token:
+                  type: string
+                scope:
+                  type: string
+      responses:
+        '200':
+          description: Token response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+components:
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        id_token:
+          type: string
+        refresh_token:
+          type: string
+        token_type:
+          type: string
+          example: Bearer
+        expires_in:
+          type: integer
+        scope:
+          type: string
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

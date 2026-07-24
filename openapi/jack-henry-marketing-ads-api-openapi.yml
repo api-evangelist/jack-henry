@@ -1,0 +1,155 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Marketing Ads API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Marketing Ads
+  description: Configure marketing/ad cards in the dashboard.
+paths:
+  /a/mobile/api/v0/institutions/{institutionId}/ads:
+    get:
+      summary: List Marketing Ads
+      operationId: listAds
+      tags:
+      - Marketing Ads
+      parameters:
+      - $ref: '#/components/parameters/InstitutionId'
+      responses:
+        '200':
+          description: Configured ads.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ads:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Ad'
+    post:
+      summary: Create Marketing Ad
+      operationId: createAd
+      tags:
+      - Marketing Ads
+      parameters:
+      - $ref: '#/components/parameters/InstitutionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdRequest'
+      responses:
+        '201':
+          description: Ad created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ad'
+components:
+  schemas:
+    Ad:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        body:
+          type: string
+        imageUrl:
+          type: string
+          format: uri
+        targetUrl:
+          type: string
+          format: uri
+        segmentIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        active:
+          type: boolean
+    AdRequest:
+      type: object
+      required:
+      - title
+      - body
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        imageUrl:
+          type: string
+          format: uri
+        targetUrl:
+          type: string
+          format: uri
+        segmentIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+  parameters:
+    InstitutionId:
+      name: institutionId
+      in: path
+      required: true
+      description: UUID identifying the institution.
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

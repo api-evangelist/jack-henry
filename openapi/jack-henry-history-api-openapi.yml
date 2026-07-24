@@ -1,0 +1,108 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities History API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: History
+  description: Audit and activity history.
+paths:
+  /a/mobile/api/v0/institutions/{institutionId}/history:
+    get:
+      summary: List History Events
+      operationId: listHistory
+      tags:
+      - History
+      parameters:
+      - $ref: '#/components/parameters/InstitutionId'
+      - name: actor
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Audit history.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  events:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/HistoryEvent'
+components:
+  schemas:
+    HistoryEvent:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        actorId:
+          type: string
+          format: uuid
+        actorType:
+          type: string
+          enum:
+          - Consumer
+          - Staff
+          - System
+        action:
+          type: string
+        targetId:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        metadata:
+          type: object
+          additionalProperties: true
+  parameters:
+    InstitutionId:
+      name: institutionId
+      in: path
+      required: true
+      description: UUID identifying the institution.
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

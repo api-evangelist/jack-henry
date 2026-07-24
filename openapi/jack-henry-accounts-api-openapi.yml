@@ -1,0 +1,175 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Accounts API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Accounts
+  description: Deposit, loan, line-of-credit, and investment accounts.
+paths:
+  /a/consumer/api/v0/users/{userId}/accounts:
+    get:
+      summary: List Accounts
+      operationId: listAccounts
+      tags:
+      - Accounts
+      security:
+      - openIdConnect:
+        - https://api.banno.com/consumer/auth/accounts.readonly
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: All accounts the user owns or has access to.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Account'
+  /a/consumer/api/v0/users/{userId}/accounts/{accountId}:
+    get:
+      summary: Get Account Details
+      operationId: getAccount
+      tags:
+      - Accounts
+      security:
+      - openIdConnect:
+        - https://api.banno.com/consumer/auth/accounts.detail.readonly
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      - $ref: '#/components/parameters/AccountId'
+      responses:
+        '200':
+          description: Account detail.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
+    AccountId:
+      name: accountId
+      in: path
+      required: true
+      description: ID of the desired account (UUID format).
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    Account:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        numbers:
+          type: object
+          properties:
+            masked:
+              type: string
+        accountType:
+          type: string
+          enum:
+          - Deposit
+          - Debt
+          - LineOfCredit
+          - Investment
+        accountStatus:
+          type: string
+          enum:
+          - Active
+          - Closed
+          - Dormant
+          - Frozen
+        balance:
+          type: number
+          format: double
+        availableBalance:
+          type: number
+          format: double
+        fetchedDate:
+          type: string
+          format: date-time
+        institution:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        canCreatePayments:
+          type: boolean
+        canTransferFrom:
+          type: boolean
+        hidden:
+          type: boolean
+        regD:
+          type: object
+          properties:
+            limit:
+              type: integer
+            used:
+              type: integer
+        formattedMetaData:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+              value:
+                type: string
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

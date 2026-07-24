@@ -1,0 +1,138 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Customers API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Customers
+  description: Customer (CIF) records.
+paths:
+  /jxchange/v1/customers:
+    get:
+      summary: Search Customers
+      operationId: searchCustomers
+      tags:
+      - Customers
+      parameters:
+      - name: ssn
+        in: query
+        schema:
+          type: string
+      - name: lastName
+        in: query
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Customer matches.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  customers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Customer'
+                  nextCursor:
+                    type: string
+                    nullable: true
+  /jxchange/v1/customers/{customerId}:
+    get:
+      summary: Get Customer
+      operationId: getCustomer
+      tags:
+      - Customers
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Customer record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        customerId:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        ssnLast4:
+          type: string
+        dateOfBirth:
+          type: string
+          format: date
+        primaryAddress:
+          type: object
+          properties:
+            line1:
+              type: string
+            line2:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            postalCode:
+              type: string
+        primaryPhone:
+          type: string
+        primaryEmail:
+          type: string
+          format: email
+        relationshipOpenDate:
+          type: string
+          format: date
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

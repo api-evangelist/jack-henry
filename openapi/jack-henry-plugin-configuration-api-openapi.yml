@@ -1,0 +1,107 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Plugin Configuration API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Plugin Configuration
+  description: Plugin metadata published by the host.
+paths:
+  /plugins/api/v0/plugins/{pluginId}/manifest:
+    get:
+      summary: Get Plugin Manifest
+      operationId: getPluginManifest
+      tags:
+      - Plugin Configuration
+      parameters:
+      - name: pluginId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Manifest describing the plugin's cards, sizes, and entry points.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PluginManifest'
+components:
+  schemas:
+    PluginManifest:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        version:
+          type: string
+        entryUrl:
+          type: string
+          format: uri
+        cards:
+          type: array
+          items:
+            type: object
+            properties:
+              kind:
+                type: string
+                enum:
+                - CardFace
+                - ExpandedView
+                - FullScreen
+              size:
+                type: string
+                enum:
+                - Small
+                - Medium
+                - Large
+              actionLabel:
+                type: string
+        permissions:
+          type: array
+          items:
+            type: string
+            description: Scopes requested by the plugin (e.g. user.profile.readonly).
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

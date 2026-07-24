@@ -1,0 +1,254 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Transactions API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Transactions
+  description: Posted and pending transactions per account.
+paths:
+  /a/consumer/api/v0/users/{userId}/accounts/{accountId}/transactions:
+    get:
+      summary: List Account Transactions
+      operationId: listTransactions
+      tags:
+      - Transactions
+      security:
+      - openIdConnect:
+        - https://api.banno.com/consumer/auth/transactions.readonly
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      - $ref: '#/components/parameters/AccountId'
+      - name: startDate
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: endDate
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: cursor
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Paged list of transactions.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transactions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Transaction'
+                  nextCursor:
+                    type: string
+                    nullable: true
+  /a/consumer/api/v0/users/{userId}/accounts/{accountId}/transactions/{transactionId}:
+    get:
+      summary: Get Transaction Details
+      operationId: getTransaction
+      tags:
+      - Transactions
+      security:
+      - openIdConnect:
+        - https://api.banno.com/consumer/auth/transactions.detail.readonly
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      - $ref: '#/components/parameters/AccountId'
+      - name: transactionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Transaction detail. Returns a user's account's transaction in greater detail.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  /jxchange/v1/accounts/{accountNumber}/transactions:
+    get:
+      summary: List Account Transactions
+      operationId: listAccountTransactions
+      tags:
+      - Transactions
+      parameters:
+      - name: accountNumber
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: startDate
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: endDate
+        in: query
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: Transactions for the account.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transactions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CoreTransaction'
+components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
+    AccountId:
+      name: accountId
+      in: path
+      required: true
+      description: ID of the desired account (UUID format).
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    CoreTransaction:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        postDate:
+          type: string
+          format: date
+        effectiveDate:
+          type: string
+          format: date
+        amount:
+          type: number
+          format: double
+        type:
+          type: string
+          enum:
+          - Debit
+          - Credit
+          - Fee
+          - Interest
+          - Adjustment
+        description:
+          type: string
+        memo:
+          type: string
+        runningBalance:
+          type: number
+          format: double
+        sourceCode:
+          type: string
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        amount:
+          type: number
+          format: double
+        date:
+          type: string
+          format: date
+        postedDate:
+          type: string
+          format: date
+        type:
+          type: string
+          enum:
+          - Debit
+          - Credit
+          - Fee
+          - Interest
+          - Transfer
+        status:
+          type: string
+          enum:
+          - Posted
+          - Pending
+        description:
+          type: string
+        memo:
+          type: string
+        merchant:
+          type: object
+          properties:
+            name:
+              type: string
+            category:
+              type: string
+            logo:
+              type: string
+              format: uri
+        runningBalance:
+          type: number
+          format: double
+        tags:
+          type: array
+          items:
+            type: string
+        pending:
+          type: boolean
+        notes:
+          type: string
+        enrichments:
+          type: object
+          additionalProperties: true
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

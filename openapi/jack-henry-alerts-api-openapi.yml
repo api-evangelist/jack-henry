@@ -1,0 +1,110 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Alerts API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Alerts
+  description: Account and security alerts.
+paths:
+  /a/consumer/api/v0/users/{userId}/alerts:
+    get:
+      summary: List Alerts
+      operationId: listAlerts
+      tags:
+      - Alerts
+      security:
+      - openIdConnect:
+        - https://api.banno.com/consumer/auth/alerts.readonly
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: Alerts configured by the user.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  alerts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Alert'
+components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    Alert:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        type:
+          type: string
+          enum:
+          - BalanceLow
+          - BalanceHigh
+          - LargeWithdrawal
+          - LargeDeposit
+          - CardActivity
+          - LoginActivity
+        channels:
+          type: array
+          items:
+            type: string
+            enum:
+            - Email
+            - SMS
+            - Push
+            - InApp
+        threshold:
+          type: number
+        enabled:
+          type: boolean
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

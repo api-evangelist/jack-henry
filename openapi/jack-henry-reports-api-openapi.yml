@@ -1,0 +1,95 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Reports API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Reports
+  description: Operational and audit reports.
+paths:
+  /a/mobile/api/v0/institutions/{institutionId}/reports:
+    get:
+      summary: List Reports
+      operationId: listReports
+      tags:
+      - Reports
+      parameters:
+      - $ref: '#/components/parameters/InstitutionId'
+      responses:
+        '200':
+          description: Available reports.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reports:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Report'
+components:
+  parameters:
+    InstitutionId:
+      name: institutionId
+      in: path
+      required: true
+      description: UUID identifying the institution.
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    Report:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+          format: uri
+        generatedDate:
+          type: string
+          format: date-time
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

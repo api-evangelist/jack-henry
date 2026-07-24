@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities User Context API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: User Context
+  description: Authenticated user/account context surfaced to a plugin.
+paths:
+  /plugins/api/v0/context:
+    get:
+      summary: Get Plugin User Context
+      operationId: getPluginUserContext
+      tags:
+      - User Context
+      description: 'Returns the authenticated user/account context the host hands the
+
+        plugin (institution ID, user ID, environment, locale). Subject to
+
+        the plugin''s authorized scopes in Banno People.
+
+        '
+      responses:
+        '200':
+          description: Plugin context.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PluginContext'
+components:
+  schemas:
+    PluginContext:
+      type: object
+      properties:
+        institutionId:
+          type: string
+          format: uuid
+        userId:
+          type: string
+          format: uuid
+        environment:
+          type: string
+          enum:
+          - UAT
+          - Production
+        locale:
+          type: string
+          example: en-US
+        bridgeVersion:
+          type: string
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

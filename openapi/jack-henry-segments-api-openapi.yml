@@ -1,0 +1,125 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Segments API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Segments
+  description: User segments for targeted experiences.
+paths:
+  /a/mobile/api/v0/institutions/{institutionId}/segments:
+    get:
+      summary: List Segments
+      operationId: listSegments
+      tags:
+      - Segments
+      parameters:
+      - $ref: '#/components/parameters/InstitutionId'
+      responses:
+        '200':
+          description: Segments configured for the institution.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  segments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Segment'
+    post:
+      summary: Create Segment
+      operationId: createSegment
+      tags:
+      - Segments
+      parameters:
+      - $ref: '#/components/parameters/InstitutionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SegmentRequest'
+      responses:
+        '201':
+          description: Segment created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Segment'
+components:
+  schemas:
+    Segment:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        criteria:
+          type: object
+          additionalProperties: true
+    SegmentRequest:
+      type: object
+      required:
+      - name
+      - criteria
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        criteria:
+          type: object
+          additionalProperties: true
+  parameters:
+    InstitutionId:
+      name: institutionId
+      in: path
+      required: true
+      description: UUID identifying the institution.
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

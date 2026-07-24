@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities General Ledger API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: General Ledger
+  description: GL account inquiry.
+paths:
+  /jxchange/v1/general-ledger/{glAccountNumber}:
+    get:
+      summary: Get GL Account
+      operationId: getGlAccount
+      tags:
+      - General Ledger
+      parameters:
+      - name: glAccountNumber
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: General-ledger account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GLAccount'
+components:
+  schemas:
+    GLAccount:
+      type: object
+      properties:
+        glAccountNumber:
+          type: string
+        name:
+          type: string
+        balance:
+          type: number
+          format: double
+        accountClass:
+          type: string
+          enum:
+          - Asset
+          - Liability
+          - Equity
+          - Income
+          - Expense
+        branch:
+          type: string
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

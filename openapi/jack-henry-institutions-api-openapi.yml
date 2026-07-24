@@ -1,0 +1,86 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Institutions API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Institutions
+  description: Public institution profile lookup.
+paths:
+  /a/consumer/api/v0/institutions/{institutionId}:
+    get:
+      summary: Get Institution
+      operationId: getInstitution
+      tags:
+      - Institutions
+      parameters:
+      - name: institutionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Institution profile.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Institution'
+components:
+  schemas:
+    Institution:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        routingNumber:
+          type: string
+        primaryWebsiteUrl:
+          type: string
+          format: uri
+        logoUrl:
+          type: string
+          format: uri
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

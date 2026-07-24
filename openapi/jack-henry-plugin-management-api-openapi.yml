@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Plugin Management API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Plugin Management
+  description: Configure external applications and plugins.
+paths:
+  /a/mobile/api/v0/institutions/{institutionId}/plugins:
+    get:
+      summary: List Plugins
+      operationId: listPlugins
+      tags:
+      - Plugin Management
+      parameters:
+      - $ref: '#/components/parameters/InstitutionId'
+      responses:
+        '200':
+          description: Plugins configured for the institution.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  plugins:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Plugin'
+  /a/mobile/api/v0/institutions/{institutionId}/plugins/{pluginId}:
+    put:
+      summary: Update Plugin Configuration
+      operationId: updatePlugin
+      tags:
+      - Plugin Management
+      parameters:
+      - $ref: '#/components/parameters/InstitutionId'
+      - name: pluginId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Plugin'
+      responses:
+        '200':
+          description: Plugin updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Plugin'
+components:
+  parameters:
+    InstitutionId:
+      name: institutionId
+      in: path
+      required: true
+      description: UUID identifying the institution.
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    Plugin:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        externalApplicationId:
+          type: string
+          format: uuid
+        pluginUrl:
+          type: string
+          format: uri
+        cardConfig:
+          type: object
+          additionalProperties: true
+        enabled:
+          type: boolean
+        segmentIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

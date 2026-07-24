@@ -1,0 +1,104 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Deposit Accounts API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Deposit Accounts
+  description: DDA/savings/CD deposit accounts.
+paths:
+  /jxchange/v1/deposit-accounts/{accountNumber}:
+    get:
+      summary: Get Deposit Account
+      operationId: getDepositAccount
+      tags:
+      - Deposit Accounts
+      parameters:
+      - name: accountNumber
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Deposit-account record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepositAccount'
+components:
+  schemas:
+    DepositAccount:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+        product:
+          type: string
+        productType:
+          type: string
+          enum:
+          - Checking
+          - Savings
+          - MoneyMarket
+          - CD
+        status:
+          type: string
+          enum:
+          - Open
+          - Closed
+          - Dormant
+          - Frozen
+        currentBalance:
+          type: number
+          format: double
+        availableBalance:
+          type: number
+          format: double
+        interestYTD:
+          type: number
+          format: double
+        openDate:
+          type: string
+          format: date
+        primaryOwnerCustomerId:
+          type: string
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

@@ -1,0 +1,160 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Cards API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Cards
+  description: Debit and credit card management.
+paths:
+  /a/consumer/api/v0/users/{userId}/cards:
+    get:
+      summary: List Cards
+      operationId: listCards
+      tags:
+      - Cards
+      security:
+      - openIdConnect:
+        - https://api.banno.com/consumer/auth/cards.readonly
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: Cards linked to the user.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  cards:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Card'
+  /payments/v1/cards/authorizations:
+    post:
+      summary: Authorize Card Payment
+      operationId: authorizeCard
+      tags:
+      - Cards
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CardAuthRequest'
+      responses:
+        '201':
+          description: Card authorization result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardAuthResult'
+components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    CardAuthRequest:
+      type: object
+      required:
+      - cardToken
+      - amount
+      - merchantId
+      properties:
+        cardToken:
+          type: string
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+          default: USD
+        merchantId:
+          type: string
+        cvvProvided:
+          type: boolean
+    Card:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        last4:
+          type: string
+        cardType:
+          type: string
+          enum:
+          - Debit
+          - Credit
+        status:
+          type: string
+          enum:
+          - Active
+          - Locked
+          - Lost
+          - Stolen
+          - Expired
+        expirationDate:
+          type: string
+          pattern: ^[0-9]{2}/[0-9]{2}$
+        nameOnCard:
+          type: string
+    CardAuthResult:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        approved:
+          type: boolean
+        responseCode:
+          type: string
+        authCode:
+          type: string
+        networkReference:
+          type: string
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

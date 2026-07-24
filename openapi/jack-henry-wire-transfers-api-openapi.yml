@@ -1,0 +1,203 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Wire Transfers API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Wire Transfers
+  description: Outbound wire requests.
+paths:
+  /a/consumer/api/v0/users/{userId}/wire-transfers:
+    post:
+      summary: Create Wire Transfer
+      operationId: createWireTransfer
+      tags:
+      - Wire Transfers
+      security:
+      - openIdConnect:
+        - https://api.banno.com/consumer/auth/wire-transfers.write
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WireTransferRequest'
+      responses:
+        '201':
+          description: Wire submitted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WireTransfer'
+  /payments/v1/wires:
+    post:
+      summary: Send Wire
+      operationId: sendWire
+      tags:
+      - Wire Transfers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WireRequest'
+      responses:
+        '201':
+          description: Wire submitted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Wire'
+components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    WireRequest:
+      type: object
+      required:
+      - originatorAccountId
+      - beneficiaryName
+      - beneficiaryAccountNumber
+      - beneficiaryRoutingNumber
+      - amount
+      properties:
+        originatorAccountId:
+          type: string
+        beneficiaryName:
+          type: string
+        beneficiaryAccountNumber:
+          type: string
+        beneficiaryRoutingNumber:
+          type: string
+          pattern: ^[0-9]{9}$
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+          default: USD
+        memo:
+          type: string
+    WireTransfer:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        fromAccountId:
+          type: string
+          format: uuid
+        beneficiaryName:
+          type: string
+        beneficiaryAccountNumber:
+          type: string
+        beneficiaryBankRoutingNumber:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        status:
+          type: string
+          enum:
+          - Pending
+          - Processing
+          - Sent
+          - Failed
+          - Cancelled
+    WireTransferRequest:
+      type: object
+      required:
+      - fromAccountId
+      - beneficiaryName
+      - beneficiaryAccountNumber
+      - beneficiaryBankRoutingNumber
+      - amount
+      properties:
+        fromAccountId:
+          type: string
+          format: uuid
+        beneficiaryName:
+          type: string
+        beneficiaryAccountNumber:
+          type: string
+        beneficiaryBankRoutingNumber:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+          default: USD
+        memo:
+          type: string
+    Wire:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - Pending
+          - Processing
+          - Sent
+          - Failed
+          - Cancelled
+        imadOmad:
+          type: string
+          description: Federal Reserve IMAD/OMAD reference
+        amount:
+          type: number
+        sentAt:
+          type: string
+          format: date-time
+          nullable: true
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

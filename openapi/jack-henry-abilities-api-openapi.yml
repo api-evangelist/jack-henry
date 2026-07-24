@@ -1,0 +1,88 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Abilities
+  description: Institution feature-flag map.
+paths:
+  /a/mobile/api/v0/institutions/{institutionId}/abilities:
+    get:
+      summary: Lookup Institution Abilities
+      operationId: getInstitutionAbilities
+      tags:
+      - Abilities
+      description: Lookup the abilities for the given institution.
+      parameters:
+      - $ref: '#/components/parameters/InstitutionId'
+      responses:
+        '200':
+          description: Map of ability names to JSON values.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AbilitiesMap'
+components:
+  schemas:
+    AbilitiesMap:
+      type: object
+      description: 'Map of ability/feature-flag names to JSON values. Examples include
+
+        `export_transactions_enabled`, `bill_pay`, `zelle_enabled`.
+
+        '
+      additionalProperties: true
+      example:
+        bill_pay: true
+        zelle_enabled: true
+        export_transactions_enabled: true
+        rdc_consumer_daily_limit: 5000
+  parameters:
+    InstitutionId:
+      name: institutionId
+      in: path
+      required: true
+      description: UUID identifying the institution.
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

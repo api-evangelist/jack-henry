@@ -1,0 +1,163 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin Abilities Transfers API
+  description: 'Back-office administration surface used by the Banno staff console
+
+    itself. Lets institutions look up abilities/feature flags, manage
+
+    consumer/business users, configure plugin management, manage
+
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+
+    high-risk actions, and administer OAuth/OpenID clients.
+
+
+    Resource groups (documented at
+
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+
+    '
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+- url: https://api.banno.com
+  description: Banno production
+security:
+- openIdConnect: []
+tags:
+- name: Transfers
+  description: Account-to-account and external transfers.
+paths:
+  /a/consumer/api/v0/users/{userId}/transfers:
+    get:
+      summary: List Transfers
+      operationId: listTransfers
+      tags:
+      - Transfers
+      security:
+      - openIdConnect:
+        - https://api.banno.com/consumer/auth/transfers.readonly
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: Scheduled and historical transfers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transfers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Transfer'
+    post:
+      summary: Create Transfer
+      operationId: createTransfer
+      tags:
+      - Transfers
+      security:
+      - openIdConnect:
+        - https://api.banno.com/consumer/auth/transfers.write
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRequest'
+      responses:
+        '201':
+          description: Transfer created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transfer'
+components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    Transfer:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        fromAccountId:
+          type: string
+          format: uuid
+        toAccountId:
+          type: string
+          format: uuid
+        amount:
+          type: number
+          format: double
+        scheduledDate:
+          type: string
+          format: date
+        frequency:
+          type: string
+          enum:
+          - OneTime
+          - Weekly
+          - BiWeekly
+          - Monthly
+        status:
+          type: string
+          enum:
+          - Scheduled
+          - Processing
+          - Complete
+          - Failed
+          - Cancelled
+        memo:
+          type: string
+    TransferRequest:
+      type: object
+      required:
+      - fromAccountId
+      - toAccountId
+      - amount
+      properties:
+        fromAccountId:
+          type: string
+          format: uuid
+        toAccountId:
+          type: string
+          format: uuid
+        amount:
+          type: number
+          format: double
+        scheduledDate:
+          type: string
+          format: date
+        frequency:
+          type: string
+        memo:
+          type: string
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration
