@@ -16,6 +16,19 @@ description: |
 url: https://github.com/api-evangelist/jack-henry
 humanURL: https://www.jackhenry.com/
 baseURL: https://api.banno.com/
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://avatars.githubusercontent.com/u/1130370?s=200&v=4
 tags:
   - Financial Services
@@ -79,279 +92,2243 @@ common:
     url: https://www.youtube.com/user/JackHenryAssociates
 
 apis:
+- name: Enterprise Event System
+  description: >
+    Real-time, pub/sub-based event streaming surface. Lets institutions
 
-  - name: Banno Consumer API
-    description: |
-      Build apps and services using the same Consumer API that powers
-      Banno Mobile and Online. Provides authenticated, OAuth/OpenID
-      Connect protected access to accountholder data — accounts,
-      transactions, transfers, alerts, cards, bill pay, ACH, wires,
-      Zelle, RDC, documents/statements, messages, and forms — across
-      Jack Henry's digital banking platform.
-    humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
-    baseURL: https://api.banno.com
-    tags:
-      - Consumer Banking
-      - Accounts
-      - Transactions
-      - Transfers
-      - Bill Pay
-      - Zelle
-      - ACH
-      - Wire Transfers
-      - Remote Deposit Capture
-      - Cards
-      - Alerts
-      - Messages
-      - OAuth
-      - OpenID Connect
-    properties:
-      - type: OpenAPI
-        url: openapi/banno-consumer-api-openapi.yml
-      - type: APIReference
-        url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
-      - type: GettingStarted
-        url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
-      - type: Authentication
-        url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
-      - type: GettingStarted
-        url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
-      - type: SampleApp
-        url: https://github.com/Banno/consumer-api-openid-connect-example
-      - type: Capability
-        url: capabilities/shared/banno-consumer-api.yaml
+    and partners react to events emitted across Jack Henry's platform
 
-  - name: Banno Admin API
-    description: |
-      Manage and integrate the back office using the same Admin API that
-      Banno uses for its administrative interface. Surfaces institution
-      abilities/feature flags, consumer/business administration,
-      messaging, alerts, plugin management, segments, ads, RDC, reports,
-      offline mode, ACH, wires, Zelle, and OAuth/OpenID administration.
-    humanURL: https://jackhenry.dev/open-api-docs/admin-api/
-    baseURL: https://api.banno.com
-    tags:
-      - Back Office
-      - Institution Administration
-      - Consumer Administration
-      - Plugin Management
-      - Reports
-      - Segments
-      - Alerts
-      - Messages
-      - High-Risk Actions
-      - Compliance
-    properties:
-      - type: OpenAPI
-        url: openapi/banno-admin-api-openapi.yml
-      - type: APIReference
-        url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
-      - type: SampleApp
-        url: https://github.com/Banno/admin-api-openid-connect-example
-      - type: Capability
-        url: capabilities/shared/banno-admin-api.yaml
+    (account events, transaction events, alert events, user-lifecycle
 
-  - name: Banno Plugin Framework
-    description: |
-      Embed custom cards and expanded views directly into the Banno
-      Online and Mobile user dashboard. Plugins are web applications
-      (HTML + CSS + JavaScript) hosted on the partner's own infrastructure
-      and registered as External Applications inside Banno People. The
-      "@jack-henry/banno-plugin-framework-bridge" JavaScript module
-      routes events between the hosted plugin and the Banno chrome.
-    humanURL: https://jackhenry.dev/open-api-docs/plugins/
-    baseURL: https://digital.garden.banno-uat.com
-    tags:
-      - Plugin Framework
-      - Embedded Banking
-      - Dashboard Cards
-      - External Applications
-      - Web Components
-      - Fintech Integration
-    properties:
-      - type: OpenAPI
-        url: openapi/banno-plugin-framework-openapi.yml
-      - type: APIReference
-        url: https://jackhenry.dev/open-api-docs/plugins/
-      - type: GettingStarted
-        url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
-      - type: Tutorial
-        url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
-      - type: SDKs
-        url: https://github.com/Banno/banno-plugin-framework-bridge
-      - type: SampleApp
-        url: https://github.com/Banno/simple-plugin-example
-      - type: SampleApp
-        url: https://github.com/Banno/basic-plugin-example
-      - type: SampleApp
-        url: https://github.com/Banno/simple-announcements-plugin
-      - type: Capability
-        url: capabilities/shared/banno-plugin-framework.yaml
+    events) without polling.
+  humanURL: https://jackhenry.dev/ees/
+  baseURL: https://events.jackhenry.com
+  tags:
+  - Events
+  - Pub/Sub
+  - Streaming
+  - Webhooks
+  - Real-Time
+  properties:
+  - type: AsyncAPI
+    url: asyncapi/enterprise-event-system-asyncapi.yml
+  - type: Documentation
+    url: https://jackhenry.dev/ees/
+- name: SymXchange
+  description: >
+    Translation surface for the Symitar credit-union core. Query
 
-  - name: Banno Authentication Framework
-    description: |
-      Protect user data using OAuth 2.0 and OpenID Connect. Issues
-      access tokens, identity tokens, and refresh tokens; defines the
-      permissions flow that governs Consumer and Admin API scopes; and
-      maps customer identities to existing system IDs via unique
-      customer IDs, contact info, or Tax ID.
-    humanURL: https://jackhenry.dev/open-api-docs/authentication-framework/
-    baseURL: https://api.banno.com
-    tags:
-      - Authentication
-      - OAuth
-      - OpenID Connect
-      - Identity
-      - Tokens
-      - Permissions
-    properties:
-      - type: OpenAPI
-        url: openapi/banno-authentication-framework-openapi.yml
-      - type: Documentation
-        url: https://jackhenry.dev/open-api-docs/authentication-framework/
-      - type: Capability
-        url: capabilities/shared/banno-authentication-framework.yaml
+    member accounts, post transactions, and execute PowerOn scripts.
+  humanURL: https://jackhenry.dev/symxchange-api-docs/
+  baseURL: https://symxchange.jackhenry.com
+  tags:
+  - Core Banking
+  - Symitar
+  - Credit Unions
+  - PowerOn
+  - Member Accounts
+  properties:
+  - type: Documentation
+    url: https://jackhenry.dev/symxchange-api-docs/
+  - type: SDKs
+    url: https://github.com/Banno/banno-powerons
+- name: Operational Data Integration (ODI)
+  description: >
+    Customized bulk-data query interface for institution data.
 
-  - name: jXchange REST
-    description: |
-      Translates information between Jack Henry's SilverLake and CIF 20/20
-      core platforms and third-party applications via a REST surface.
-      Resources span deposits, loans, customers, accounts, transactions,
-      and general ledger — the system-of-record contract for community-bank
-      cores.
-    humanURL: https://jackhenry.dev/jxchange-rest/
-    baseURL: https://jxchange.jackhenry.com
-    tags:
-      - Core Banking
-      - jXchange
-      - SilverLake
-      - CIF 20/20
-      - Deposits
-      - Loans
-      - Customers
-      - General Ledger
-    properties:
-      - type: OpenAPI
-        url: openapi/jxchange-rest-openapi.yml
-      - type: Documentation
-        url: https://jackhenry.dev/jxchange-rest/
-      - type: Capability
-        url: capabilities/shared/jxchange-rest.yaml
+    Sits alongside Data Hub for deeper analytics access.
+  humanURL: https://jackhenry.dev/odi/
+  baseURL: https://odi.jackhenry.com
+  tags:
+  - Data
+  - Bulk Data
+  - Reporting
+  - Analytics
+  properties:
+  - type: Documentation
+    url: https://jackhenry.dev/odi/
+- name: Data Hub
+  description: >
+    Provides deeper access to financial institution data for partners
 
-  - name: Jack Henry Payments
-    description: |
-      Jack Henry Payments unifies ACH origination, wire/A2A payments,
-      Bill Payments, Remote Deposit Capture (consumer + commercial),
-      card acceptance, and peer-to-peer rails behind a developer portal
-      with sandbox, SDKs, and downloadable tools. Includes the Payments
-      Orchestrator that routes across rails and supports virtual accounts.
-    humanURL: https://api.payments.jackhenry.com/developer/
-    baseURL: https://api.payments.jackhenry.com
-    tags:
-      - Payments
-      - ACH
-      - Wire Transfers
-      - Bill Pay
-      - Remote Deposit Capture
-      - Cards
-      - Zelle
-      - Payments Orchestrator
-    properties:
-      - type: OpenAPI
-        url: openapi/jack-henry-payments-openapi.yml
-      - type: DeveloperPortal
-        url: https://api.payments.jackhenry.com/developer/
-      - type: Sandbox
-        url: https://api.payments.jackhenry.com/developer/
-      - type: Capability
-        url: capabilities/shared/jack-henry-payments.yaml
+    building analytics, BI, and personalization solutions on top of
 
-  - name: Enterprise Event System
-    description: |
-      Real-time, pub/sub-based event streaming surface. Lets institutions
-      and partners react to events emitted across Jack Henry's platform
-      (account events, transaction events, alert events, user-lifecycle
-      events) without polling.
-    humanURL: https://jackhenry.dev/ees/
-    baseURL: https://events.jackhenry.com
-    tags:
-      - Events
-      - Pub/Sub
-      - Streaming
-      - Webhooks
-      - Real-Time
-    properties:
-      - type: AsyncAPI
-        url: asyncapi/enterprise-event-system-asyncapi.yml
-      - type: Documentation
-        url: https://jackhenry.dev/ees/
+    Jack Henry core systems.
+  humanURL: https://jackhenry.dev/data-hub/
+  baseURL: https://datahub.jackhenry.com
+  tags:
+  - Data
+  - Analytics
+  - Reporting
+  - Data Sharing
+  properties:
+  - type: Documentation
+    url: https://jackhenry.dev/data-hub/
+- name: Digital Core
+  description: >
+    Cloud-native core banking platform — the next-generation successor
 
-  - name: SymXchange
-    description: |
-      Translation surface for the Symitar credit-union core. Query
-      member accounts, post transactions, and execute PowerOn scripts.
-    humanURL: https://jackhenry.dev/symxchange-api-docs/
-    baseURL: https://symxchange.jackhenry.com
-    tags:
-      - Core Banking
-      - Symitar
-      - Credit Unions
-      - PowerOn
-      - Member Accounts
-    properties:
-      - type: Documentation
-        url: https://jackhenry.dev/symxchange-api-docs/
-      - type: SDKs
-        url: https://github.com/Banno/banno-powerons
+    surface alongside SilverLake, CIF 20/20, and Symitar. Targets
 
-  - name: Operational Data Integration (ODI)
-    description: |
-      Customized bulk-data query interface for institution data.
-      Sits alongside Data Hub for deeper analytics access.
-    humanURL: https://jackhenry.dev/odi/
-    baseURL: https://odi.jackhenry.com
-    tags:
-      - Data
-      - Bulk Data
-      - Reporting
-      - Analytics
-    properties:
-      - type: Documentation
-        url: https://jackhenry.dev/odi/
+    modern API-first deployments for de novo banks and modernization
 
-  - name: Data Hub
-    description: |
-      Provides deeper access to financial institution data for partners
-      building analytics, BI, and personalization solutions on top of
-      Jack Henry core systems.
-    humanURL: https://jackhenry.dev/data-hub/
-    baseURL: https://datahub.jackhenry.com
-    tags:
-      - Data
-      - Analytics
-      - Reporting
-      - Data Sharing
-    properties:
-      - type: Documentation
-        url: https://jackhenry.dev/data-hub/
-
-  - name: Digital Core
-    description: |
-      Cloud-native core banking platform — the next-generation successor
-      surface alongside SilverLake, CIF 20/20, and Symitar. Targets
-      modern API-first deployments for de novo banks and modernization
-      programs.
-    humanURL: https://jackhenry.dev/digital-core-api-docs/
-    baseURL: https://digital-core.jackhenry.com
-    tags:
-      - Core Banking
-      - Cloud Native
-      - Modernization
-      - De Novo
-    properties:
-      - type: Documentation
-        url: https://jackhenry.dev/digital-core-api-docs/
-
+    programs.
+  humanURL: https://jackhenry.dev/digital-core-api-docs/
+  baseURL: https://digital-core.jackhenry.com
+  tags:
+  - Core Banking
+  - Cloud Native
+  - Modernization
+  - De Novo
+  properties:
+  - type: Documentation
+    url: https://jackhenry.dev/digital-core-api-docs/
+- aid: jack-henry:jack-henry-abilities-api
+  name: Jack Henry & Associates Abilities API
+  description: Institution feature-flag map.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Abilities
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-abilities-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-accounts-api
+  name: Jack Henry & Associates Accounts API
+  description: Deposit, loan, line-of-credit, and investment accounts.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-accounts-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-ach-origination-api
+  name: Jack Henry & Associates ACH Origination API
+  description: ACH credit and debit origination.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - ACH Origination
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-ach-origination-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-alerts-api
+  name: Jack Henry & Associates Alerts API
+  description: Account and security alerts.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-alerts-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-authorization-api
+  name: Jack Henry & Associates Authorization API
+  description: OAuth authorization endpoint.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Authorization
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-authorization-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-bill-pay-api
+  name: Jack Henry & Associates Bill Pay API
+  description: Bill-payment payees and payments.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Bill Pay
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-bill-pay-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-bill-payments-api
+  name: Jack Henry & Associates Bill Payments API
+  description: Consumer and small-business bill pay.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Bill Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-bill-payments-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-cards-api
+  name: Jack Henry & Associates Cards API
+  description: Debit and credit card management.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Cards
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-cards-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-consumers-api
+  name: Jack Henry & Associates Consumers API
+  description: Consumer account administration.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Consumers
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-consumers-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-customers-api
+  name: Jack Henry & Associates Customers API
+  description: Customer (CIF) records.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-customers-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-deposit-accounts-api
+  name: Jack Henry & Associates Deposit Accounts API
+  description: DDA/savings/CD deposit accounts.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Deposit Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-deposit-accounts-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-discovery-api
+  name: Jack Henry & Associates Discovery API
+  description: OpenID Connect discovery and JWKS.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-discovery-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-general-ledger-api
+  name: Jack Henry & Associates General Ledger API
+  description: GL account inquiry.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - General Ledger
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-general-ledger-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-high-risk-actions-api
+  name: Jack Henry & Associates High Risk Actions API
+  description: Sensitive operations requiring elevated authorization.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - High Risk Actions
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-high-risk-actions-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-history-api
+  name: Jack Henry & Associates History API
+  description: Audit and activity history.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - History
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-history-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-institution-offline-status-api
+  name: Jack Henry & Associates Institution Offline Status API
+  description: Drive scheduled or emergency offline modes.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Institution Offline Status
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-institution-offline-status-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-institutions-api
+  name: Jack Henry & Associates Institutions API
+  description: Public institution profile lookup.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Institutions
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-institutions-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-loan-accounts-api
+  name: Jack Henry & Associates Loan Accounts API
+  description: Consumer and commercial loans.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Loan Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-loan-accounts-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-marketing-ads-api
+  name: Jack Henry & Associates Marketing Ads API
+  description: Configure marketing/ad cards in the dashboard.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Marketing Ads
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-marketing-ads-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-messages-api
+  name: Jack Henry & Associates Messages API
+  description: Two-way secure messaging with the institution.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-messages-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-payments-orchestrator-api
+  name: Jack Henry & Associates Payments Orchestrator API
+  description: Cross-rail routing and virtual accounts.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Payments Orchestrator
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-payments-orchestrator-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-peer-to-peer-api
+  name: Jack Henry & Associates Peer To Peer API
+  description: P2P transfers via partner networks.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Peer To Peer
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-peer-to-peer-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-plugin-bridge-api
+  name: Jack Henry & Associates Plugin Bridge API
+  description: Bridge handshake and lifecycle.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Plugin Bridge
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-plugin-bridge-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-plugin-configuration-api
+  name: Jack Henry & Associates Plugin Configuration API
+  description: Plugin metadata published by the host.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Plugin Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-plugin-configuration-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-plugin-management-api
+  name: Jack Henry & Associates Plugin Management API
+  description: Configure external applications and plugins.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Plugin Management
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-plugin-management-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-remote-deposit-capture-api
+  name: Jack Henry & Associates Remote Deposit Capture API
+  description: Consumer and commercial RDC.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Remote Deposit Capture
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-remote-deposit-capture-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-reports-api
+  name: Jack Henry & Associates Reports API
+  description: Operational and audit reports.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-reports-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-routing-numbers-api
+  name: Jack Henry & Associates Routing Numbers API
+  description: Routing number validation.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Routing Numbers
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-routing-numbers-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-segments-api
+  name: Jack Henry & Associates Segments API
+  description: User segments for targeted experiences.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Segments
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-segments-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-token-api
+  name: Jack Henry & Associates Token API
+  description: OAuth token exchange.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Token
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-token-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-transactions-api
+  name: Jack Henry & Associates Transactions API
+  description: Posted and pending transactions per account.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-transactions-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-transfers-api
+  name: Jack Henry & Associates Transfers API
+  description: Account-to-account and external transfers.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Transfers
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-transfers-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-user-api
+  name: Jack Henry & Associates User API
+  description: Profile and identity of the authenticated user.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-user-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-user-context-api
+  name: Jack Henry & Associates User Context API
+  description: Authenticated user/account context surfaced to a plugin.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - User Context
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-user-context-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-userinfo-api
+  name: Jack Henry & Associates UserInfo API
+  description: OpenID Connect UserInfo endpoint.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - UserInfo
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-userinfo-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-wire-transfers-api
+  name: Jack Henry & Associates Wire Transfers API
+  description: Outbound wire requests.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Wire Transfers
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-wire-transfers-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
+- aid: jack-henry:jack-henry-zelle-api
+  name: Jack Henry & Associates Zelle API
+  description: Zelle peer-to-peer payments.
+  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
+  baseURL: https://api.banno.com
+  tags:
+  - Zelle
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-zelle-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-consumer-api.yaml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: Capability
+    url: capabilities/shared/banno-admin-api.yaml
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Capability
+    url: capabilities/shared/banno-plugin-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Capability
+    url: capabilities/shared/banno-authentication-framework.yaml
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: Capability
+    url: capabilities/shared/jxchange-rest.yaml
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Capability
+    url: capabilities/shared/jack-henry-payments.yaml
 artifacts:
   openapi:
     - openapi/banno-consumer-api-openapi.yml
