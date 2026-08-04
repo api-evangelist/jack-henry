@@ -1,0 +1,230 @@
+openapi: 3.0.3
+info:
+  title: jXchange REST
+  description: |
+    jXchange is Jack Henry's information-translation surface that brokers
+    requests between third-party applications and the SilverLake or
+    CIF 20/20 community-bank cores. The REST variant exposes deposits,
+    loans, customers, accounts, transactions, and general-ledger domains.
+    A SOAP variant is also published at jackhenry.dev/jxchange-soap/.
+  version: '2024'
+servers:
+  - url: https://jxchange.jackhenry.com
+    description: jXchange production gateway
+tags:
+  - name: Customers
+    description: Customer (CIF) records.
+  - name: Deposit Accounts
+    description: DDA/savings/CD deposit accounts.
+  - name: Loan Accounts
+    description: Consumer and commercial loans.
+  - name: Transactions
+    description: Account postings and history.
+  - name: General Ledger
+    description: GL account inquiry.
+  - name: Cards
+    description: Card relationships on accounts.
+security:
+  - bearerAuth: []
+paths:
+  /jxchange/v1/customers:
+    get:
+      summary: Search Customers
+      operationId: searchCustomers
+      tags: [Customers]
+      parameters:
+        - name: ssn
+          in: query
+          schema: { type: string }
+        - name: lastName
+          in: query
+          schema: { type: string }
+        - name: cursor
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: Customer matches.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  customers:
+                    type: array
+                    items: { $ref: '#/components/schemas/Customer' }
+                  nextCursor: { type: string, nullable: true }
+  /jxchange/v1/customers/{customerId}:
+    get:
+      summary: Get Customer
+      operationId: getCustomer
+      tags: [Customers]
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Customer record.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Customer' }
+  /jxchange/v1/deposit-accounts/{accountNumber}:
+    get:
+      summary: Get Deposit Account
+      operationId: getDepositAccount
+      tags: [Deposit Accounts]
+      parameters:
+        - name: accountNumber
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Deposit-account record.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DepositAccount' }
+  /jxchange/v1/loan-accounts/{accountNumber}:
+    get:
+      summary: Get Loan Account
+      operationId: getLoanAccount
+      tags: [Loan Accounts]
+      parameters:
+        - name: accountNumber
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Loan-account record.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/LoanAccount' }
+  /jxchange/v1/accounts/{accountNumber}/transactions:
+    get:
+      summary: List Account Transactions
+      operationId: listAccountTransactions
+      tags: [Transactions]
+      parameters:
+        - name: accountNumber
+          in: path
+          required: true
+          schema: { type: string }
+        - name: startDate
+          in: query
+          schema: { type: string, format: date }
+        - name: endDate
+          in: query
+          schema: { type: string, format: date }
+      responses:
+        '200':
+          description: Transactions for the account.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transactions:
+                    type: array
+                    items: { $ref: '#/components/schemas/CoreTransaction' }
+  /jxchange/v1/general-ledger/{glAccountNumber}:
+    get:
+      summary: Get GL Account
+      operationId: getGlAccount
+      tags: [General Ledger]
+      parameters:
+        - name: glAccountNumber
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: General-ledger account.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/GLAccount' }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Customer:
+      type: object
+      properties:
+        customerId: { type: string }
+        firstName: { type: string }
+        lastName: { type: string }
+        ssnLast4: { type: string }
+        dateOfBirth: { type: string, format: date }
+        primaryAddress:
+          type: object
+          properties:
+            line1: { type: string }
+            line2: { type: string }
+            city: { type: string }
+            state: { type: string }
+            postalCode: { type: string }
+        primaryPhone: { type: string }
+        primaryEmail: { type: string, format: email }
+        relationshipOpenDate: { type: string, format: date }
+    DepositAccount:
+      type: object
+      properties:
+        accountNumber: { type: string }
+        product: { type: string }
+        productType:
+          type: string
+          enum: [Checking, Savings, MoneyMarket, CD]
+        status:
+          type: string
+          enum: [Open, Closed, Dormant, Frozen]
+        currentBalance: { type: number, format: double }
+        availableBalance: { type: number, format: double }
+        interestYTD: { type: number, format: double }
+        openDate: { type: string, format: date }
+        primaryOwnerCustomerId: { type: string }
+    LoanAccount:
+      type: object
+      properties:
+        accountNumber: { type: string }
+        product: { type: string }
+        loanType:
+          type: string
+          enum: [Mortgage, HELOC, Auto, Consumer, Commercial, SBA]
+        status:
+          type: string
+          enum: [Current, PastDue, ChargedOff, PaidOff]
+        originalAmount: { type: number, format: double }
+        currentBalance: { type: number, format: double }
+        interestRate: { type: number, format: double }
+        nextPaymentAmount: { type: number, format: double }
+        nextPaymentDate: { type: string, format: date }
+        maturityDate: { type: string, format: date }
+        primaryOwnerCustomerId: { type: string }
+    CoreTransaction:
+      type: object
+      properties:
+        transactionId: { type: string }
+        postDate: { type: string, format: date }
+        effectiveDate: { type: string, format: date }
+        amount: { type: number, format: double }
+        type:
+          type: string
+          enum: [Debit, Credit, Fee, Interest, Adjustment]
+        description: { type: string }
+        memo: { type: string }
+        runningBalance: { type: number, format: double }
+        sourceCode: { type: string }
+    GLAccount:
+      type: object
+      properties:
+        glAccountNumber: { type: string }
+        name: { type: string }
+        balance: { type: number, format: double }
+        accountClass:
+          type: string
+          enum: [Asset, Liability, Equity, Income, Expense]
+        branch: { type: string }

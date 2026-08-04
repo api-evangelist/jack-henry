@@ -1,0 +1,182 @@
+openapi: 3.0.3
+info:
+  title: Banno Authentication Framework
+  description: |
+    OAuth 2.0 and OpenID Connect surface that issues access tokens,
+    identity tokens, and refresh tokens for the Banno Consumer API,
+    Admin API, and Plugin Framework. Implements the permissions flow
+    used to enforce scopes on protected endpoints. Per the documentation:
+    "Protect user data using industry standard OAuth 2.0 and OpenID
+    Connect to provide authenticated information in the form of secure
+    access and identity tokens."
+  version: v0
+servers:
+  - url: https://api.banno.com
+    description: Banno production
+tags:
+  - name: Discovery
+    description: OpenID Connect discovery and JWKS.
+  - name: Authorization
+    description: OAuth authorization endpoint.
+  - name: Token
+    description: OAuth token exchange.
+  - name: UserInfo
+    description: OpenID Connect UserInfo endpoint.
+  - name: Permissions
+    description: Per-scope permissions flow.
+paths:
+  /a/oidc/.well-known/openid-configuration:
+    get:
+      summary: Get OpenID Connect Discovery Document
+      operationId: getDiscovery
+      tags: [Discovery]
+      responses:
+        '200':
+          description: OIDC discovery document.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Discovery' }
+  /a/oidc/.well-known/jwks.json:
+    get:
+      summary: Get JWKS
+      operationId: getJwks
+      tags: [Discovery]
+      responses:
+        '200':
+          description: JSON Web Key Set used to validate ID tokens.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Jwks' }
+  /a/oidc/authorize:
+    get:
+      summary: Authorize OAuth Request
+      operationId: authorize
+      tags: [Authorization]
+      parameters:
+        - name: client_id
+          in: query
+          required: true
+          schema: { type: string }
+        - name: response_type
+          in: query
+          required: true
+          schema: { type: string, example: code }
+        - name: redirect_uri
+          in: query
+          required: true
+          schema: { type: string, format: uri }
+        - name: scope
+          in: query
+          required: true
+          schema: { type: string, example: 'openid profile https://api.banno.com/consumer/auth/accounts.readonly' }
+        - name: state
+          in: query
+          schema: { type: string }
+        - name: code_challenge
+          in: query
+          schema: { type: string }
+        - name: code_challenge_method
+          in: query
+          schema: { type: string, example: S256 }
+      responses:
+        '302':
+          description: Redirect to the registered redirect URI with a code or error.
+  /a/oidc/token:
+    post:
+      summary: Exchange Token
+      operationId: exchangeToken
+      tags: [Token]
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [grant_type]
+              properties:
+                grant_type:
+                  type: string
+                  enum: [authorization_code, refresh_token, client_credentials]
+                code: { type: string }
+                redirect_uri: { type: string, format: uri }
+                client_id: { type: string }
+                client_secret: { type: string }
+                code_verifier: { type: string }
+                refresh_token: { type: string }
+                scope: { type: string }
+      responses:
+        '200':
+          description: Token response.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TokenResponse' }
+  /a/oidc/userinfo:
+    get:
+      summary: Get UserInfo
+      operationId: getUserInfo
+      tags: [UserInfo]
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Claims about the authenticated user.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserInfo' }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Discovery:
+      type: object
+      properties:
+        issuer: { type: string, format: uri }
+        authorization_endpoint: { type: string, format: uri }
+        token_endpoint: { type: string, format: uri }
+        userinfo_endpoint: { type: string, format: uri }
+        jwks_uri: { type: string, format: uri }
+        response_types_supported:
+          type: array
+          items: { type: string }
+        scopes_supported:
+          type: array
+          items: { type: string }
+        grant_types_supported:
+          type: array
+          items: { type: string }
+    Jwks:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            type: object
+            properties:
+              kid: { type: string }
+              kty: { type: string }
+              alg: { type: string }
+              use: { type: string }
+              n: { type: string }
+              e: { type: string }
+    TokenResponse:
+      type: object
+      properties:
+        access_token: { type: string }
+        id_token: { type: string }
+        refresh_token: { type: string }
+        token_type: { type: string, example: Bearer }
+        expires_in: { type: integer }
+        scope: { type: string }
+    UserInfo:
+      type: object
+      properties:
+        sub: { type: string }
+        name: { type: string }
+        given_name: { type: string }
+        family_name: { type: string }
+        email: { type: string, format: email }
+        email_verified: { type: boolean }
+        institution_id: { type: string, format: uuid }

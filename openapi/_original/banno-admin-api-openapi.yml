@@ -1,0 +1,465 @@
+openapi: 3.0.3
+info:
+  title: Banno Admin API
+  description: |
+    Back-office administration surface used by the Banno staff console
+    itself. Lets institutions look up abilities/feature flags, manage
+    consumer/business users, configure plugin management, manage
+    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+    high-risk actions, and administer OAuth/OpenID clients.
+
+    Resource groups (documented at
+    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+    Documents, Forms, High-Risk Actions, History, Institution Offline
+    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+    Management, Remote Deposit Capture, Reports, Routing Numbers,
+    Segments, Transfer Settings, Wire Transfers, and Zelle.
+  version: v0
+  contact:
+    name: Jack Henry Developer Support
+    url: https://jackhenry.dev/support/
+  license:
+    name: Proprietary
+servers:
+  - url: https://api.banno.com
+    description: Banno production
+tags:
+  - name: Abilities
+    description: Institution feature-flag map.
+  - name: Consumers
+    description: Consumer account administration.
+  - name: Accounts
+    description: Account administration across consumers.
+  - name: Plugin Management
+    description: Configure external applications and plugins.
+  - name: Reports
+    description: Operational and audit reports.
+  - name: Segments
+    description: User segments for targeted experiences.
+  - name: Marketing Ads
+    description: Configure marketing/ad cards in the dashboard.
+  - name: High Risk Actions
+    description: Sensitive operations requiring elevated authorization.
+  - name: History
+    description: Audit and activity history.
+  - name: Institution Offline Status
+    description: Drive scheduled or emergency offline modes.
+  - name: Forms
+    description: Configurable forms used inside the experience.
+  - name: Documents
+    description: Document delivery configuration.
+  - name: Messages
+    description: Two-way secure messaging on the institution side.
+  - name: ACH
+    description: ACH origination administration.
+  - name: Wire Transfers
+    description: Wire-transfer administration.
+  - name: Zelle
+    description: Zelle-network administration.
+  - name: Remote Deposit Capture
+    description: RDC administration.
+security:
+  - openIdConnect: []
+paths:
+  /a/mobile/api/v0/institutions/{institutionId}/abilities:
+    get:
+      summary: Lookup Institution Abilities
+      operationId: getInstitutionAbilities
+      tags: [Abilities]
+      description: Lookup the abilities for the given institution.
+      parameters:
+        - $ref: '#/components/parameters/InstitutionId'
+      responses:
+        '200':
+          description: Map of ability names to JSON values.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AbilitiesMap' }
+  /a/mobile/api/v0/institutions/{institutionId}/consumers:
+    get:
+      summary: List Consumers
+      operationId: listConsumers
+      tags: [Consumers]
+      parameters:
+        - $ref: '#/components/parameters/InstitutionId'
+        - name: search
+          in: query
+          schema: { type: string }
+        - name: cursor
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: Paged consumer list.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  consumers:
+                    type: array
+                    items: { $ref: '#/components/schemas/Consumer' }
+                  nextCursor: { type: string, nullable: true }
+  /a/mobile/api/v0/institutions/{institutionId}/consumers/{consumerId}:
+    get:
+      summary: Get Consumer
+      operationId: getConsumer
+      tags: [Consumers]
+      parameters:
+        - $ref: '#/components/parameters/InstitutionId'
+        - $ref: '#/components/parameters/ConsumerId'
+      responses:
+        '200':
+          description: Consumer profile.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Consumer' }
+  /a/mobile/api/v0/institutions/{institutionId}/consumers/{consumerId}/contact-info:
+    put:
+      summary: Update Consumer Contact Info
+      operationId: updateContactInfo
+      tags: [Consumers]
+      parameters:
+        - $ref: '#/components/parameters/InstitutionId'
+        - $ref: '#/components/parameters/ConsumerId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ContactInfo' }
+      responses:
+        '200':
+          description: Updated contact info.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ContactInfo' }
+  /a/mobile/api/v0/institutions/{institutionId}/segments:
+    get:
+      summary: List Segments
+      operationId: listSegments
+      tags: [Segments]
+      parameters: [{ $ref: '#/components/parameters/InstitutionId' }]
+      responses:
+        '200':
+          description: Segments configured for the institution.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  segments:
+                    type: array
+                    items: { $ref: '#/components/schemas/Segment' }
+    post:
+      summary: Create Segment
+      operationId: createSegment
+      tags: [Segments]
+      parameters: [{ $ref: '#/components/parameters/InstitutionId' }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SegmentRequest' }
+      responses:
+        '201':
+          description: Segment created.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Segment' }
+  /a/mobile/api/v0/institutions/{institutionId}/ads:
+    get:
+      summary: List Marketing Ads
+      operationId: listAds
+      tags: [Marketing Ads]
+      parameters: [{ $ref: '#/components/parameters/InstitutionId' }]
+      responses:
+        '200':
+          description: Configured ads.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ads:
+                    type: array
+                    items: { $ref: '#/components/schemas/Ad' }
+    post:
+      summary: Create Marketing Ad
+      operationId: createAd
+      tags: [Marketing Ads]
+      parameters: [{ $ref: '#/components/parameters/InstitutionId' }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/AdRequest' }
+      responses:
+        '201':
+          description: Ad created.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Ad' }
+  /a/mobile/api/v0/institutions/{institutionId}/plugins:
+    get:
+      summary: List Plugins
+      operationId: listPlugins
+      tags: [Plugin Management]
+      parameters: [{ $ref: '#/components/parameters/InstitutionId' }]
+      responses:
+        '200':
+          description: Plugins configured for the institution.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  plugins:
+                    type: array
+                    items: { $ref: '#/components/schemas/Plugin' }
+  /a/mobile/api/v0/institutions/{institutionId}/plugins/{pluginId}:
+    put:
+      summary: Update Plugin Configuration
+      operationId: updatePlugin
+      tags: [Plugin Management]
+      parameters:
+        - $ref: '#/components/parameters/InstitutionId'
+        - name: pluginId
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/Plugin' }
+      responses:
+        '200':
+          description: Plugin updated.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Plugin' }
+  /a/mobile/api/v0/institutions/{institutionId}/reports:
+    get:
+      summary: List Reports
+      operationId: listReports
+      tags: [Reports]
+      parameters: [{ $ref: '#/components/parameters/InstitutionId' }]
+      responses:
+        '200':
+          description: Available reports.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reports:
+                    type: array
+                    items: { $ref: '#/components/schemas/Report' }
+  /a/mobile/api/v0/institutions/{institutionId}/high-risk-actions:
+    get:
+      summary: List High Risk Actions
+      operationId: listHighRiskActions
+      tags: [High Risk Actions]
+      parameters: [{ $ref: '#/components/parameters/InstitutionId' }]
+      responses:
+        '200':
+          description: High-risk action events for review.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  actions:
+                    type: array
+                    items: { $ref: '#/components/schemas/HighRiskAction' }
+  /a/mobile/api/v0/institutions/{institutionId}/history:
+    get:
+      summary: List History Events
+      operationId: listHistory
+      tags: [History]
+      parameters:
+        - $ref: '#/components/parameters/InstitutionId'
+        - name: actor
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: Audit history.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  events:
+                    type: array
+                    items: { $ref: '#/components/schemas/HistoryEvent' }
+  /a/mobile/api/v0/institutions/{institutionId}/offline-mode:
+    put:
+      summary: Set Institution Offline Status
+      operationId: setOfflineMode
+      tags: [Institution Offline Status]
+      parameters: [{ $ref: '#/components/parameters/InstitutionId' }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/OfflineStatus' }
+      responses:
+        '200':
+          description: Offline status updated.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OfflineStatus' }
+components:
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration
+  parameters:
+    InstitutionId:
+      name: institutionId
+      in: path
+      required: true
+      description: UUID identifying the institution.
+      schema: { type: string, format: uuid }
+    ConsumerId:
+      name: consumerId
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+  schemas:
+    AbilitiesMap:
+      type: object
+      description: |
+        Map of ability/feature-flag names to JSON values. Examples include
+        `export_transactions_enabled`, `bill_pay`, `zelle_enabled`.
+      additionalProperties: true
+      example:
+        bill_pay: true
+        zelle_enabled: true
+        export_transactions_enabled: true
+        rdc_consumer_daily_limit: 5000
+    Consumer:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        firstName: { type: string }
+        lastName: { type: string }
+        email: { type: string, format: email }
+        phone: { type: string }
+        status:
+          type: string
+          enum: [Active, Locked, Suspended, Deleted]
+        enrolledDate: { type: string, format: date-time }
+    ContactInfo:
+      type: object
+      properties:
+        email: { type: string, format: email }
+        phone: { type: string }
+        address:
+          type: object
+          properties:
+            line1: { type: string }
+            line2: { type: string }
+            city: { type: string }
+            state: { type: string }
+            postalCode: { type: string }
+    Segment:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        name: { type: string }
+        description: { type: string }
+        criteria:
+          type: object
+          additionalProperties: true
+    SegmentRequest:
+      type: object
+      required: [name, criteria]
+      properties:
+        name: { type: string }
+        description: { type: string }
+        criteria:
+          type: object
+          additionalProperties: true
+    Ad:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        title: { type: string }
+        body: { type: string }
+        imageUrl: { type: string, format: uri }
+        targetUrl: { type: string, format: uri }
+        segmentIds:
+          type: array
+          items: { type: string, format: uuid }
+        startDate: { type: string, format: date }
+        endDate: { type: string, format: date }
+        active: { type: boolean }
+    AdRequest:
+      type: object
+      required: [title, body]
+      properties:
+        title: { type: string }
+        body: { type: string }
+        imageUrl: { type: string, format: uri }
+        targetUrl: { type: string, format: uri }
+        segmentIds:
+          type: array
+          items: { type: string, format: uuid }
+        startDate: { type: string, format: date }
+        endDate: { type: string, format: date }
+    Plugin:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        name: { type: string }
+        externalApplicationId: { type: string, format: uuid }
+        pluginUrl: { type: string, format: uri }
+        cardConfig:
+          type: object
+          additionalProperties: true
+        enabled: { type: boolean }
+        segmentIds:
+          type: array
+          items: { type: string, format: uuid }
+    Report:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        name: { type: string }
+        type: { type: string }
+        url: { type: string, format: uri }
+        generatedDate: { type: string, format: date-time }
+    HighRiskAction:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        actionType: { type: string }
+        consumerId: { type: string, format: uuid }
+        timestamp: { type: string, format: date-time }
+        status:
+          type: string
+          enum: [Pending, Approved, Denied, Expired]
+    HistoryEvent:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        actorId: { type: string, format: uuid }
+        actorType:
+          type: string
+          enum: [Consumer, Staff, System]
+        action: { type: string }
+        targetId: { type: string }
+        timestamp: { type: string, format: date-time }
+        metadata:
+          type: object
+          additionalProperties: true
+    OfflineStatus:
+      type: object
+      properties:
+        offline: { type: boolean }
+        scheduledStart: { type: string, format: date-time, nullable: true }
+        scheduledEnd: { type: string, format: date-time, nullable: true }
+        message: { type: string }
