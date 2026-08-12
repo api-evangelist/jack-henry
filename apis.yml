@@ -203,14 +203,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -225,22 +221,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-accounts-api
   name: Jack Henry & Associates Accounts API
   description: Deposit, loan, line-of-credit, and investment accounts.
@@ -261,14 +249,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -283,22 +267,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-ach-origination-api
   name: Jack Henry & Associates ACH Origination API
   description: ACH credit and debit origination.
@@ -319,14 +295,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -341,22 +313,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-alerts-api
   name: Jack Henry & Associates Alerts API
   description: Account and security alerts.
@@ -377,14 +341,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -399,22 +359,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-authorization-api
   name: Jack Henry & Associates Authorization API
   description: OAuth authorization endpoint.
@@ -435,14 +387,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -457,22 +405,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-bill-pay-api
   name: Jack Henry & Associates Bill Pay API
   description: Bill-payment payees and payments.
@@ -493,14 +433,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -515,22 +451,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-bill-payments-api
   name: Jack Henry & Associates Bill Payments API
   description: Consumer and small-business bill pay.
@@ -551,14 +479,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -573,22 +497,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-cards-api
   name: Jack Henry & Associates Cards API
   description: Debit and credit card management.
@@ -609,14 +525,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -631,22 +543,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-consumers-api
   name: Jack Henry & Associates Consumers API
   description: Consumer account administration.
@@ -667,14 +571,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -689,22 +589,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-customers-api
   name: Jack Henry & Associates Customers API
   description: Customer (CIF) records.
@@ -725,14 +617,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -747,22 +635,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-deposit-accounts-api
   name: Jack Henry & Associates Deposit Accounts API
   description: DDA/savings/CD deposit accounts.
@@ -783,14 +663,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -805,22 +681,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-discovery-api
   name: Jack Henry & Associates Discovery API
   description: OpenID Connect discovery and JWKS.
@@ -841,14 +709,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -863,22 +727,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-general-ledger-api
   name: Jack Henry & Associates General Ledger API
   description: GL account inquiry.
@@ -899,14 +755,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -921,22 +773,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-high-risk-actions-api
   name: Jack Henry & Associates High Risk Actions API
   description: Sensitive operations requiring elevated authorization.
@@ -957,14 +801,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -979,22 +819,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-history-api
   name: Jack Henry & Associates History API
   description: Audit and activity history.
@@ -1015,14 +847,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1037,22 +865,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-institution-offline-status-api
   name: Jack Henry & Associates Institution Offline Status API
   description: Drive scheduled or emergency offline modes.
@@ -1073,14 +893,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1095,22 +911,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-institutions-api
   name: Jack Henry & Associates Institutions API
   description: Public institution profile lookup.
@@ -1131,14 +939,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1153,22 +957,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-loan-accounts-api
   name: Jack Henry & Associates Loan Accounts API
   description: Consumer and commercial loans.
@@ -1189,14 +985,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1211,22 +1003,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-marketing-ads-api
   name: Jack Henry & Associates Marketing Ads API
   description: Configure marketing/ad cards in the dashboard.
@@ -1247,14 +1031,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1269,22 +1049,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-messages-api
   name: Jack Henry & Associates Messages API
   description: Two-way secure messaging with the institution.
@@ -1305,14 +1077,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1327,22 +1095,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-payments-orchestrator-api
   name: Jack Henry & Associates Payments Orchestrator API
   description: Cross-rail routing and virtual accounts.
@@ -1363,14 +1123,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1385,22 +1141,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-peer-to-peer-api
   name: Jack Henry & Associates Peer To Peer API
   description: P2P transfers via partner networks.
@@ -1421,14 +1169,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1443,22 +1187,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-plugin-bridge-api
   name: Jack Henry & Associates Plugin Bridge API
   description: Bridge handshake and lifecycle.
@@ -1479,14 +1215,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1501,22 +1233,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-plugin-configuration-api
   name: Jack Henry & Associates Plugin Configuration API
   description: Plugin metadata published by the host.
@@ -1537,14 +1261,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1559,22 +1279,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-plugin-management-api
   name: Jack Henry & Associates Plugin Management API
   description: Configure external applications and plugins.
@@ -1595,14 +1307,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1617,22 +1325,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-remote-deposit-capture-api
   name: Jack Henry & Associates Remote Deposit Capture API
   description: Consumer and commercial RDC.
@@ -1653,14 +1353,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1675,22 +1371,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-reports-api
   name: Jack Henry & Associates Reports API
   description: Operational and audit reports.
@@ -1711,14 +1399,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1733,22 +1417,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-routing-numbers-api
   name: Jack Henry & Associates Routing Numbers API
   description: Routing number validation.
@@ -1769,14 +1445,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1791,22 +1463,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-segments-api
   name: Jack Henry & Associates Segments API
   description: User segments for targeted experiences.
@@ -1827,14 +1491,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1849,22 +1509,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-token-api
   name: Jack Henry & Associates Token API
   description: OAuth token exchange.
@@ -1885,14 +1537,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1907,22 +1555,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-transactions-api
   name: Jack Henry & Associates Transactions API
   description: Posted and pending transactions per account.
@@ -1943,14 +1583,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -1965,22 +1601,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-transfers-api
   name: Jack Henry & Associates Transfers API
   description: Account-to-account and external transfers.
@@ -2001,14 +1629,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -2023,22 +1647,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-user-api
   name: Jack Henry & Associates User API
   description: Profile and identity of the authenticated user.
@@ -2059,14 +1675,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -2081,22 +1693,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-user-context-api
   name: Jack Henry & Associates User Context API
   description: Authenticated user/account context surfaced to a plugin.
@@ -2117,14 +1721,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -2139,22 +1739,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-userinfo-api
   name: Jack Henry & Associates UserInfo API
   description: OpenID Connect UserInfo endpoint.
@@ -2175,14 +1767,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -2197,22 +1785,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-wire-transfers-api
   name: Jack Henry & Associates Wire Transfers API
   description: Outbound wire requests.
@@ -2233,14 +1813,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -2255,22 +1831,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 - aid: jack-henry:jack-henry-zelle-api
   name: Jack Henry & Associates Zelle API
   description: Zelle peer-to-peer payments.
@@ -2291,14 +1859,10 @@ apis:
     url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
   - type: SampleApp
     url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-consumer-api.yaml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
   - type: SampleApp
     url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: Capability
-    url: capabilities/shared/banno-admin-api.yaml
   - type: APIReference
     url: https://jackhenry.dev/open-api-docs/plugins/
   - type: GettingStarted
@@ -2313,22 +1877,14 @@ apis:
     url: https://github.com/Banno/basic-plugin-example
   - type: SampleApp
     url: https://github.com/Banno/simple-announcements-plugin
-  - type: Capability
-    url: capabilities/shared/banno-plugin-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Capability
-    url: capabilities/shared/banno-authentication-framework.yaml
   - type: Documentation
     url: https://jackhenry.dev/jxchange-rest/
-  - type: Capability
-    url: capabilities/shared/jxchange-rest.yaml
   - type: DeveloperPortal
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-  - type: Capability
-    url: capabilities/shared/jack-henry-payments.yaml
 artifacts:
   openapi:
     - openapi/banno-consumer-api-openapi.yml
