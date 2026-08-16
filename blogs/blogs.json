@@ -5,7 +5,7 @@
       "source": "https://www.jackhenry.com/fintalk/rss.xml",
       "feed_url": "https://www.jackhenry.com/fintalk/rss.xml",
       "title": "",
-      "saved": 0,
+      "saved": 2,
       "method": "feed"
     },
     {
@@ -13,9 +13,10 @@
       "feed_url": "https://banno.github.io/open-api-docs/",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "none",
+      "error": "parse_failed"
     }
   ],
-  "post_count": 7,
-  "fetched": "2026-08-06T14:08:46Z"
+  "post_count": 9,
+  "fetched": "2026-08-15T12:11:08Z"
 }
