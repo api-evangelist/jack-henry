@@ -1,0 +1,241 @@
+{
+  "item": [
+    {
+      "id": "41a064b3-6dd1-4d2d-a031-a154a8af7b94",
+      "name": "Transfers",
+      "description": {
+        "content": "Account-to-account and external transfers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a36ae4b-d736-448f-937f-72ae91945a44",
+          "name": "List Transfers",
+          "request": {
+            "name": "List Transfers",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "0eb45750-f0a2-4e04-8906-d1e5ae666a1b",
+              "name": "Scheduled and historical transfers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transfers\": [\n    {\n      \"id\": \"c1fe4e74-a9f3-b877-5749-9ac08a8bec2e\",\n      \"fromAccountId\": \"6e6530b6-5bb7-b795-6f2a-c8309d0b3569\",\n      \"toAccountId\": \"991560f0-acc3-0ac9-98c1-4d4b78678d46\",\n      \"amount\": 4357.827170378461,\n      \"scheduledDate\": \"2006-11-14\",\n      \"frequency\": \"BiWeekly\",\n      \"status\": \"Scheduled\",\n      \"memo\": \"string\"\n    },\n    {\n      \"id\": \"0dab3af2-b4d5-bfb1-b0f6-6b927f3f450e\",\n      \"fromAccountId\": \"0dab8c6d-c8dd-29c2-c96b-cfe359adc40d\",\n      \"toAccountId\": \"f862f06a-c935-fc7e-f234-4bf13ef36785\",\n      \"amount\": 7489.644545320521,\n      \"scheduledDate\": \"1950-09-04\",\n      \"frequency\": \"Monthly\",\n      \"status\": \"Processing\",\n      \"memo\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "127ee204-8cd7-48a3-814a-433dfffa1af3",
+          "name": "Create Transfer",
+          "request": {
+            "name": "Create Transfer",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fromAccountId\": \"<uuid>\",\n  \"toAccountId\": \"<uuid>\",\n  \"amount\": \"<double>\",\n  \"scheduledDate\": \"<date>\",\n  \"frequency\": \"<string>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "432c0101-c27b-443d-afd3-1743ac860e83",
+              "name": "Transfer created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromAccountId\": \"<uuid>\",\n  \"toAccountId\": \"<uuid>\",\n  \"amount\": \"<double>\",\n  \"scheduledDate\": \"<date>\",\n  \"frequency\": \"<string>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"5944621c-1f57-7cc4-eb7d-9a36d04024dd\",\n  \"fromAccountId\": \"7c2c489d-a94e-86c9-d4a8-7c03f8e3e1c9\",\n  \"toAccountId\": \"68dc8a47-a98d-4517-54a1-ed63b704fb32\",\n  \"amount\": 3869.919998312932,\n  \"scheduledDate\": \"1990-06-08\",\n  \"frequency\": \"Monthly\",\n  \"status\": \"Processing\",\n  \"memo\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cd9c388a-7c79-4737-9af5-7e7e22fe5aa3",
+    "name": "Banno Admin Abilities Transfers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

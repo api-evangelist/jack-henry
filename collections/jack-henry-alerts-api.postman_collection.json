@@ -1,0 +1,126 @@
+{
+  "item": [
+    {
+      "id": "59b311c6-f166-4063-95b4-ef46da5b1cb0",
+      "name": "Alerts",
+      "description": {
+        "content": "Account and security alerts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c08a9b21-c23d-4f09-94ce-9d60ec532242",
+          "name": "List Alerts",
+          "request": {
+            "name": "List Alerts",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "alerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "bf9f06c5-8214-4a6b-901c-2e2a08fa4f06",
+              "name": "Alerts configured by the user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"id\": \"1f38adbf-34d5-7e5b-0651-4ddb9705f760\",\n      \"type\": \"LargeDeposit\",\n      \"channels\": [\n        \"SMS\",\n        \"Push\"\n      ],\n      \"threshold\": 9622.303345522849,\n      \"enabled\": false\n    },\n    {\n      \"id\": \"0444e87a-4f52-4c74-364e-fa7504fbd0af\",\n      \"type\": \"LargeWithdrawal\",\n      \"channels\": [\n        \"Push\",\n        \"InApp\"\n      ],\n      \"threshold\": 7022.927165792965,\n      \"enabled\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1e1b7952-81eb-4ac5-8f5d-27081148d856",
+    "name": "Banno Admin Abilities Alerts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

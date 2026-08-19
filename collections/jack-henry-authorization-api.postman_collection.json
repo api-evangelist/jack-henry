@@ -1,0 +1,160 @@
+{
+  "item": [
+    {
+      "id": "76437a33-2af0-409c-abef-bc97cbab8255",
+      "name": "Authorization",
+      "description": {
+        "content": "OAuth authorization endpoint.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3532bb2c-da8d-4454-9e13-b9b5759dbaa1",
+          "name": "Authorize OAuth Request",
+          "request": {
+            "name": "Authorize OAuth Request",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "oidc",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<uri>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge_method",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "002b8861-cfdf-4af4-bda2-15f37a46048e",
+              "name": "Redirect to the registered redirect URI with a code or error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "oidc",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "response_type",
+                      "value": "code"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "openid profile https://api.banno.com/consumer/auth/accounts.readonly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge_method",
+                      "value": "S256"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d78f9d90-8873-4d7f-ace7-a5438214ad1d",
+    "name": "Banno Admin Abilities Authorization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

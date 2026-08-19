@@ -1,0 +1,245 @@
+{
+  "item": [
+    {
+      "id": "c42b233c-38b1-480c-905a-95a0d879db67",
+      "name": "Bill Pay",
+      "description": {
+        "content": "Bill-payment payees and payments.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9ae34564-e908-43db-82e0-7b1dd59aa2be",
+          "name": "List Bill Pay Payees",
+          "request": {
+            "name": "List Bill Pay Payees",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "bill-pay",
+                "payees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "7ec6e76f-b878-4cbe-b7e0-bbef6cdfc37e",
+              "name": "Payees.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "bill-pay",
+                    "payees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payees\": [\n    {\n      \"id\": \"ddffae75-26b1-2207-072c-a52a3f65eca2\",\n      \"name\": \"string\",\n      \"nickname\": \"string\",\n      \"accountNumber\": \"string\",\n      \"address\": {\n        \"line1\": \"string\",\n        \"line2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\"\n      },\n      \"deliveryMethod\": \"Electronic\"\n    },\n    {\n      \"id\": \"0d97be69-8210-8a6b-971f-2e0f6be23871\",\n      \"name\": \"string\",\n      \"nickname\": \"string\",\n      \"accountNumber\": \"string\",\n      \"address\": {\n        \"line1\": \"string\",\n        \"line2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\"\n      },\n      \"deliveryMethod\": \"Electronic\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d11b2c76-65df-4fb5-b421-50573872f294",
+          "name": "Create Bill Pay Payment",
+          "request": {
+            "name": "Create Bill Pay Payment",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "bill-pay",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payeeId\": \"<uuid>\",\n  \"fromAccountId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"scheduledDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0d309a45-40aa-43cc-a9c3-824005817dfb",
+              "name": "Bill-pay payment scheduled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "bill-pay",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payeeId\": \"<uuid>\",\n  \"fromAccountId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"scheduledDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"ac2cea0c-e0ce-7c30-07fb-12b3ab694669\",\n  \"payeeId\": \"6226b8a0-4f8f-af53-7a07-6e65a1ed219e\",\n  \"fromAccountId\": \"5eef24be-4c18-5f11-47d2-a34e41c3febc\",\n  \"amount\": 8941.46413487314,\n  \"scheduledDate\": \"1996-05-31\",\n  \"status\": \"Failed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "830f3e13-1456-4f59-8254-15d1d0cc307f",
+    "name": "Banno Admin Abilities Bill Pay API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

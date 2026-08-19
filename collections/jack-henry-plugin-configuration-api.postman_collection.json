@@ -1,0 +1,125 @@
+{
+  "item": [
+    {
+      "id": "f6dd2625-0b2e-4b4a-a47d-da837b9c384f",
+      "name": "Plugin Configuration",
+      "description": {
+        "content": "Plugin metadata published by the host.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "78025cc6-c406-44db-9773-618aea4cc68f",
+          "name": "Get Plugin Manifest",
+          "request": {
+            "name": "Get Plugin Manifest",
+            "description": {},
+            "url": {
+              "path": [
+                "plugins",
+                "api",
+                "v0",
+                "plugins",
+                ":pluginId",
+                "manifest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pluginId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ef7ff0a-5710-4870-8226-029d69b9b5aa",
+              "name": "Manifest describing the plugin's cards, sizes, and entry points.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plugins",
+                    "api",
+                    "v0",
+                    "plugins",
+                    ":pluginId",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pluginId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"834ef279-7dc1-4a02-405b-e468d85ed723\",\n  \"name\": \"string\",\n  \"version\": \"string\",\n  \"entryUrl\": \"https://EceonuuxsRhTlibgFYAwWKKntrdmLfHW.kujaN+55kvm1OwGoMFfH0hMeOStoV.Xi\",\n  \"cards\": [\n    {\n      \"kind\": \"ExpandedView\",\n      \"size\": \"Small\",\n      \"actionLabel\": \"string\"\n    },\n    {\n      \"kind\": \"CardFace\",\n      \"size\": \"Medium\",\n      \"actionLabel\": \"string\"\n    }\n  ],\n  \"permissions\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1cae5682-a052-459c-99ca-1b317e4c2398",
+    "name": "Banno Admin Abilities Plugin Configuration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

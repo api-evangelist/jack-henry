@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Plugin Bridge API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plugin Bridge",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Exchange Bridge Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.banno.com/plugins/api/v0/plugins/:pluginId/bridge/token",
+            "params": [
+              {
+                "name": "pluginId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Exchanges the parent-window handshake nonce for a short-lived\nbridge token used by the @jack-henry/banno-plugin-framework-bridge\nlibrary to call host-side functions.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

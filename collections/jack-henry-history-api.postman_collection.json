@@ -1,0 +1,138 @@
+{
+  "item": [
+    {
+      "id": "bba54e8a-42bc-45fe-b92e-991ced9e2088",
+      "name": "History",
+      "description": {
+        "content": "Audit and activity history.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "33bfc4e9-6081-4d14-9b41-e52debb924c4",
+          "name": "List History Events",
+          "request": {
+            "name": "List History Events",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "actor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf26d6d1-5f58-4404-bce4-a202b2e19c01",
+              "name": "Audit history.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"events\": [\n    {\n      \"id\": \"402f2814-f9b2-ec5a-d0e4-ef9b6d33e816\",\n      \"actorId\": \"3a4c376a-ceff-f518-5604-cc0c22820ee1\",\n      \"actorType\": \"Staff\",\n      \"action\": \"string\",\n      \"targetId\": \"string\",\n      \"timestamp\": \"2002-10-29T23:23:14.849Z\",\n      \"metadata\": {\n        \"key_0\": false,\n        \"key_1\": \"string\"\n      }\n    },\n    {\n      \"id\": \"4c0a19fa-ea40-3a25-1028-e5646c6b6def\",\n      \"actorId\": \"b9ef8026-3d28-2da1-d6a3-7be7c90d77a3\",\n      \"actorType\": \"Staff\",\n      \"action\": \"string\",\n      \"targetId\": \"string\",\n      \"timestamp\": \"1982-12-01T16:55:11.983Z\",\n      \"metadata\": {\n        \"key_0\": 3126.784983826755\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "55c92f0d-655e-4a40-820a-32a0c1979413",
+    "name": "Banno Admin Abilities History API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

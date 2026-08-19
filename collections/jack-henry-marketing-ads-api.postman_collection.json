@@ -1,0 +1,243 @@
+{
+  "item": [
+    {
+      "id": "cefa96db-a4fd-45cf-a4b1-60f685e4cd33",
+      "name": "Marketing Ads",
+      "description": {
+        "content": "Configure marketing/ad cards in the dashboard.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f275bf79-673c-4e8e-ab29-3843d6d78ddf",
+          "name": "List Marketing Ads",
+          "request": {
+            "name": "List Marketing Ads",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "ads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44c6b439-b25b-4972-8551-78718df71358",
+              "name": "Configured ads.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "ads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ads\": [\n    {\n      \"id\": \"f15904a5-2956-bbba-07a1-ad9713a0dc63\",\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"imageUrl\": \"https://kmCl.ouwmmUQtLLtLozrkKCdmvH7tUXP7s5Gjxm8eMkXeMPTvJYHN5yTyxrAKTnJ4n\",\n      \"targetUrl\": \"https://r.qiLn2UrLdAMN2cvGnqSIN7R5RdqLFx9mlxMbIjUqbW\",\n      \"segmentIds\": [\n        \"d708b8c5-904f-7f97-8e48-057ad4c16d6e\",\n        \"ace393f9-a2ab-37ee-8ace-383bf63f639a\"\n      ],\n      \"startDate\": \"1996-03-28\",\n      \"endDate\": \"1950-11-22\",\n      \"active\": true\n    },\n    {\n      \"id\": \"e6479f5f-4cae-ae3a-a2ba-077903d77b47\",\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"imageUrl\": \"https://VBeDDyOFPltyJaNCtPzoWRLaNuPNF.eqge088UPexY4rHw,bCzhp95WqJIvedM5KiK2WYcJ9-pC-GoCNRdeXeO\",\n      \"targetUrl\": \"http://WhEzyqiYYwRcYt.ndfvxkPiH1YdD5DIFKuvvdAFg\",\n      \"segmentIds\": [\n        \"395d0fb6-8128-dd16-7dbb-3c817a04b59b\",\n        \"6ee3e1f4-23ca-063b-43cc-2e2b38a81916\"\n      ],\n      \"startDate\": \"1967-10-08\",\n      \"endDate\": \"2012-04-30\",\n      \"active\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bb8a269-96d7-4ab7-a36c-ffbb8232d927",
+          "name": "Create Marketing Ad",
+          "request": {
+            "name": "Create Marketing Ad",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "ads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"imageUrl\": \"<uri>\",\n  \"targetUrl\": \"<uri>\",\n  \"segmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a68069c9-017d-4bac-881f-f938ad9f80ac",
+              "name": "Ad created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "ads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"imageUrl\": \"<uri>\",\n  \"targetUrl\": \"<uri>\",\n  \"segmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"2d70e912-d49e-c26e-3e0d-3989926ec935\",\n  \"title\": \"string\",\n  \"body\": \"string\",\n  \"imageUrl\": \"http://JvScwhWJsBdIQIUSa.jvptxWsmnnuOBLItS2GUmWhKwLkdpFJG-r\",\n  \"targetUrl\": \"http://V.sivyPn9nb+PzGzhwD,cTNBxTGUZ0kHhM85ugj\",\n  \"segmentIds\": [\n    \"0b289795-d5ce-5443-1436-e219d41fdf0a\",\n    \"3636b753-32da-4316-27b6-b08dbee986a0\"\n  ],\n  \"startDate\": \"1963-03-12\",\n  \"endDate\": \"1961-02-24\",\n  \"active\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c7cc313a-e6ab-44dc-a8d1-9cb865b6383d",
+    "name": "Banno Admin Abilities Marketing Ads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

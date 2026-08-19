@@ -1,0 +1,239 @@
+{
+  "item": [
+    {
+      "id": "356fce8a-dcd4-4398-a070-6e85d7252e3d",
+      "name": "Wire Transfers",
+      "description": {
+        "content": "Outbound wire requests.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9581c1ec-ddc1-414e-aa80-b9350b524f64",
+          "name": "Create Wire Transfer",
+          "request": {
+            "name": "Create Wire Transfer",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "wire-transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fromAccountId\": \"<uuid>\",\n  \"beneficiaryName\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"beneficiaryBankRoutingNumber\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"currency\": \"USD\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "07596555-a4c9-48c8-acff-47d5279c1dde",
+              "name": "Wire submitted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "wire-transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromAccountId\": \"<uuid>\",\n  \"beneficiaryName\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"beneficiaryBankRoutingNumber\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"currency\": \"USD\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"22b30f7a-2584-80b2-a3fb-e6c91cef1ce0\",\n  \"fromAccountId\": \"d6b27f3d-4107-d045-5c8d-d9daefdfd6d8\",\n  \"beneficiaryName\": \"string\",\n  \"beneficiaryAccountNumber\": \"string\",\n  \"beneficiaryBankRoutingNumber\": \"string\",\n  \"amount\": 8170.758027614535,\n  \"currency\": \"string\",\n  \"status\": \"Failed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "155727b1-1876-44ba-8dee-5e3711d3425e",
+          "name": "Send Wire",
+          "request": {
+            "name": "Send Wire",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "wires"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiaryName\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"beneficiaryRoutingNumber\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"currency\": \"USD\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7c744f32-347f-4460-865b-e06d51daadaf",
+              "name": "Wire submitted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "wires"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiaryName\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"beneficiaryRoutingNumber\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"currency\": \"USD\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"dfa087b4-5f64-0aa7-9c4b-344d034068f2\",\n  \"status\": \"Failed\",\n  \"imadOmad\": \"string\",\n  \"amount\": 1702.5090876803063,\n  \"sentAt\": \"1951-10-18T02:52:44.163Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4d8fb0e3-dbff-42b0-a17d-a1a20e3409cb",
+    "name": "Banno Admin Abilities Wire Transfers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

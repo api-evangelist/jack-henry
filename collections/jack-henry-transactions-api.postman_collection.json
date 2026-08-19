@@ -1,0 +1,412 @@
+{
+  "item": [
+    {
+      "id": "ee01f3b3-0e38-4734-a27e-fc469e6a2e07",
+      "name": "Transactions",
+      "description": {
+        "content": "Posted and pending transactions per account.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1409230d-3f52-488d-bdde-28f13261e38c",
+          "name": "List Account Transactions",
+          "request": {
+            "name": "List Account Transactions",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "accounts",
+                ":accountId",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountId",
+                  "description": "(Required) ID of the desired account (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "c3fe75d0-1f9a-469a-b801-e8e18598b4c2",
+              "name": "Paged list of transactions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "accounts",
+                    ":accountId",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountId",
+                      "description": "(Required) ID of the desired account (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactions\": [\n    {\n      \"id\": \"12efa27c-04f1-cb47-1ba6-6b4f19e05bfb\",\n      \"amount\": 8801.768523041854,\n      \"date\": \"1996-01-24\",\n      \"postedDate\": \"1954-09-05\",\n      \"type\": \"Transfer\",\n      \"status\": \"Pending\",\n      \"description\": \"string\",\n      \"memo\": \"string\",\n      \"merchant\": {\n        \"name\": \"string\",\n        \"category\": \"string\",\n        \"logo\": \"https://LyfejJybGJkvRGaXumyGtWUNmFLKtlMr.rzdlDoKKP6CyzbP+dUCpNjjgvsBvRsvPwQr9JEa47zPJkd54TYow\"\n      },\n      \"runningBalance\": 8706.508951064352,\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"pending\": false,\n      \"notes\": \"string\",\n      \"enrichments\": {\n        \"key_0\": 1573,\n        \"key_1\": 1423.342120063772\n      }\n    },\n    {\n      \"id\": \"b204e6a5-5dac-9e15-5872-6b2c8098cb5d\",\n      \"amount\": 8994.985077276739,\n      \"date\": \"1956-11-10\",\n      \"postedDate\": \"2003-08-02\",\n      \"type\": \"Debit\",\n      \"status\": \"Pending\",\n      \"description\": \"string\",\n      \"memo\": \"string\",\n      \"merchant\": {\n        \"name\": \"string\",\n        \"category\": \"string\",\n        \"logo\": \"https://eVGVJNuLTtdxrCOLGIoea.rhq61BK+VFAHfurQ0wgcU6BTJ.A4pTTQYRhc87v6mnhT2\"\n      },\n      \"runningBalance\": 3996.3532759450227,\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"pending\": false,\n      \"notes\": \"string\",\n      \"enrichments\": {\n        \"key_0\": 1282.2239715823791,\n        \"key_1\": 7671.119623569685\n      }\n    }\n  ],\n  \"nextCursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "361b6ec7-598a-49a7-83e7-1508ec14989d",
+          "name": "Get Transaction Details",
+          "request": {
+            "name": "Get Transaction Details",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "accounts",
+                ":accountId",
+                "transactions",
+                ":transactionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountId",
+                  "description": "(Required) ID of the desired account (UUID format)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "transactionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "4fd54630-8aec-44e6-b38d-ae1fb46dc94e",
+              "name": "Transaction detail. Returns a user's account's transaction in greater detail.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "accounts",
+                    ":accountId",
+                    "transactions",
+                    ":transactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountId",
+                      "description": "(Required) ID of the desired account (UUID format)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "transactionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"b0e03251-6c69-4b01-a6b5-21aa01edaeb3\",\n  \"amount\": 5170.388560536934,\n  \"date\": \"1983-04-12\",\n  \"postedDate\": \"1991-02-02\",\n  \"type\": \"Transfer\",\n  \"status\": \"Pending\",\n  \"description\": \"string\",\n  \"memo\": \"string\",\n  \"merchant\": {\n    \"name\": \"string\",\n    \"category\": \"string\",\n    \"logo\": \"http://XrvHZGtYSXMGFgIzE.qftn4UUwGJTZpD4LkFklTBBzahnJ0w-OXC-n6q5tCH2KhCqk91O\"\n  },\n  \"runningBalance\": 6432.452839955075,\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"pending\": true,\n  \"notes\": \"string\",\n  \"enrichments\": {\n    \"key_0\": 1545.9678142899902\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc0e53ab-88bc-4035-bb63-3186576e7e8f",
+          "name": "List Account Transactions",
+          "request": {
+            "name": "List Account Transactions",
+            "description": {},
+            "url": {
+              "path": [
+                "jxchange",
+                "v1",
+                "accounts",
+                ":accountNumber",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<date>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16f319ab-1878-4741-add4-d4d8fb079325",
+              "name": "Transactions for the account.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jxchange",
+                    "v1",
+                    "accounts",
+                    ":accountNumber",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactions\": [\n    {\n      \"transactionId\": \"string\",\n      \"postDate\": \"2006-07-27\",\n      \"effectiveDate\": \"1952-11-24\",\n      \"amount\": 1123.3455848762242,\n      \"type\": \"Adjustment\",\n      \"description\": \"string\",\n      \"memo\": \"string\",\n      \"runningBalance\": 9814.28086565018,\n      \"sourceCode\": \"string\"\n    },\n    {\n      \"transactionId\": \"string\",\n      \"postDate\": \"1959-08-25\",\n      \"effectiveDate\": \"1962-01-04\",\n      \"amount\": 2512.257731578944,\n      \"type\": \"Adjustment\",\n      \"description\": \"string\",\n      \"memo\": \"string\",\n      \"runningBalance\": 3034.7130120523957,\n      \"sourceCode\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d956ce52-ba9a-41e2-8a3a-fd0aa29f87c1",
+    "name": "Banno Admin Abilities Transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

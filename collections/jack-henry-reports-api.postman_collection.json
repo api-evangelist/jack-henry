@@ -1,0 +1,127 @@
+{
+  "item": [
+    {
+      "id": "3ab05ec8-f3e6-41f8-ab14-567ae3d8d840",
+      "name": "Reports",
+      "description": {
+        "content": "Operational and audit reports.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "624881f5-297d-4b1b-9cd6-97beed508544",
+          "name": "List Reports",
+          "request": {
+            "name": "List Reports",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27e93061-29e2-4039-8424-c8963e213da5",
+              "name": "Available reports.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reports\": [\n    {\n      \"id\": \"caacc5c3-103c-5f18-eea2-2ae23290b28c\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"url\": \"https://qQJKhhFDeCGkumhoirqEPIvuOOPSxeX.bshdeM-pokDTnSvagegZjh4zmh\",\n      \"generatedDate\": \"1954-09-28T13:17:31.128Z\"\n    },\n    {\n      \"id\": \"0c12218a-f338-5f80-9e89-cf463a22e6c7\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"url\": \"https://chbzKrdICTxaWsSUyaEIJLHdlDpvYBij.jmokSldQI8dlBL.QqqtzS5\",\n      \"generatedDate\": \"2002-08-06T11:58:16.563Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c9906bee-3ecc-4301-8e85-0366b060acb0",
+    "name": "Banno Admin Abilities Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

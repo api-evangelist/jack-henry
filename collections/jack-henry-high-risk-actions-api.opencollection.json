@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities High Risk Actions API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "High Risk Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List High Risk Actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/a/mobile/api/v0/institutions/:institutionId/high-risk-actions",
+            "params": [
+              {
+                "name": "institutionId",
+                "value": "",
+                "type": "path",
+                "description": "UUID identifying the institution."
+              }
+            ]
+          },
+          "docs": "List High Risk Actions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

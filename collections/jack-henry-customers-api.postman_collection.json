@@ -1,0 +1,221 @@
+{
+  "item": [
+    {
+      "id": "d3d7610b-cd7c-4a81-9912-da41dd3ad186",
+      "name": "Customers",
+      "description": {
+        "content": "Customer (CIF) records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c28ca05f-5696-459d-ac86-163e767091b9",
+          "name": "Search Customers",
+          "request": {
+            "name": "Search Customers",
+            "description": {},
+            "url": {
+              "path": [
+                "jxchange",
+                "v1",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ssn",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce4e4801-3862-49d6-bba3-81a82b146d5b",
+              "name": "Customer matches.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jxchange",
+                    "v1",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ssn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customers\": [\n    {\n      \"customerId\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"ssnLast4\": \"string\",\n      \"dateOfBirth\": \"1969-04-22\",\n      \"primaryAddress\": {\n        \"line1\": \"string\",\n        \"line2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\"\n      },\n      \"primaryPhone\": \"string\",\n      \"primaryEmail\": \"T6xDOM@NeiVLCqKWmIRMOFEvioMIGxMfGz.qp\",\n      \"relationshipOpenDate\": \"2015-02-10\"\n    },\n    {\n      \"customerId\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"ssnLast4\": \"string\",\n      \"dateOfBirth\": \"1967-03-19\",\n      \"primaryAddress\": {\n        \"line1\": \"string\",\n        \"line2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\"\n      },\n      \"primaryPhone\": \"string\",\n      \"primaryEmail\": \"cE5B@IOABuMGURSFhAepMYiGSvKDpjq.bhs\",\n      \"relationshipOpenDate\": \"2012-02-10\"\n    }\n  ],\n  \"nextCursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1907671-5250-46e0-bec3-563e2df99bdf",
+          "name": "Get Customer",
+          "request": {
+            "name": "Get Customer",
+            "description": {},
+            "url": {
+              "path": [
+                "jxchange",
+                "v1",
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "279400cb-ad36-4d6c-bbab-975404af44e3",
+              "name": "Customer record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jxchange",
+                    "v1",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerId\": \"string\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"ssnLast4\": \"string\",\n  \"dateOfBirth\": \"1960-08-19\",\n  \"primaryAddress\": {\n    \"line1\": \"string\",\n    \"line2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\"\n  },\n  \"primaryPhone\": \"string\",\n  \"primaryEmail\": \"cDRKblW@eVoDYTUiFRD.ep\",\n  \"relationshipOpenDate\": \"1950-05-30\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c814b54c-ff32-4f21-88ac-6d45d6182403",
+    "name": "Banno Admin Abilities Customers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

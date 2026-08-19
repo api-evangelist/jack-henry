@@ -1,0 +1,220 @@
+{
+  "item": [
+    {
+      "id": "5a383488-6212-4d52-9713-31cf3ae7c93f",
+      "name": "ACH Origination",
+      "description": {
+        "content": "ACH credit and debit origination.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "adeb9edc-6605-475e-8738-488bf565f5e5",
+          "name": "Originate ACH Credit",
+          "request": {
+            "name": "Originate ACH Credit",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "ach",
+                "credits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiaryRoutingNumber\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"secCode\": \"<string>\",\n  \"beneficiaryName\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5563644b-1759-42b7-be4a-e4fba04719d2",
+              "name": "ACH credit accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "ach",
+                    "credits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiaryRoutingNumber\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"secCode\": \"<string>\",\n  \"beneficiaryName\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"41922a52-bbe5-29f1-6c7a-fe14321f2e3f\",\n  \"status\": \"Failed\",\n  \"traceNumber\": \"string\",\n  \"effectiveDate\": \"2000-02-11\",\n  \"amount\": 4977.160075378272\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "130cf7c8-2af5-48b7-826a-93c8d8acf645",
+          "name": "Originate ACH Debit",
+          "request": {
+            "name": "Originate ACH Debit",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "ach",
+                "debits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiaryRoutingNumber\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"secCode\": \"<string>\",\n  \"beneficiaryName\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f250caa4-40fe-4d52-89eb-7c152fe01d9f",
+              "name": "ACH debit accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "ach",
+                    "debits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiaryRoutingNumber\": \"<string>\",\n  \"beneficiaryAccountNumber\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"secCode\": \"<string>\",\n  \"beneficiaryName\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"41922a52-bbe5-29f1-6c7a-fe14321f2e3f\",\n  \"status\": \"Failed\",\n  \"traceNumber\": \"string\",\n  \"effectiveDate\": \"2000-02-11\",\n  \"amount\": 4977.160075378272\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c39be9b5-7f95-4581-924b-5e5db722437b",
+    "name": "Banno Admin Abilities ACH Origination API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

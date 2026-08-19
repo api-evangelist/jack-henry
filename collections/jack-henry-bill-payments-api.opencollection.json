@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Bill Payments API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bill Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit Bill Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.banno.com/payments/v1/bill-pay/payments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Bill Payment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

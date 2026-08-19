@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Marketing Ads API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Marketing Ads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Marketing Ads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/a/mobile/api/v0/institutions/:institutionId/ads",
+            "params": [
+              {
+                "name": "institutionId",
+                "value": "",
+                "type": "path",
+                "description": "UUID identifying the institution."
+              }
+            ]
+          },
+          "docs": "List Marketing Ads"
+        },
+        {
+          "info": {
+            "name": "Create Marketing Ad",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.banno.com/a/mobile/api/v0/institutions/:institutionId/ads",
+            "params": [
+              {
+                "name": "institutionId",
+                "value": "",
+                "type": "path",
+                "description": "UUID identifying the institution."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Marketing Ad"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Deposit Accounts API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deposit Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Deposit Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/jxchange/v1/deposit-accounts/:accountNumber",
+            "params": [
+              {
+                "name": "accountNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Deposit Account"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,259 @@
+{
+  "item": [
+    {
+      "id": "184904bd-6bfd-4b63-84b1-2cc11733deb8",
+      "name": "Plugin Management",
+      "description": {
+        "content": "Configure external applications and plugins.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4751a6a7-a457-4471-8829-46ec18fdc88e",
+          "name": "List Plugins",
+          "request": {
+            "name": "List Plugins",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "plugins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "223047d7-ad34-41e5-9c3f-31b12449616f",
+              "name": "Plugins configured for the institution.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"plugins\": [\n    {\n      \"id\": \"6635d5ec-0653-19fa-fcbe-e0fb6b80ed0d\",\n      \"name\": \"string\",\n      \"externalApplicationId\": \"aff4c688-4042-76b3-10a6-a1b41983563f\",\n      \"pluginUrl\": \"http://FbgAxEBAsIeEZmmSSBqDmaj.bhefSiA3nH2S901gjUfnJ2jQ0J,bmLUyVUOZ+0O8NO4prwUu72AQi0\",\n      \"cardConfig\": {\n        \"key_0\": 433\n      },\n      \"enabled\": true,\n      \"segmentIds\": [\n        \"d1b6f468-315f-4350-f7d3-b57f6ff2e59b\",\n        \"1f847098-76ea-2e30-6c71-970a5fe1dc05\"\n      ]\n    },\n    {\n      \"id\": \"c01715db-5809-0ed8-c22c-c6d88cdb43cc\",\n      \"name\": \"string\",\n      \"externalApplicationId\": \"39ebc593-c192-fd69-54c7-98014efa0b8b\",\n      \"pluginUrl\": \"http://vNNlMMKMdZoSBjTXFehFYECdyDCqkdrO.lqxaB2r7DCWy52OGsveoAr1Kn4nvzqVfXWNWdKSAu5slc0dXvNzuIeJbkTIYtPjYK\",\n      \"cardConfig\": {\n        \"key_0\": 540.9690796300437,\n        \"key_1\": 3695.8038213691148,\n        \"key_2\": \"string\",\n        \"key_3\": false\n      },\n      \"enabled\": false,\n      \"segmentIds\": [\n        \"52576c67-ff63-563b-c474-888e866cb8cc\",\n        \"8a14cc07-b09d-8653-33df-683947b4a215\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8e26eab-e98f-4245-88f0-36d333329077",
+          "name": "Update Plugin Configuration",
+          "request": {
+            "name": "Update Plugin Configuration",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "plugins",
+                ":pluginId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pluginId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"externalApplicationId\": \"<uuid>\",\n  \"pluginUrl\": \"<uri>\",\n  \"cardConfig\": {\n    \"key_0\": 1850\n  },\n  \"enabled\": \"<boolean>\",\n  \"segmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "53a3cc71-b5bd-4be1-89ce-4066ad14aa79",
+              "name": "Plugin updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "plugins",
+                    ":pluginId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pluginId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"externalApplicationId\": \"<uuid>\",\n  \"pluginUrl\": \"<uri>\",\n  \"cardConfig\": {\n    \"key_0\": true,\n    \"key_1\": \"string\",\n    \"key_2\": false\n  },\n  \"enabled\": \"<boolean>\",\n  \"segmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"externalApplicationId\": \"<uuid>\",\n  \"pluginUrl\": \"<uri>\",\n  \"cardConfig\": {\n    \"key_0\": true,\n    \"key_1\": \"string\",\n    \"key_2\": false\n  },\n  \"enabled\": \"<boolean>\",\n  \"segmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bb717675-e744-4e5a-9b4c-e732d1f3d1d9",
+    "name": "Banno Admin Abilities Plugin Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

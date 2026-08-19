@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Bill Pay API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bill Pay",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bill Pay Payees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/a/consumer/api/v0/users/:userId/bill-pay/payees",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the desired user (UUID format)."
+              }
+            ]
+          },
+          "docs": "List Bill Pay Payees"
+        },
+        {
+          "info": {
+            "name": "Create Bill Pay Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.banno.com/a/consumer/api/v0/users/:userId/bill-pay/payments",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the desired user (UUID format)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Bill Pay Payment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

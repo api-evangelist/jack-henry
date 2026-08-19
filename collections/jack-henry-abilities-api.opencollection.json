@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Abilities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lookup Institution Abilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/a/mobile/api/v0/institutions/:institutionId/abilities",
+            "params": [
+              {
+                "name": "institutionId",
+                "value": "",
+                "type": "path",
+                "description": "UUID identifying the institution."
+              }
+            ]
+          },
+          "docs": "Lookup the abilities for the given institution."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

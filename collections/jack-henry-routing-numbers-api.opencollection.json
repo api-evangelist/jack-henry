@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Routing Numbers API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Routing Numbers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lookup Routing Number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/a/consumer/api/v0/routing-numbers/:routingNumber",
+            "params": [
+              {
+                "name": "routingNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lookup Routing Number"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

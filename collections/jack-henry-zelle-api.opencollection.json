@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Zelle API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Zelle",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send Zelle Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.banno.com/a/consumer/api/v0/users/:userId/zelle/payments",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the desired user (UUID format)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send Zelle Payment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

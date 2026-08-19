@@ -1,0 +1,121 @@
+{
+  "item": [
+    {
+      "id": "2a87d2ce-34a5-4174-9039-27c91105b3fb",
+      "name": "Deposit Accounts",
+      "description": {
+        "content": "DDA/savings/CD deposit accounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b0f08e3a-b30d-4c9f-8f96-63db65dc71f0",
+          "name": "Get Deposit Account",
+          "request": {
+            "name": "Get Deposit Account",
+            "description": {},
+            "url": {
+              "path": [
+                "jxchange",
+                "v1",
+                "deposit-accounts",
+                ":accountNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4feea751-db87-49d4-b73c-242e49595611",
+              "name": "Deposit-account record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jxchange",
+                    "v1",
+                    "deposit-accounts",
+                    ":accountNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accountNumber\": \"string\",\n  \"product\": \"string\",\n  \"productType\": \"Savings\",\n  \"status\": \"Dormant\",\n  \"currentBalance\": 3485.4100005689015,\n  \"availableBalance\": 5349.4765597271025,\n  \"interestYTD\": 8343.351735202015,\n  \"openDate\": \"1975-02-21\",\n  \"primaryOwnerCustomerId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "139fde10-2a4d-43bf-98f6-e5a6ea723160",
+    "name": "Banno Admin Abilities Deposit Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

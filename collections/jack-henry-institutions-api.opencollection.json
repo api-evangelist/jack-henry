@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Institutions API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Institutions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Institution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/a/consumer/api/v0/institutions/:institutionId",
+            "params": [
+              {
+                "name": "institutionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Institution"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

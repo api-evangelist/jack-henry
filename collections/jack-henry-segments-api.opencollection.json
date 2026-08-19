@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Segments API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Segments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Segments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/a/mobile/api/v0/institutions/:institutionId/segments",
+            "params": [
+              {
+                "name": "institutionId",
+                "value": "",
+                "type": "path",
+                "description": "UUID identifying the institution."
+              }
+            ]
+          },
+          "docs": "List Segments"
+        },
+        {
+          "info": {
+            "name": "Create Segment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.banno.com/a/mobile/api/v0/institutions/:institutionId/segments",
+            "params": [
+              {
+                "name": "institutionId",
+                "value": "",
+                "type": "path",
+                "description": "UUID identifying the institution."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Segment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

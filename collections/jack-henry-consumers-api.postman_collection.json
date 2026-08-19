@@ -1,0 +1,392 @@
+{
+  "item": [
+    {
+      "id": "7be13a85-89e5-4f67-a09b-319bdd8333ea",
+      "name": "Consumers",
+      "description": {
+        "content": "Consumer account administration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "57245d06-b9d6-4826-a6d0-6700a67c9f00",
+          "name": "List Consumers",
+          "request": {
+            "name": "List Consumers",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "consumers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71b54a45-3842-43d3-af77-48216961d13f",
+              "name": "Paged consumer list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "consumers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"consumers\": [\n    {\n      \"id\": \"01dc80b0-163f-71ff-5de2-de1010879609\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"email\": \"TtDpiYv81SY@Ip.tlbc\",\n      \"phone\": \"string\",\n      \"status\": \"Deleted\",\n      \"enrolledDate\": \"1954-04-06T09:33:21.420Z\"\n    },\n    {\n      \"id\": \"9787b3e1-4c88-d492-e8c8-dc053bcfa247\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"email\": \"UWG@or.uv\",\n      \"phone\": \"string\",\n      \"status\": \"Locked\",\n      \"enrolledDate\": \"1971-04-03T22:17:08.154Z\"\n    }\n  ],\n  \"nextCursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "372e11eb-4066-4f65-bddf-ac6b9b11ff5b",
+          "name": "Get Consumer",
+          "request": {
+            "name": "Get Consumer",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "consumers",
+                ":consumerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "consumerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a750bc1-7188-4770-a2e8-c2aa5521e1a2",
+              "name": "Consumer profile.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "consumers",
+                    ":consumerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "consumerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"33394cc5-3773-0613-452a-8269eb57bbf0\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"email\": \"cR4WwIkkMR@INtrntFWlAUKv.snc\",\n  \"phone\": \"string\",\n  \"status\": \"Suspended\",\n  \"enrolledDate\": \"1983-09-06T21:48:30.850Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc15e7ac-db07-4121-9294-f019a03ea847",
+          "name": "Update Consumer Contact Info",
+          "request": {
+            "name": "Update Consumer Contact Info",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "mobile",
+                "api",
+                "v0",
+                "institutions",
+                ":institutionId",
+                "consumers",
+                ":consumerId",
+                "contact-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "institutionId",
+                  "description": "(Required) UUID identifying the institution."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "consumerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7ffaa652-912d-4a0e-850c-c0ac3e3b1875",
+              "name": "Updated contact info.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "mobile",
+                    "api",
+                    "v0",
+                    "institutions",
+                    ":institutionId",
+                    "consumers",
+                    ":consumerId",
+                    "contact-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "institutionId",
+                      "description": "(Required) UUID identifying the institution."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "consumerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "41b4f3f7-4e64-4f10-9780-62c4d30793c9",
+    "name": "Banno Admin Abilities Consumers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

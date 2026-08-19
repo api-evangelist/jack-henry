@@ -1,0 +1,178 @@
+{
+  "item": [
+    {
+      "id": "b52140cf-5602-454b-92a4-9b504fa2d88a",
+      "name": "Discovery",
+      "description": {
+        "content": "OpenID Connect discovery and JWKS.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dcf61978-57a2-4032-8215-5c3782aa348b",
+          "name": "Get OpenID Connect Discovery Document",
+          "request": {
+            "name": "Get OpenID Connect Discovery Document",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "oidc",
+                ".well-known",
+                "openid-configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45782e9a-527b-4669-bbe0-c42654f1a5ef",
+              "name": "OIDC discovery document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "oidc",
+                    ".well-known",
+                    "openid-configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"issuer\": \"http://LKvlXbzeefgqMEB.oucyorfjh6tSrUeHrW+ZOOn\",\n  \"authorization_endpoint\": \"https://VXyPFXQTvNBUkkridkmqKazOwEUi.hzKq7b,OEnogqNxvtC8j0XCGVJQxFiwPPf,AWM6QtymyRTSfvA4hAXoah1ew7PFqdTcGn1POIz\",\n  \"token_endpoint\": \"http://ThFXyKuMcKxrDZ.yoCPloAY8Ihht7rVo+WmRBeok.Q7hMa,hdWONh\",\n  \"userinfo_endpoint\": \"https://REBp.eqmKuwvUUi,ZiAzjgTpcK0HoBO1YKELMJ.IvWG58F1mJFx\",\n  \"jwks_uri\": \"https://DESWRlqGegfUvQAYSZnfuGEKPmGW.ruNhbe1T2.20P3A5JOmK-pz4KxXDqSmmFyibE3urjt3P5oXAud.G\",\n  \"response_types_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"scopes_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"grant_types_supported\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6e3c0ba-101b-4b80-bab7-a9fe4302c655",
+          "name": "Get JWKS",
+          "request": {
+            "name": "Get JWKS",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "oidc",
+                ".well-known",
+                "jwks.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fede333e-3ad4-4b37-a1d1-70b699964e25",
+              "name": "JSON Web Key Set used to validate ID tokens.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "oidc",
+                    ".well-known",
+                    "jwks.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"keys\": [\n    {\n      \"kid\": \"string\",\n      \"kty\": \"string\",\n      \"alg\": \"string\",\n      \"use\": \"string\",\n      \"n\": \"string\",\n      \"e\": \"string\"\n    },\n    {\n      \"kid\": \"string\",\n      \"kty\": \"string\",\n      \"alg\": \"string\",\n      \"use\": \"string\",\n      \"n\": \"string\",\n      \"e\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ef19ecdc-1fd1-4da9-aab7-bab65a0c88f6",
+    "name": "Banno Admin Abilities Discovery API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "item": [
+    {
+      "id": "f8ec5536-9d89-4c77-9c39-4b2a27563bea",
+      "name": "User Context",
+      "description": {
+        "content": "Authenticated user/account context surfaced to a plugin.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5ac1aa5d-15bc-4043-8790-8263a26176ac",
+          "name": "Get Plugin User Context",
+          "request": {
+            "name": "Get Plugin User Context",
+            "description": {
+              "content": "Returns the authenticated user/account context the host hands the\nplugin (institution ID, user ID, environment, locale). Subject to\nthe plugin's authorized scopes in Banno People.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "plugins",
+                "api",
+                "v0",
+                "context"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17f58a3e-10a9-48bb-876d-54c240a93ab8",
+              "name": "Plugin context.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plugins",
+                    "api",
+                    "v0",
+                    "context"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"institutionId\": \"acaaeb2e-4b36-f086-0c40-b4f5e79306cf\",\n  \"userId\": \"f05b9781-812d-8fee-1984-f1ffdf078de6\",\n  \"environment\": \"Production\",\n  \"locale\": \"en-US\",\n  \"bridgeVersion\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "49525313-652d-42f0-8061-ceb776244a09",
+    "name": "Banno Admin Abilities User Context API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

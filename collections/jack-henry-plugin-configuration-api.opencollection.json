@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Plugin Configuration API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plugin Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Plugin Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/plugins/api/v0/plugins/:pluginId/manifest",
+            "params": [
+              {
+                "name": "pluginId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Plugin Manifest"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

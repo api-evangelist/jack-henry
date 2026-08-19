@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "600287c7-abbc-43ff-8c92-530b20cadfcd",
+      "name": "UserInfo",
+      "description": {
+        "content": "OpenID Connect UserInfo endpoint.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6942b098-6704-4bc2-8d16-d9f22a6f954b",
+          "name": "Get UserInfo",
+          "request": {
+            "name": "Get UserInfo",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "oidc",
+                "userinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "830ad8a2-1ec9-4a27-bdcc-45063e768b87",
+              "name": "Claims about the authenticated user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "oidc",
+                    "userinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sub\": \"string\",\n  \"name\": \"string\",\n  \"given_name\": \"string\",\n  \"family_name\": \"string\",\n  \"email\": \"wfXfkIdVnO3k0f@mtgDmClHHWIDNrwYjMaofDzlZPgmYby.khtq\",\n  \"email_verified\": true,\n  \"institution_id\": \"eb561a4e-09e1-f968-29d2-837c0aa0883a\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "38bacbb2-adff-4717-8039-615168917a94",
+    "name": "Banno Admin Abilities UserInfo API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

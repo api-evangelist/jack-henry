@@ -1,0 +1,129 @@
+{
+  "item": [
+    {
+      "id": "10d2bd5a-9d4d-486a-92a0-30da8ab6527c",
+      "name": "Payments Orchestrator",
+      "description": {
+        "content": "Cross-rail routing and virtual accounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f5a31019-93c1-4f8a-8c6e-025f71562051",
+          "name": "Route Payment Through Orchestrator",
+          "request": {
+            "name": "Route Payment Through Orchestrator",
+            "description": {
+              "content": "Submit a single payment intent; the Orchestrator selects the\nappropriate rail (ACH, Wire, Card, RTP) based on cost, speed,\nand policy.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "orchestrator",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiary\": {\n    \"name\": \"<string>\",\n    \"accountNumber\": \"<string>\",\n    \"routingNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\"\n  },\n  \"amount\": \"<double>\",\n  \"currency\": \"USD\",\n  \"speed\": \"<string>\",\n  \"memo\": \"<string>\",\n  \"policyHints\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8a09495a-64a1-4648-b31a-3c8871d9e68a",
+              "name": "Payment routed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "orchestrator",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originatorAccountId\": \"<string>\",\n  \"beneficiary\": {\n    \"name\": \"<string>\",\n    \"accountNumber\": \"<string>\",\n    \"routingNumber\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\"\n  },\n  \"amount\": \"<double>\",\n  \"currency\": \"USD\",\n  \"speed\": \"<string>\",\n  \"memo\": \"<string>\",\n  \"policyHints\": {\n    \"key_0\": 5716.77102106665,\n    \"key_1\": 5614,\n    \"key_2\": 5735\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"27911b7a-10f5-533d-f67a-5a2926bd48e3\",\n  \"chosenRail\": \"Card\",\n  \"status\": \"Pending\",\n  \"downstreamId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ca71b1f0-d5c9-4cf9-97dc-dce0cc4992cd",
+    "name": "Banno Admin Abilities Payments Orchestrator API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

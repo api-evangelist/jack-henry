@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Peer To Peer API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Peer To Peer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send Peer To Peer Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.banno.com/payments/v1/p2p/transfers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send Peer To Peer Transfer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

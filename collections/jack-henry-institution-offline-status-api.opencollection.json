@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Institution Offline Status API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Institution Offline Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Set Institution Offline Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.banno.com/a/mobile/api/v0/institutions/:institutionId/offline-mode",
+            "params": [
+              {
+                "name": "institutionId",
+                "value": "",
+                "type": "path",
+                "description": "UUID identifying the institution."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set Institution Offline Status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

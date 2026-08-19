@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Plugin Management API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plugin Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Plugins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/a/mobile/api/v0/institutions/:institutionId/plugins",
+            "params": [
+              {
+                "name": "institutionId",
+                "value": "",
+                "type": "path",
+                "description": "UUID identifying the institution."
+              }
+            ]
+          },
+          "docs": "List Plugins"
+        },
+        {
+          "info": {
+            "name": "Update Plugin Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.banno.com/a/mobile/api/v0/institutions/:institutionId/plugins/:pluginId",
+            "params": [
+              {
+                "name": "institutionId",
+                "value": "",
+                "type": "path",
+                "description": "UUID identifying the institution."
+              },
+              {
+                "name": "pluginId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Plugin Configuration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,126 @@
+{
+  "item": [
+    {
+      "id": "064b8b73-d42a-4749-83dc-b9a63134c11a",
+      "name": "Bill Payments",
+      "description": {
+        "content": "Consumer and small-business bill pay.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "beebc3ee-38a8-411b-9f4d-eb3bddc1dc69",
+          "name": "Submit Bill Payment",
+          "request": {
+            "name": "Submit Bill Payment",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "v1",
+                "bill-pay",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payerAccountId\": \"<string>\",\n  \"payeeId\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"dueDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5f1c27aa-c225-4264-aa05-eb029a2a8ec4",
+              "name": "Bill payment scheduled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v1",
+                    "bill-pay",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payerAccountId\": \"<string>\",\n  \"payeeId\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"dueDate\": \"<date>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"601535b3-65f4-d3f0-ecd8-1c660f23a110\",\n  \"deliveryMethod\": \"Check\",\n  \"estimatedDeliveryDate\": \"2021-12-25\",\n  \"status\": \"Cancelled\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2b273a26-065e-4371-8c19-17c9ce5970a8",
+    "name": "Banno Admin Abilities Bill Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

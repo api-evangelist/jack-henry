@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities ACH Origination API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ACH Origination",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Originate ACH Credit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.banno.com/payments/v1/ach/credits",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Originate ACH Credit"
+        },
+        {
+          "info": {
+            "name": "Originate ACH Debit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.banno.com/payments/v1/ach/debits",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Originate ACH Debit"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

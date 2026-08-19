@@ -1,0 +1,126 @@
+{
+  "item": [
+    {
+      "id": "3822c81b-f0e8-4152-a3b7-4cd188fc8fb0",
+      "name": "Messages",
+      "description": {
+        "content": "Two-way secure messaging with the institution.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dbd4ba4a-c9ff-4dce-ad8f-fefc27b2c434",
+          "name": "List Messages",
+          "request": {
+            "name": "List Messages",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "bb72aa05-4fed-4965-a544-ee43702ea20d",
+              "name": "Secure-message threads.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"id\": \"e30d9bd4-24b3-4fdf-e659-dd44b3000c51\",\n      \"subject\": \"string\",\n      \"body\": \"string\",\n      \"sentDate\": \"2005-01-30T22:04:54.152Z\",\n      \"read\": false,\n      \"author\": {\n        \"id\": \"3091aa6b-9c97-3e28-98cb-ad3bf9a8a6ca\",\n        \"type\": \"Institution\"\n      }\n    },\n    {\n      \"id\": \"acfd6ac6-8916-a269-18dc-fc15458f436a\",\n      \"subject\": \"string\",\n      \"body\": \"string\",\n      \"sentDate\": \"1997-11-29T21:38:28.566Z\",\n      \"read\": false,\n      \"author\": {\n        \"id\": \"f6e77555-79be-0da8-8d35-7b820602f6d7\",\n        \"type\": \"Institution\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "412753d8-c5b8-4feb-9510-184927b82433",
+    "name": "Banno Admin Abilities Messages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Discovery API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Discovery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get OpenID Connect Discovery Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/a/oidc/.well-known/openid-configuration"
+          },
+          "docs": "Get OpenID Connect Discovery Document"
+        },
+        {
+          "info": {
+            "name": "Get JWKS",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/a/oidc/.well-known/jwks.json"
+          },
+          "docs": "Get JWKS"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

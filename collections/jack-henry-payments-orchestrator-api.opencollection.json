@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Payments Orchestrator API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payments Orchestrator",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Route Payment Through Orchestrator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.banno.com/payments/v1/orchestrator/payments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a single payment intent; the Orchestrator selects the\nappropriate rail (ACH, Wire, Card, RTP) based on cost, speed,\nand policy.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

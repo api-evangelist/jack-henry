@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Loan Accounts API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Loan Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Loan Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.banno.com/jxchange/v1/loan-accounts/:accountNumber",
+            "params": [
+              {
+                "name": "accountNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Loan Account"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

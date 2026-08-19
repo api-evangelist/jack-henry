@@ -1,0 +1,236 @@
+{
+  "item": [
+    {
+      "id": "920f43f6-4f6a-4989-a85a-a85f8a445368",
+      "name": "Accounts",
+      "description": {
+        "content": "Deposit, loan, line-of-credit, and investment accounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b8b69c85-5027-4f66-a0e5-0f0df8ea4b5e",
+          "name": "List Accounts",
+          "request": {
+            "name": "List Accounts",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "e29b4547-f5b4-4fa7-b4cf-065484e8be21",
+              "name": "All accounts the user owns or has access to.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"id\": \"966305a7-9fb1-295d-c09e-cb6dc280feed\",\n      \"name\": \"string\",\n      \"numbers\": {\n        \"masked\": \"string\"\n      },\n      \"accountType\": \"Debt\",\n      \"accountStatus\": \"Frozen\",\n      \"balance\": 4900.084987279183,\n      \"availableBalance\": 6745.456394656155,\n      \"fetchedDate\": \"2023-05-29T08:44:36.563Z\",\n      \"institution\": {\n        \"id\": \"c3abe536-7da6-8778-a017-8a8cb9ab939c\",\n        \"name\": \"string\"\n      },\n      \"canCreatePayments\": false,\n      \"canTransferFrom\": true,\n      \"hidden\": true,\n      \"regD\": {\n        \"limit\": 3874,\n        \"used\": 8486\n      },\n      \"formattedMetaData\": [\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"1907d1d5-6723-394e-ff8d-c0b921d88d5c\",\n      \"name\": \"string\",\n      \"numbers\": {\n        \"masked\": \"string\"\n      },\n      \"accountType\": \"Debt\",\n      \"accountStatus\": \"Closed\",\n      \"balance\": 6009.64481822483,\n      \"availableBalance\": 1772.4615331622251,\n      \"fetchedDate\": \"1991-02-05T21:18:36.891Z\",\n      \"institution\": {\n        \"id\": \"2d751fa3-ce73-daa6-1647-979d0b75ac04\",\n        \"name\": \"string\"\n      },\n      \"canCreatePayments\": false,\n      \"canTransferFrom\": false,\n      \"hidden\": false,\n      \"regD\": {\n        \"limit\": 5917,\n        \"used\": 5633\n      },\n      \"formattedMetaData\": [\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3991bfb5-3456-42c3-ba8d-c68e51c11cb4",
+          "name": "Get Account Details",
+          "request": {
+            "name": "Get Account Details",
+            "description": {},
+            "url": {
+              "path": [
+                "a",
+                "consumer",
+                "api",
+                "v0",
+                "users",
+                ":userId",
+                "accounts",
+                ":accountId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "userId",
+                  "description": "(Required) ID of the desired user (UUID format)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountId",
+                  "description": "(Required) ID of the desired account (UUID format)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "badcb716-907b-4087-be81-579fa72eff2e",
+              "name": "Account detail.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "a",
+                    "consumer",
+                    "api",
+                    "v0",
+                    "users",
+                    ":userId",
+                    "accounts",
+                    ":accountId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "userId",
+                      "description": "(Required) ID of the desired user (UUID format)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountId",
+                      "description": "(Required) ID of the desired account (UUID format)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"6cadb280-5847-9814-cfdb-65ae85984beb\",\n  \"name\": \"string\",\n  \"numbers\": {\n    \"masked\": \"string\"\n  },\n  \"accountType\": \"LineOfCredit\",\n  \"accountStatus\": \"Active\",\n  \"balance\": 7278.571943464864,\n  \"availableBalance\": 9876.224533117758,\n  \"fetchedDate\": \"1984-09-30T03:09:06.475Z\",\n  \"institution\": {\n    \"id\": \"9c495f61-5af8-7d08-b059-c2af8f48953a\",\n    \"name\": \"string\"\n  },\n  \"canCreatePayments\": true,\n  \"canTransferFrom\": true,\n  \"hidden\": false,\n  \"regD\": {\n    \"limit\": 6956,\n    \"used\": 3275\n  },\n  \"formattedMetaData\": [\n    {\n      \"label\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"label\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.banno.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "041486b0-0e7c-44dd-9b24-ddf458b711ae",
+    "name": "Banno Admin Abilities Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Back-office administration surface used by the Banno staff console\nitself. Lets institutions look up abilities/feature flags, manage\nconsumer/business users, configure plugin management, manage\nsegments and ads, run reports, drive RDC, ACH, wires, Zelle, and\nhigh-risk actions, and administer OAuth/OpenID clients.\n\nResource groups (documented at\nhttps://banno.github.io/open-api-docs/admin-api/api-reference/v0/):\nAbilities, Accounts, ACH, Alerts, Consumers, Contact Info,\nDocuments, Forms, High-Risk Actions, History, Institution Offline\nStatus, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin\nManagement, Remote Deposit Capture, Reports, Routing Numbers,\nSegments, Transfer Settings, Wire Transfers, and Zelle.\n\n\nContact Support:\n Name: Jack Henry Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

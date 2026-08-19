@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Banno Admin Abilities Wire Transfers API",
+    "version": "v0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Wire Transfers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Wire Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.banno.com/a/consumer/api/v0/users/:userId/wire-transfers",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the desired user (UUID format)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Wire Transfer"
+        },
+        {
+          "info": {
+            "name": "Send Wire",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.banno.com/payments/v1/wires",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send Wire"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
