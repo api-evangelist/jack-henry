@@ -31,6 +31,20 @@ accessModel:
   method: derived
 image: https://avatars.githubusercontent.com/u/1130370?s=200&v=4
 tags:
+  - Financial-Services
+  - Banking
+  - Core Banking
+  - Digital Banking
+  - Payments
+  - Lending
+  - Fraud
+  - Open Banking
+  - Community Banks
+  - Credit Unions
+  - Fintech
+  - Authentication
+  - OpenID Connect
+tags_raw:
   - Financial Services
   - Banking
   - Core Banking
@@ -104,6 +118,12 @@ apis:
   humanURL: https://jackhenry.dev/ees/
   baseURL: https://events.jackhenry.com
   tags:
+  - Event
+  - Pub-Sub
+  - Streaming
+  - Webhook
+  - Real-Time
+  tags_raw:
   - Events
   - Pub/Sub
   - Streaming
@@ -177,6 +197,11 @@ apis:
   baseURL: https://digital-core.jackhenry.com
   tags:
   - Core Banking
+  - Cloud-Native
+  - Modernization
+  - De Novo
+  tags_raw:
+  - Core Banking
   - Cloud Native
   - Modernization
   - De Novo
@@ -235,6 +260,8 @@ apis:
   humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
   baseURL: https://api.banno.com
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -925,6 +952,8 @@ apis:
   humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
   baseURL: https://api.banno.com
   tags:
+  - institutions
+  tags_raw:
   - Institutions
   properties:
   - type: OpenAPI
@@ -1063,6 +1092,8 @@ apis:
   humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
   baseURL: https://api.banno.com
   tags:
+  - Message
+  tags_raw:
   - Messages
   properties:
   - type: OpenAPI
@@ -1155,6 +1186,8 @@ apis:
   humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
   baseURL: https://api.banno.com
   tags:
+  - Peer-to-Peer
+  tags_raw:
   - Peer To Peer
   properties:
   - type: OpenAPI
@@ -1569,6 +1602,8 @@ apis:
   humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
   baseURL: https://api.banno.com
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
