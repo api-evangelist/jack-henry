@@ -1,30 +1,28 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Banno Admin Abilities Routing Numbers API
-  description: 'Back-office administration surface used by the Banno staff console
+  title: Banno Consumer Routing Numbers API
+  description: 'Build apps and services using the same Consumer API that powers Banno
 
-    itself. Lets institutions look up abilities/feature flags, manage
+    Mobile and Online. OAuth 2.0 / OpenID Connect protects every endpoint;
 
-    consumer/business users, configure plugin management, manage
+    scopes are enforced per resource (e.g. `user.profile.readonly`,
 
-    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+    `transactions.detail.readonly`). All endpoints are scoped under
 
-    high-risk actions, and administer OAuth/OpenID clients.
+    `/a/consumer/api/v0` and operate within the context of a `userId`.
 
 
-    Resource groups (documented at
+    Resource groups documented at
 
-    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+    https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
 
-    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+    include: Abilities, Account Aggregation, Accounts, ACH, Alerts,
 
-    Documents, Forms, High-Risk Actions, History, Institution Offline
+    Bill Pay, Cards, Documents and Statements, Forms, Institutions,
 
-    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
+    Messages, OAuth and OpenID Connect, Positive Pay, Routing Numbers,
 
-    Management, Remote Deposit Capture, Reports, Routing Numbers,
-
-    Segments, Transfer Settings, Wire Transfers, and Zelle.
+    Task Events, Transactions, Transfers, User, Wire Transfers, and Zelle.
 
     '
   version: v0
@@ -33,6 +31,7 @@ info:
     url: https://jackhenry.dev/support/
   license:
     name: Proprietary
+    url: https://www.jackhenry.com/legal/terms-of-use
 servers:
 - url: https://api.banno.com
   description: Banno production

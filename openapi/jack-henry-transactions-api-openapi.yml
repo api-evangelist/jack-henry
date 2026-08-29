@@ -1,43 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Banno Admin Abilities Transactions API
-  description: 'Back-office administration surface used by the Banno staff console
-
-    itself. Lets institutions look up abilities/feature flags, manage
-
-    consumer/business users, configure plugin management, manage
-
-    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
-
-    high-risk actions, and administer OAuth/OpenID clients.
-
-
-    Resource groups (documented at
-
-    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
-
-    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
-
-    Documents, Forms, High-Risk Actions, History, Institution Offline
-
-    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
-
-    Management, Remote Deposit Capture, Reports, Routing Numbers,
-
-    Segments, Transfer Settings, Wire Transfers, and Zelle.
-
-    '
-  version: v0
-  contact:
-    name: Jack Henry Developer Support
-    url: https://jackhenry.dev/support/
-  license:
-    name: Proprietary
+  title: Jack Henry Transactions API
+  version: '1.0'
+  description: 'Operations tagged Transactions across 2 of this provider''s published API definitions: banno-consumer-api-openapi.yml, jxchange-rest-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.banno.com
   description: Banno production
-security:
-- openIdConnect: []
+- url: https://jxchange.jackhenry.com
+  description: jXchange production gateway
 tags:
 - name: Transactions
   description: Posted and pending transactions per account.
@@ -81,8 +51,12 @@ paths:
                     items:
                       $ref: '#/components/schemas/Transaction'
                   nextCursor:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
+    servers:
+    - url: https://api.banno.com
+      description: Banno production
   /a/consumer/api/v0/users/{userId}/accounts/{accountId}/transactions/{transactionId}:
     get:
       summary: Get Transaction Details
@@ -108,6 +82,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Transaction'
+    servers:
+    - url: https://api.banno.com
+      description: Banno production
   /jxchange/v1/accounts/{accountNumber}/transactions:
     get:
       summary: List Account Transactions
@@ -142,16 +119,13 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/CoreTransaction'
+      security:
+      - bearerAuth: []
+    servers:
+    - url: https://jxchange.jackhenry.com
+      description: jXchange production gateway
 components:
   parameters:
-    UserId:
-      name: userId
-      in: path
-      required: true
-      description: ID of the desired user (UUID format).
-      schema:
-        type: string
-        format: uuid
     AccountId:
       name: accountId
       in: path
@@ -160,38 +134,15 @@ components:
       schema:
         type: string
         format: uuid
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
   schemas:
-    CoreTransaction:
-      type: object
-      properties:
-        transactionId:
-          type: string
-        postDate:
-          type: string
-          format: date
-        effectiveDate:
-          type: string
-          format: date
-        amount:
-          type: number
-          format: double
-        type:
-          type: string
-          enum:
-          - Debit
-          - Credit
-          - Fee
-          - Interest
-          - Adjustment
-        description:
-          type: string
-        memo:
-          type: string
-        runningBalance:
-          type: number
-          format: double
-        sourceCode:
-          type: string
     Transaction:
       type: object
       properties:
@@ -248,7 +199,44 @@ components:
         enrichments:
           type: object
           additionalProperties: true
+    CoreTransaction:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        postDate:
+          type: string
+          format: date
+        effectiveDate:
+          type: string
+          format: date
+        amount:
+          type: number
+          format: double
+        type:
+          type: string
+          enum:
+          - Debit
+          - Credit
+          - Fee
+          - Interest
+          - Adjustment
+        description:
+          type: string
+        memo:
+          type: string
+        runningBalance:
+          type: number
+          format: double
+        sourceCode:
+          type: string
   securitySchemes:
     openIdConnect:
       type: openIdConnect
       openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration
+    bearerAuth:
+      type: http
+      scheme: bearer
+x-refined-from:
+- banno-consumer-api-openapi.yml
+- jxchange-rest-openapi.yml

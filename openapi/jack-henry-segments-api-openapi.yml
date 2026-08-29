@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Banno Admin Abilities Segments API
+  title: Banno Admin Segments API
   description: 'Back-office administration surface used by the Banno staff console
 
     itself. Lets institutions look up abilities/feature flags, manage

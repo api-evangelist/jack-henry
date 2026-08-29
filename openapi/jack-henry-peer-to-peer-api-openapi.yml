@@ -1,43 +1,29 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Banno Admin Abilities Peer To Peer API
-  description: 'Back-office administration surface used by the Banno staff console
+  title: Jack Henry Payments Peer To Peer API
+  description: 'Jack Henry Payments developer portal — described as "Everything you
 
-    itself. Lets institutions look up abilities/feature flags, manage
+    need to simplify and seamlessly make, take, and manage payments."
 
-    consumer/business users, configure plugin management, manage
+    Unifies ACH origination, wire / A2A payments, Bill Payments, Remote
 
-    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+    Deposit Capture (consumer + commercial), card acceptance, and
 
-    high-risk actions, and administer OAuth/OpenID clients.
+    peer-to-peer rails behind a single sandbox-equipped developer surface.
 
+    The Payments Orchestrator routes across rails and supports virtual
 
-    Resource groups (documented at
-
-    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
-
-    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
-
-    Documents, Forms, High-Risk Actions, History, Institution Offline
-
-    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
-
-    Management, Remote Deposit Capture, Reports, Routing Numbers,
-
-    Segments, Transfer Settings, Wire Transfers, and Zelle.
+    accounts.
 
     '
-  version: v0
-  contact:
-    name: Jack Henry Developer Support
-    url: https://jackhenry.dev/support/
-  license:
-    name: Proprietary
+  version: v1
 servers:
-- url: https://api.banno.com
-  description: Banno production
+- url: https://api.payments.jackhenry.com
+  description: Jack Henry Payments production
+- url: https://api.payments.sandbox.jackhenry.com
+  description: Jack Henry Payments sandbox
 security:
-- openIdConnect: []
+- bearerAuth: []
 tags:
 - name: Peer To Peer
   description: P2P transfers via partner networks.
@@ -101,6 +87,6 @@ components:
         network:
           type: string
   securitySchemes:
-    openIdConnect:
-      type: openIdConnect
-      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration
+    bearerAuth:
+      type: http
+      scheme: bearer

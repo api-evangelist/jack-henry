@@ -1,43 +1,23 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Banno Admin Abilities Customers API
-  description: 'Back-office administration surface used by the Banno staff console
+  title: jXchange REST Customers API
+  description: 'jXchange is Jack Henry''s information-translation surface that brokers
 
-    itself. Lets institutions look up abilities/feature flags, manage
+    requests between third-party applications and the SilverLake or
 
-    consumer/business users, configure plugin management, manage
+    CIF 20/20 community-bank cores. The REST variant exposes deposits,
 
-    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+    loans, customers, accounts, transactions, and general-ledger domains.
 
-    high-risk actions, and administer OAuth/OpenID clients.
-
-
-    Resource groups (documented at
-
-    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
-
-    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
-
-    Documents, Forms, High-Risk Actions, History, Institution Offline
-
-    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
-
-    Management, Remote Deposit Capture, Reports, Routing Numbers,
-
-    Segments, Transfer Settings, Wire Transfers, and Zelle.
+    A SOAP variant is also published at jackhenry.dev/jxchange-soap/.
 
     '
-  version: v0
-  contact:
-    name: Jack Henry Developer Support
-    url: https://jackhenry.dev/support/
-  license:
-    name: Proprietary
+  version: '2024'
 servers:
-- url: https://api.banno.com
-  description: Banno production
+- url: https://jxchange.jackhenry.com
+  description: jXchange production gateway
 security:
-- openIdConnect: []
+- bearerAuth: []
 tags:
 - name: Customers
   description: Customer (CIF) records.
@@ -74,8 +54,9 @@ paths:
                     items:
                       $ref: '#/components/schemas/Customer'
                   nextCursor:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
   /jxchange/v1/customers/{customerId}:
     get:
       summary: Get Customer
@@ -133,6 +114,6 @@ components:
           type: string
           format: date
   securitySchemes:
-    openIdConnect:
-      type: openIdConnect
-      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration
+    bearerAuth:
+      type: http
+      scheme: bearer

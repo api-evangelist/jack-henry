@@ -1,43 +1,32 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Banno Admin Abilities Plugin Bridge API
-  description: 'Back-office administration surface used by the Banno staff console
+  title: Banno Plugin Framework Plugin Bridge API
+  description: 'The Plugin Framework lets partners build custom cards that appear in
 
-    itself. Lets institutions look up abilities/feature flags, manage
+    a user''s Banno Online and Mobile dashboard. Plugins are web
 
-    consumer/business users, configure plugin management, manage
+    applications (HTML + CSS + JavaScript) hosted on the partner''s own
 
-    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+    infrastructure and registered as External Applications in Banno
 
-    high-risk actions, and administer OAuth/OpenID clients.
+    People.
 
 
-    Resource groups (documented at
+    This OpenAPI documents the host-side surface a plugin uses against
 
-    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
+    Banno (configuration metadata + bridge handshake). The browser-side
 
-    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
+    runtime interactions happen over the @jack-henry/banno-plugin-framework-bridge
 
-    Documents, Forms, High-Risk Actions, History, Institution Offline
-
-    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
-
-    Management, Remote Deposit Capture, Reports, Routing Numbers,
-
-    Segments, Transfer Settings, Wire Transfers, and Zelle.
+    `postMessage` channel rather than HTTP — see the bridge SDK README.
 
     '
   version: v0
-  contact:
-    name: Jack Henry Developer Support
-    url: https://jackhenry.dev/support/
-  license:
-    name: Proprietary
 servers:
-- url: https://api.banno.com
+- url: https://digital.garden.banno-uat.com
+  description: Banno UAT
+- url: https://digital.banno.com
   description: Banno production
-security:
-- openIdConnect: []
 tags:
 - name: Plugin Bridge
   description: Bridge handshake and lifecycle.
@@ -86,8 +75,3 @@ paths:
                   expiresIn:
                     type: integer
                     description: Seconds
-components:
-  securitySchemes:
-    openIdConnect:
-      type: openIdConnect
-      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration

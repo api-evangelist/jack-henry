@@ -1,43 +1,25 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Banno Admin Abilities Token API
-  description: 'Back-office administration surface used by the Banno staff console
+  title: Banno Authentication Framework Token API
+  description: 'OAuth 2.0 and OpenID Connect surface that issues access tokens,
 
-    itself. Lets institutions look up abilities/feature flags, manage
+    identity tokens, and refresh tokens for the Banno Consumer API,
 
-    consumer/business users, configure plugin management, manage
+    Admin API, and Plugin Framework. Implements the permissions flow
 
-    segments and ads, run reports, drive RDC, ACH, wires, Zelle, and
+    used to enforce scopes on protected endpoints. Per the documentation:
 
-    high-risk actions, and administer OAuth/OpenID clients.
+    "Protect user data using industry standard OAuth 2.0 and OpenID
 
+    Connect to provide authenticated information in the form of secure
 
-    Resource groups (documented at
-
-    https://banno.github.io/open-api-docs/admin-api/api-reference/v0/):
-
-    Abilities, Accounts, ACH, Alerts, Consumers, Contact Info,
-
-    Documents, Forms, High-Risk Actions, History, Institution Offline
-
-    Status, Marketing/Ads, Messages, OAuth and OpenID Connect, Plugin
-
-    Management, Remote Deposit Capture, Reports, Routing Numbers,
-
-    Segments, Transfer Settings, Wire Transfers, and Zelle.
+    access and identity tokens."
 
     '
   version: v0
-  contact:
-    name: Jack Henry Developer Support
-    url: https://jackhenry.dev/support/
-  license:
-    name: Proprietary
 servers:
 - url: https://api.banno.com
   description: Banno production
-security:
-- openIdConnect: []
 tags:
 - name: Token
   description: OAuth token exchange.
@@ -104,6 +86,7 @@ components:
         scope:
           type: string
   securitySchemes:
-    openIdConnect:
-      type: openIdConnect
-      openIdConnectUrl: https://api.banno.com/a/oidc/.well-known/openid-configuration
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
