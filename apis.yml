@@ -134,7 +134,7 @@ apis:
   baseURL: https://events.jackhenry.com
   tags:
   - Event
-  - Pub-Sub
+  - Pub/Sub
   - Streaming
   - Webhook
   - Real-Time
@@ -1201,7 +1201,7 @@ apis:
   humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
   baseURL: https://api.banno.com
   tags:
-  - Peer-to-Peer
+  - Peer To Peer
   tags_raw:
   - Peer To Peer
   properties:
