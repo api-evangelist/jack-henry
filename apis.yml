@@ -1798,52 +1798,6 @@ apis:
     url: https://api.payments.jackhenry.com/developer/
   - type: Sandbox
     url: https://api.payments.jackhenry.com/developer/
-- aid: jack-henry:jack-henry-userinfo-api
-  name: Jack Henry & Associates UserInfo API
-  description: OpenID Connect UserInfo endpoint.
-  humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
-  baseURL: https://api.banno.com
-  tags:
-  - UserInfo
-  properties:
-  - type: OpenAPI
-    url: openapi/jack-henry-userinfo-api-openapi.yml
-  - type: APIReference
-    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
-  - type: GettingStarted
-    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
-  - type: Authentication
-    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
-  - type: GettingStarted
-    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
-  - type: SampleApp
-    url: https://github.com/Banno/consumer-api-openid-connect-example
-  - type: APIReference
-    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
-  - type: SampleApp
-    url: https://github.com/Banno/admin-api-openid-connect-example
-  - type: APIReference
-    url: https://jackhenry.dev/open-api-docs/plugins/
-  - type: GettingStarted
-    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
-  - type: Tutorial
-    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
-  - type: SDKs
-    url: https://github.com/Banno/banno-plugin-framework-bridge
-  - type: SampleApp
-    url: https://github.com/Banno/simple-plugin-example
-  - type: SampleApp
-    url: https://github.com/Banno/basic-plugin-example
-  - type: SampleApp
-    url: https://github.com/Banno/simple-announcements-plugin
-  - type: Documentation
-    url: https://jackhenry.dev/open-api-docs/authentication-framework/
-  - type: Documentation
-    url: https://jackhenry.dev/jxchange-rest/
-  - type: DeveloperPortal
-    url: https://api.payments.jackhenry.com/developer/
-  - type: Sandbox
-    url: https://api.payments.jackhenry.com/developer/
 - aid: jack-henry:jack-henry-wire-transfers-api
   name: Jack Henry & Associates Wire Transfers API
   description: Outbound wire requests.
@@ -1900,6 +1854,52 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/jack-henry-zelle-api-openapi.yml
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/getting-started/
+  - type: Authentication
+    url: https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/
+  - type: SampleApp
+    url: https://github.com/Banno/consumer-api-openid-connect-example
+  - type: APIReference
+    url: https://banno.github.io/open-api-docs/admin-api/api-reference/v0/
+  - type: SampleApp
+    url: https://github.com/Banno/admin-api-openid-connect-example
+  - type: APIReference
+    url: https://jackhenry.dev/open-api-docs/plugins/
+  - type: GettingStarted
+    url: https://jackhenry.dev/open-api-docs/plugins/getting-started/
+  - type: Tutorial
+    url: https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/
+  - type: SDKs
+    url: https://github.com/Banno/banno-plugin-framework-bridge
+  - type: SampleApp
+    url: https://github.com/Banno/simple-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/basic-plugin-example
+  - type: SampleApp
+    url: https://github.com/Banno/simple-announcements-plugin
+  - type: Documentation
+    url: https://jackhenry.dev/open-api-docs/authentication-framework/
+  - type: Documentation
+    url: https://jackhenry.dev/jxchange-rest/
+  - type: DeveloperPortal
+    url: https://api.payments.jackhenry.com/developer/
+  - type: Sandbox
+    url: https://api.payments.jackhenry.com/developer/
+- aid: jack-henry:jack-henry-user-info-api
+  name: Jack Henry & Associates User Info API
+  description: OpenID Connect UserInfo endpoint.
+  humanURL: https://jackhenry.dev/ees/
+  baseURL: https://events.jackhenry.com
+  tags:
+  - User Info
+  properties:
+  - type: OpenAPI
+    url: openapi/jack-henry-user-info-api-openapi.yml
   - type: APIReference
     url: https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
   - type: GettingStarted
