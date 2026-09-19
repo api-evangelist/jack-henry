@@ -53,7 +53,7 @@ tags:
   - Fraud
   - Open Banking
   - Community Banks
-  - Credit Unions
+  - Credit Union
   - Fintech
   - Authentication
   - OpenID Connect
@@ -158,6 +158,12 @@ apis:
   humanURL: https://jackhenry.dev/symxchange-api-docs/
   baseURL: https://symxchange.jackhenry.com
   tags:
+  - Core Banking
+  - Symitar
+  - Credit Union
+  - PowerOn
+  - Member Accounts
+  tags_raw:
   - Core Banking
   - Symitar
   - Credit Unions
@@ -1572,6 +1578,8 @@ apis:
   humanURL: https://jackhenry.dev/open-api-docs/consumer-api/
   baseURL: https://api.banno.com
   tags:
+  - Tokens
+  tags_raw:
   - Token
   properties:
   - type: OpenAPI
@@ -1896,6 +1904,8 @@ apis:
   humanURL: https://jackhenry.dev/ees/
   baseURL: https://events.jackhenry.com
   tags:
+  - UserInfo
+  tags_raw:
   - User Info
   properties:
   - type: OpenAPI
