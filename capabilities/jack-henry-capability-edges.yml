@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 14
+edge_count: 15
 edges:
 - tag: Payments Orchestrator
   spec_file: jack-henry-payments-orchestrator-api-openapi.yml
@@ -119,6 +119,19 @@ edges:
     access to loan account data. Credit & Lending Management is clearly right at L1; Loan Servicing is
     the best-fit L2 for account inquiry, though origination/portfolio readings cannot be fully excluded
     from one read endpoint.
+- tag: Marketing Ads
+  spec_file: jack-henry-marketing-ads-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.75
+  evidence: GET /a/mobile/api/v0/institutions/{institutionId}/ads listAds "List Marketing Ads"; POST ...
+    createAd "Create Marketing Ad"; schemas AdRequest, Ad
+  reason: Operations create and list marketing advertisements that an institution shows in its digital
+    banking channel — a marketing/advertising surface, not a banking transaction surface. L1 Marketing
+    Management is well supported; the evidence does not clearly distinguish digital-channel advertising
+    from demand-generation campaign management, so no L2 is asserted.
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: Consumers
   spec_file: jack-henry-consumers-api-openapi.yml
   capability_id: BC-1300.40
