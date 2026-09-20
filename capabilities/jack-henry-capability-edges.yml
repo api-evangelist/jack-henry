@@ -1,0 +1,151 @@
+slug: jack-henry
+provider: Jack Henry & Associates
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 14
+edges:
+- tag: Payments Orchestrator
+  spec_file: jack-henry-payments-orchestrator-api-openapi.yml
+  capability_id: BC-1340.20
+  capability_id_l1: BC-1340
+  capability_name: Payment Processing Management
+  confidence: 0.88
+  evidence: POST /payments/v1/orchestrator/payments  routePayment  Route Payment Through Orchestrator;
+    "The Payments Orchestrator routes across rails"
+  reason: The operation routes a payment instruction across payment rails, which is precisely payment
+    processing and routing within Payments & Card Management.
+- tag: Bill Pay
+  spec_file: jack-henry-bill-pay-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.85
+  evidence: POST /a/consumer/api/v0/users/{userId}/bill-pay/payments  createBillPayPayment  Create Bill
+    Pay Payment; schemas BillPayPaymentRequest, Payee
+  reason: 'Consumer digital-banking bill payment: capture of payee list and creation of payment instructions,
+    i.e. payment initiation within Payments & Card Management.'
+- tag: Bill Payments
+  spec_file: jack-henry-bill-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.85
+  evidence: POST /payments/v1/bill-pay/payments  submitBillPayment  Submit Bill Payment
+  reason: Submits bill payment instructions on the Jack Henry Payments rails surface — payment instruction
+    capture and authorisation.
+- tag: Deposit Accounts
+  spec_file: jack-henry-deposit-accounts-api-openapi.yml
+  capability_id: BC-1330.10
+  capability_id_l1: BC-1330
+  capability_name: Deposit Account Management
+  confidence: 0.85
+  evidence: GET /jxchange/v1/deposit-accounts/{accountNumber}  getDepositAccount; schema DepositAccount
+  reason: Core-banking deposit account retrieval, squarely Deposits & Savings / deposit account management.
+- tag: General Ledger
+  spec_file: jack-henry-general-ledger-api-openapi.yml
+  capability_id: BC-200.10
+  capability_id_l1: BC-200
+  capability_name: General Ledger Management
+  confidence: 0.85
+  evidence: GET /jxchange/v1/general-ledger/{glAccountNumber}  getGlAccount; schema GLAccount
+  reason: Exposes the bank core's general-ledger account domain — general ledger / chart of accounts management.
+- tag: Cards
+  spec_file: jack-henry-cards-api-openapi.yml
+  capability_id: BC-1340
+  capability_id_l1: BC-1340
+  capability_name: Payments & Card Management
+  confidence: 0.8
+  evidence: POST /payments/v1/cards/authorizations  authorizeCard  Authorize Card Payment; GET .../users/{userId}/cards  listCards
+  reason: Card listing plus card payment authorisation clearly sit in Payments & Card Management; the
+    mix of issuance-view and authorisation makes the specific L2 ambiguous.
+- tag: Transfers
+  spec_file: jack-henry-transfers-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.8
+  evidence: POST /a/consumer/api/v0/users/{userId}/transfers createTransfer "Create Transfer"; schemas
+    Transfer, TransferRequest
+  reason: Creating and listing consumer funds transfers is payment instruction capture/initiation in a
+    digital banking channel. Sub-capability could arguably be processing, but initiation (instruction
+    capture) fits the POST-create surface best.
+- tag: Wire Transfers
+  spec_file: jack-henry-wire-transfers-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.8
+  evidence: POST /a/consumer/api/v0/users/{userId}/wire-transfers createWireTransfer "Create Wire Transfer";
+    POST /payments/v1/wires sendWire "Send Wire"
+  reason: Wire payment instruction creation and submission is payment initiation on a high-value rail.
+    Ambiguity between initiation and processing/cross-border sub-capabilities keeps confidence at 0.8.
+- tag: Zelle
+  spec_file: jack-henry-zelle-api-openapi.yml
+  capability_id: BC-1340.50
+  capability_id_l1: BC-1340
+  capability_name: Real-Time Payment Management
+  confidence: 0.78
+  evidence: POST /a/consumer/api/v0/users/{userId}/zelle/payments sendZellePayment "Send Zelle Payment";
+    schemas ZellePaymentRequest, ZellePayment
+  reason: Zelle is a real-time/instant P2P payment rail, so sending Zelle payments maps to real-time payment
+    management; alternative reading is generic payment initiation, hence 0.78.
+- tag: Customers
+  spec_file: jack-henry-customers-api-openapi.yml
+  capability_id: BC-1300.40
+  capability_id_l1: BC-1300
+  capability_name: Customer Information Management
+  confidence: 0.75
+  evidence: GET /jxchange/v1/customers  searchCustomers; jXchange "exposes deposits, loans, customers,
+    accounts, transactions"
+  reason: Core-banking customer information domain (CIF) exposed for lookup — banking customer data management.
+- tag: Loan Accounts
+  spec_file: jack-henry-loan-accounts-api-openapi.yml
+  capability_id: BC-1320.30
+  capability_id_l1: BC-1320
+  capability_name: Loan Servicing Management
+  confidence: 0.75
+  evidence: GET /jxchange/v1/loan-accounts/{accountNumber}  getLoanAccount  Get Loan Account; schema LoanAccount;
+    core exposes "deposits, loans, customers, accounts, transactions"
+  reason: The operation retrieves a loan account record from the community-bank core, i.e. servicing-level
+    access to loan account data. Credit & Lending Management is clearly right at L1; Loan Servicing is
+    the best-fit L2 for account inquiry, though origination/portfolio readings cannot be fully excluded
+    from one read endpoint.
+- tag: Consumers
+  spec_file: jack-henry-consumers-api-openapi.yml
+  capability_id: BC-1300.40
+  capability_id_l1: BC-1300
+  capability_name: Customer Information Management
+  confidence: 0.7
+  evidence: GET .../institutions/{institutionId}/consumers  listConsumers; PUT .../consumers/{consumerId}/contact-info  updateContactInfo
+  reason: Back-office administration of banking consumer users and their contact details — banking customer
+    information/servicing data, not a technical user table (institution-scoped consumers of a bank).
+- tag: Peer To Peer
+  spec_file: jack-henry-peer-to-peer-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.7
+  evidence: POST /payments/v1/p2p/transfers  sendP2P  Send Peer To Peer Transfer; "peer-to-peer rails"
+  reason: Submits a person-to-person money transfer instruction, clearly Payments & Card Management. Payment
+    Initiation is the closest L2 for instruction capture, though the P2P rail could also read as real-time
+    payments, hence moderate confidence.
+- tag: Remote Deposit Capture
+  spec_file: jack-henry-remote-deposit-capture-api-openapi.yml
+  capability_id: BC-1340
+  capability_id_l1: BC-1340
+  capability_name: Payments & Card Management
+  confidence: 0.7
+  evidence: POST /payments/v1/rdc/deposits  submitRemoteDeposit  Submit Remote Deposit; schema RdcDeposit;
+    "Remote Deposit Capture (consumer + commercial)"
+  reason: Submits a remotely captured deposit item (check) for processing, which sits in the payments/deposit-item
+    processing domain of Payments & Card Management. The single endpoint does not distinguish initiation
+    from clearing, so no L2 is asserted.
