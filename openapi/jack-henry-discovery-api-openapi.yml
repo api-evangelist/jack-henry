@@ -13,9 +13,7 @@ info:
 
     Connect to provide authenticated information in the form of secure
 
-    access and identity tokens."
-
-    '
+    access and identity tokens."'
   version: v0
 servers:
 - url: https://api.banno.com

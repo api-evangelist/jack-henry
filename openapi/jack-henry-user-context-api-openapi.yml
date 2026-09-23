@@ -3,24 +3,7 @@ info:
   title: Banno Plugin Framework User Context API
   description: 'The Plugin Framework lets partners build custom cards that appear in
 
-    a user''s Banno Online and Mobile dashboard. Plugins are web
-
-    applications (HTML + CSS + JavaScript) hosted on the partner''s own
-
-    infrastructure and registered as External Applications in Banno
-
-    People.
-
-
-    This OpenAPI documents the host-side surface a plugin uses against
-
-    Banno (configuration metadata + bridge handshake). The browser-side
-
-    runtime interactions happen over the @jack-henry/banno-plugin-framework-bridge
-
-    `postMessage` channel rather than HTTP — see the bridge SDK README.
-
-    '
+    a user''s Banno Online and Mobile dashboard.'
   version: v0
 servers:
 - url: https://digital.garden.banno-uat.com
@@ -41,9 +24,7 @@ paths:
 
         plugin (institution ID, user ID, environment, locale). Subject to
 
-        the plugin''s authorized scopes in Banno People.
-
-        '
+        the plugin''s authorized scopes in Banno People.'
       responses:
         '200':
           description: Plugin context.

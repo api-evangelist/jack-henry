@@ -9,9 +9,7 @@ info:
 
     loans, customers, accounts, transactions, and general-ledger domains.
 
-    A SOAP variant is also published at jackhenry.dev/jxchange-soap/.
-
-    '
+    A SOAP variant is also published at jackhenry.dev/jxchange-soap/.'
   version: '2024'
 servers:
 - url: https://jxchange.jackhenry.com

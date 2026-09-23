@@ -3,28 +3,7 @@ info:
   title: Banno Consumer Bill Pay API
   description: 'Build apps and services using the same Consumer API that powers Banno
 
-    Mobile and Online. OAuth 2.0 / OpenID Connect protects every endpoint;
-
-    scopes are enforced per resource (e.g. `user.profile.readonly`,
-
-    `transactions.detail.readonly`). All endpoints are scoped under
-
-    `/a/consumer/api/v0` and operate within the context of a `userId`.
-
-
-    Resource groups documented at
-
-    https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
-
-    include: Abilities, Account Aggregation, Accounts, ACH, Alerts,
-
-    Bill Pay, Cards, Documents and Statements, Forms, Institutions,
-
-    Messages, OAuth and OpenID Connect, Positive Pay, Routing Numbers,
-
-    Task Events, Transactions, Transfers, User, Wire Transfers, and Zelle.
-
-    '
+    Mobile and Online.'
   version: v0
   contact:
     name: Jack Henry Developer Support
@@ -90,6 +69,36 @@ paths:
                 $ref: '#/components/schemas/BillPayPayment'
 components:
   schemas:
+    Payee:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        nickname:
+          type: string
+        accountNumber:
+          type: string
+        address:
+          type: object
+          properties:
+            line1:
+              type: string
+            line2:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            postalCode:
+              type: string
+        deliveryMethod:
+          type: string
+          enum:
+          - Electronic
+          - Check
     BillPayPaymentRequest:
       type: object
       required:
@@ -136,36 +145,6 @@ components:
           - Complete
           - Failed
           - Cancelled
-    Payee:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        nickname:
-          type: string
-        accountNumber:
-          type: string
-        address:
-          type: object
-          properties:
-            line1:
-              type: string
-            line2:
-              type: string
-            city:
-              type: string
-            state:
-              type: string
-            postalCode:
-              type: string
-        deliveryMethod:
-          type: string
-          enum:
-          - Electronic
-          - Check
   parameters:
     UserId:
       name: userId

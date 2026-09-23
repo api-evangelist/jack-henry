@@ -125,23 +125,6 @@ paths:
     - url: https://jxchange.jackhenry.com
       description: jXchange production gateway
 components:
-  parameters:
-    AccountId:
-      name: accountId
-      in: path
-      required: true
-      description: ID of the desired account (UUID format).
-      schema:
-        type: string
-        format: uuid
-    UserId:
-      name: userId
-      in: path
-      required: true
-      description: ID of the desired user (UUID format).
-      schema:
-        type: string
-        format: uuid
   schemas:
     Transaction:
       type: object
@@ -230,6 +213,23 @@ components:
           format: double
         sourceCode:
           type: string
+  parameters:
+    AccountId:
+      name: accountId
+      in: path
+      required: true
+      description: ID of the desired account (UUID format).
+      schema:
+        type: string
+        format: uuid
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect

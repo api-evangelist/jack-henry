@@ -13,9 +13,7 @@ info:
 
     The Payments Orchestrator routes across rails and supports virtual
 
-    accounts.
-
-    '
+    accounts.'
   version: v1
 servers:
 - url: https://api.payments.jackhenry.com
@@ -68,31 +66,6 @@ paths:
                 $ref: '#/components/schemas/AchTransaction'
 components:
   schemas:
-    AchTransaction:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        status:
-          type: string
-          enum:
-          - Submitted
-          - Processing
-          - Settled
-          - Returned
-          - Failed
-        traceNumber:
-          type: string
-        effectiveDate:
-          type: string
-          format: date
-        amount:
-          type: number
-          format: double
-    AchDebitRequest:
-      allOf:
-      - $ref: '#/components/schemas/AchCreditRequest'
     AchCreditRequest:
       type: object
       required:
@@ -126,6 +99,31 @@ components:
           format: date
         memo:
           type: string
+    AchTransaction:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - Submitted
+          - Processing
+          - Settled
+          - Returned
+          - Failed
+        traceNumber:
+          type: string
+        effectiveDate:
+          type: string
+          format: date
+        amount:
+          type: number
+          format: double
+    AchDebitRequest:
+      allOf:
+      - $ref: '#/components/schemas/AchCreditRequest'
   securitySchemes:
     bearerAuth:
       type: http

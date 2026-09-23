@@ -13,9 +13,7 @@ info:
 
     The Payments Orchestrator routes across rails and supports virtual
 
-    accounts.
-
-    '
+    accounts.'
   version: v1
 servers:
 - url: https://api.payments.jackhenry.com
@@ -38,9 +36,7 @@ paths:
 
         appropriate rail (ACH, Wire, Card, RTP) based on cost, speed,
 
-        and policy.
-
-        '
+        and policy.'
       requestBody:
         required: true
         content:

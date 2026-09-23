@@ -3,28 +3,7 @@ info:
   title: Banno Consumer Messages API
   description: 'Build apps and services using the same Consumer API that powers Banno
 
-    Mobile and Online. OAuth 2.0 / OpenID Connect protects every endpoint;
-
-    scopes are enforced per resource (e.g. `user.profile.readonly`,
-
-    `transactions.detail.readonly`). All endpoints are scoped under
-
-    `/a/consumer/api/v0` and operate within the context of a `userId`.
-
-
-    Resource groups documented at
-
-    https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/
-
-    include: Abilities, Account Aggregation, Accounts, ACH, Alerts,
-
-    Bill Pay, Cards, Documents and Statements, Forms, Institutions,
-
-    Messages, OAuth and OpenID Connect, Positive Pay, Routing Numbers,
-
-    Task Events, Transactions, Transfers, User, Wire Transfers, and Zelle.
-
-    '
+    Mobile and Online.'
   version: v0
   contact:
     name: Jack Henry Developer Support

@@ -13,9 +13,7 @@ info:
 
     The Payments Orchestrator routes across rails and supports virtual
 
-    accounts.
-
-    '
+    accounts.'
   version: v1
 servers:
 - url: https://api.payments.jackhenry.com

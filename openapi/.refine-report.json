@@ -47,7 +47,9 @@
     "jack-henry-general-ledger-api-openapi.yml",
     "jack-henry-loan-accounts-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -60,7 +62,9 @@
     "jxchange-rest-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "tag 'Cards' spans 2 source specs (banno-consumer-api-openapi.yml, jack-henry-payments-openapi.yml): per-path servers applied",
     "tag 'Transactions' spans 2 source specs (banno-consumer-api-openapi.yml, jxchange-rest-openapi.yml): per-path servers applied",
-    "tag 'Wire Transfers' spans 2 source specs (banno-consumer-api-openapi.yml, jack-henry-payments-openapi.yml): per-path servers applied"
+    "tag 'Wire Transfers' spans 2 source specs (banno-consumer-api-openapi.yml, jack-henry-payments-openapi.yml): per-path servers applied",
+    "superseded outputs removed: jack-henry-user-info-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 42 total)"
   ],
   "skipped": [
     "jack-henry-abilities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -97,7 +101,7 @@
     "jack-henry-transfers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "jack-henry-user-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "jack-henry-user-context-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "jack-henry-userinfo-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "jack-henry-user-info-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "jack-henry-wire-transfers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "jack-henry-zelle-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
