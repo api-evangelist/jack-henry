@@ -99,27 +99,6 @@ components:
           enum:
           - Electronic
           - Check
-    BillPayPaymentRequest:
-      type: object
-      required:
-      - payeeId
-      - fromAccountId
-      - amount
-      - scheduledDate
-      properties:
-        payeeId:
-          type: string
-          format: uuid
-        fromAccountId:
-          type: string
-          format: uuid
-        amount:
-          type: number
-        scheduledDate:
-          type: string
-          format: date
-        memo:
-          type: string
     BillPayPayment:
       type: object
       properties:
@@ -145,6 +124,27 @@ components:
           - Complete
           - Failed
           - Cancelled
+    BillPayPaymentRequest:
+      type: object
+      required:
+      - payeeId
+      - fromAccountId
+      - amount
+      - scheduledDate
+      properties:
+        payeeId:
+          type: string
+          format: uuid
+        fromAccountId:
+          type: string
+          format: uuid
+        amount:
+          type: number
+        scheduledDate:
+          type: string
+          format: date
+        memo:
+          type: string
   parameters:
     UserId:
       name: userId

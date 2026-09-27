@@ -90,28 +90,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/ContactInfo'
 components:
+  parameters:
+    ConsumerId:
+      name: consumerId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    InstitutionId:
+      name: institutionId
+      in: path
+      required: true
+      description: UUID identifying the institution.
+      schema:
+        type: string
+        format: uuid
   schemas:
-    ContactInfo:
-      type: object
-      properties:
-        email:
-          type: string
-          format: email
-        phone:
-          type: string
-        address:
-          type: object
-          properties:
-            line1:
-              type: string
-            line2:
-              type: string
-            city:
-              type: string
-            state:
-              type: string
-            postalCode:
-              type: string
     Consumer:
       type: object
       properties:
@@ -137,22 +132,27 @@ components:
         enrolledDate:
           type: string
           format: date-time
-  parameters:
-    ConsumerId:
-      name: consumerId
-      in: path
-      required: true
-      schema:
-        type: string
-        format: uuid
-    InstitutionId:
-      name: institutionId
-      in: path
-      required: true
-      description: UUID identifying the institution.
-      schema:
-        type: string
-        format: uuid
+    ContactInfo:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        address:
+          type: object
+          properties:
+            line1:
+              type: string
+            line2:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            postalCode:
+              type: string
   securitySchemes:
     openIdConnect:
       type: openIdConnect

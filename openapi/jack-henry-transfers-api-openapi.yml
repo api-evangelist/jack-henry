@@ -67,7 +67,39 @@ paths:
               schema:
                 $ref: '#/components/schemas/Transfer'
 components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
   schemas:
+    TransferRequest:
+      type: object
+      required:
+      - fromAccountId
+      - toAccountId
+      - amount
+      properties:
+        fromAccountId:
+          type: string
+          format: uuid
+        toAccountId:
+          type: string
+          format: uuid
+        amount:
+          type: number
+          format: double
+        scheduledDate:
+          type: string
+          format: date
+        frequency:
+          type: string
+        memo:
+          type: string
     Transfer:
       type: object
       properties:
@@ -103,38 +135,6 @@ components:
           - Cancelled
         memo:
           type: string
-    TransferRequest:
-      type: object
-      required:
-      - fromAccountId
-      - toAccountId
-      - amount
-      properties:
-        fromAccountId:
-          type: string
-          format: uuid
-        toAccountId:
-          type: string
-          format: uuid
-        amount:
-          type: number
-          format: double
-        scheduledDate:
-          type: string
-          format: date
-        frequency:
-          type: string
-        memo:
-          type: string
-  parameters:
-    UserId:
-      name: userId
-      in: path
-      required: true
-      description: ID of the desired user (UUID format).
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect

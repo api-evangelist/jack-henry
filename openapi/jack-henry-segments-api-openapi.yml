@@ -61,12 +61,12 @@ paths:
                 $ref: '#/components/schemas/Segment'
 components:
   schemas:
-    SegmentRequest:
+    Segment:
       type: object
-      required:
-      - name
-      - criteria
       properties:
+        id:
+          type: string
+          format: uuid
         name:
           type: string
         description:
@@ -74,12 +74,12 @@ components:
         criteria:
           type: object
           additionalProperties: true
-    Segment:
+    SegmentRequest:
       type: object
+      required:
+      - name
+      - criteria
       properties:
-        id:
-          type: string
-          format: uuid
         name:
           type: string
         description:

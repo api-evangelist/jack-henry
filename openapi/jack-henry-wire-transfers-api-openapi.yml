@@ -69,31 +69,6 @@ paths:
       description: Jack Henry Payments sandbox
 components:
   schemas:
-    WireTransferRequest:
-      type: object
-      required:
-      - fromAccountId
-      - beneficiaryName
-      - beneficiaryAccountNumber
-      - beneficiaryBankRoutingNumber
-      - amount
-      properties:
-        fromAccountId:
-          type: string
-          format: uuid
-        beneficiaryName:
-          type: string
-        beneficiaryAccountNumber:
-          type: string
-        beneficiaryBankRoutingNumber:
-          type: string
-        amount:
-          type: number
-        currency:
-          type: string
-          default: USD
-        memo:
-          type: string
     WireTransfer:
       type: object
       properties:
@@ -121,27 +96,26 @@ components:
           - Sent
           - Failed
           - Cancelled
-    WireRequest:
+    WireTransferRequest:
       type: object
       required:
-      - originatorAccountId
+      - fromAccountId
       - beneficiaryName
       - beneficiaryAccountNumber
-      - beneficiaryRoutingNumber
+      - beneficiaryBankRoutingNumber
       - amount
       properties:
-        originatorAccountId:
+        fromAccountId:
           type: string
+          format: uuid
         beneficiaryName:
           type: string
         beneficiaryAccountNumber:
           type: string
-        beneficiaryRoutingNumber:
+        beneficiaryBankRoutingNumber:
           type: string
-          pattern: ^[0-9]{9}$
         amount:
           type: number
-          format: double
         currency:
           type: string
           default: USD
@@ -171,6 +145,32 @@ components:
           - string
           - 'null'
           format: date-time
+    WireRequest:
+      type: object
+      required:
+      - originatorAccountId
+      - beneficiaryName
+      - beneficiaryAccountNumber
+      - beneficiaryRoutingNumber
+      - amount
+      properties:
+        originatorAccountId:
+          type: string
+        beneficiaryName:
+          type: string
+        beneficiaryAccountNumber:
+          type: string
+        beneficiaryRoutingNumber:
+          type: string
+          pattern: ^[0-9]{9}$
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+          default: USD
+        memo:
+          type: string
   parameters:
     UserId:
       name: userId

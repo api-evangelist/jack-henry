@@ -44,19 +44,20 @@ accessModel:
   method: derived
 image: https://avatars.githubusercontent.com/u/1130370?s=200&v=4
 tags:
-  - Financial-Services
+  - Financial Services
   - Banking
   - Core Banking
   - Digital Banking
   - Payments
   - Lending
-  - Fraud
+  - Fraud Prevention
   - Open Banking
   - Community Banks
   - Credit Union
   - Fintech
   - Authentication
   - OpenID Connect
+  - Real-Time
 tags_raw:
   - Financial Services
   - Banking
@@ -71,6 +72,8 @@ tags_raw:
   - Fintech
   - OAuth
   - OpenID Connect
+  - Financial-Services
+  - Real-Time
 created: '2026-05-23'
 modified: '2026-05-23'
 specificationVersion: '0.23'
@@ -1904,8 +1907,6 @@ apis:
   humanURL: https://jackhenry.dev/ees/
   baseURL: https://events.jackhenry.com
   tags:
-  - UserInfo
-  tags_raw:
   - User Info
   properties:
   - type: OpenAPI

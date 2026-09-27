@@ -67,6 +67,15 @@ paths:
     - url: https://api.payments.sandbox.jackhenry.com
       description: Jack Henry Payments sandbox
 components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
   schemas:
     Card:
       type: object
@@ -94,6 +103,20 @@ components:
           pattern: ^[0-9]{2}/[0-9]{2}$
         nameOnCard:
           type: string
+    CardAuthResult:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        approved:
+          type: boolean
+        responseCode:
+          type: string
+        authCode:
+          type: string
+        networkReference:
+          type: string
     CardAuthRequest:
       type: object
       required:
@@ -113,29 +136,6 @@ components:
           type: string
         cvvProvided:
           type: boolean
-    CardAuthResult:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        approved:
-          type: boolean
-        responseCode:
-          type: string
-        authCode:
-          type: string
-        networkReference:
-          type: string
-  parameters:
-    UserId:
-      name: userId
-      in: path
-      required: true
-      description: ID of the desired user (UUID format).
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect
