@@ -60,15 +60,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Ad'
 components:
-  parameters:
-    InstitutionId:
-      name: institutionId
-      in: path
-      required: true
-      description: UUID identifying the institution.
-      schema:
-        type: string
-        format: uuid
   schemas:
     AdRequest:
       type: object
@@ -126,6 +117,15 @@ components:
           format: date
         active:
           type: boolean
+  parameters:
+    InstitutionId:
+      name: institutionId
+      in: path
+      required: true
+      description: UUID identifying the institution.
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect

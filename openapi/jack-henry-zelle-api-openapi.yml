@@ -55,6 +55,23 @@ components:
         type: string
         format: uuid
   schemas:
+    ZellePaymentRequest:
+      type: object
+      required:
+      - fromAccountId
+      - recipientToken
+      - amount
+      properties:
+        fromAccountId:
+          type: string
+          format: uuid
+        recipientToken:
+          type: string
+          description: Email or phone number
+        amount:
+          type: number
+        memo:
+          type: string
     ZellePayment:
       type: object
       properties:
@@ -77,23 +94,6 @@ components:
           - Sent
           - Delivered
           - Failed
-    ZellePaymentRequest:
-      type: object
-      required:
-      - fromAccountId
-      - recipientToken
-      - amount
-      properties:
-        fromAccountId:
-          type: string
-          format: uuid
-        recipientToken:
-          type: string
-          description: Email or phone number
-        amount:
-          type: number
-        memo:
-          type: string
   securitySchemes:
     openIdConnect:
       type: openIdConnect

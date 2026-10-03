@@ -52,28 +52,6 @@ paths:
                 $ref: '#/components/schemas/OrchestratorResult'
 components:
   schemas:
-    OrchestratorResult:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        chosenRail:
-          type: string
-          enum:
-          - ACH
-          - Wire
-          - Card
-          - RTP
-          - Zelle
-        status:
-          type: string
-          enum:
-          - Routed
-          - Pending
-          - Failed
-        downstreamId:
-          type: string
     OrchestratorRequest:
       type: object
       required:
@@ -114,6 +92,28 @@ components:
         policyHints:
           type: object
           additionalProperties: true
+    OrchestratorResult:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        chosenRail:
+          type: string
+          enum:
+          - ACH
+          - Wire
+          - Card
+          - RTP
+          - Zelle
+        status:
+          type: string
+          enum:
+          - Routed
+          - Pending
+          - Failed
+        downstreamId:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http

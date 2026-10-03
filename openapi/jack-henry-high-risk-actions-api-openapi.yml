@@ -40,15 +40,6 @@ paths:
                     items:
                       $ref: '#/components/schemas/HighRiskAction'
 components:
-  parameters:
-    InstitutionId:
-      name: institutionId
-      in: path
-      required: true
-      description: UUID identifying the institution.
-      schema:
-        type: string
-        format: uuid
   schemas:
     HighRiskAction:
       type: object
@@ -71,6 +62,15 @@ components:
           - Approved
           - Denied
           - Expired
+  parameters:
+    InstitutionId:
+      name: institutionId
+      in: path
+      required: true
+      description: UUID identifying the institution.
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect

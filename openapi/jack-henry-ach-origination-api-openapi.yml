@@ -66,6 +66,31 @@ paths:
                 $ref: '#/components/schemas/AchTransaction'
 components:
   schemas:
+    AchDebitRequest:
+      allOf:
+      - $ref: '#/components/schemas/AchCreditRequest'
+    AchTransaction:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - Submitted
+          - Processing
+          - Settled
+          - Returned
+          - Failed
+        traceNumber:
+          type: string
+        effectiveDate:
+          type: string
+          format: date
+        amount:
+          type: number
+          format: double
     AchCreditRequest:
       type: object
       required:
@@ -99,31 +124,6 @@ components:
           format: date
         memo:
           type: string
-    AchDebitRequest:
-      allOf:
-      - $ref: '#/components/schemas/AchCreditRequest'
-    AchTransaction:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        status:
-          type: string
-          enum:
-          - Submitted
-          - Processing
-          - Settled
-          - Returned
-          - Failed
-        traceNumber:
-          type: string
-        effectiveDate:
-          type: string
-          format: date
-        amount:
-          type: number
-          format: double
   securitySchemes:
     bearerAuth:
       type: http

@@ -40,15 +40,6 @@ paths:
                     items:
                       $ref: '#/components/schemas/Report'
 components:
-  parameters:
-    InstitutionId:
-      name: institutionId
-      in: path
-      required: true
-      description: UUID identifying the institution.
-      schema:
-        type: string
-        format: uuid
   schemas:
     Report:
       type: object
@@ -66,6 +57,15 @@ components:
         generatedDate:
           type: string
           format: date-time
+  parameters:
+    InstitutionId:
+      name: institutionId
+      in: path
+      required: true
+      description: UUID identifying the institution.
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect

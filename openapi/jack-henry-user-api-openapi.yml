@@ -39,15 +39,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
 components:
-  parameters:
-    UserId:
-      name: userId
-      in: path
-      required: true
-      description: ID of the desired user (UUID format).
-      schema:
-        type: string
-        format: uuid
   schemas:
     User:
       type: object
@@ -69,6 +60,15 @@ components:
         institutionId:
           type: string
           format: uuid
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect

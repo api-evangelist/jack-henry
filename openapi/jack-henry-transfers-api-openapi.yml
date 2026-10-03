@@ -67,15 +67,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Transfer'
 components:
-  parameters:
-    UserId:
-      name: userId
-      in: path
-      required: true
-      description: ID of the desired user (UUID format).
-      schema:
-        type: string
-        format: uuid
   schemas:
     TransferRequest:
       type: object
@@ -135,6 +126,15 @@ components:
           - Cancelled
         memo:
           type: string
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect

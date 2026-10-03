@@ -44,15 +44,6 @@ paths:
                     items:
                       $ref: '#/components/schemas/Message'
 components:
-  parameters:
-    UserId:
-      name: userId
-      in: path
-      required: true
-      description: ID of the desired user (UUID format).
-      schema:
-        type: string
-        format: uuid
   schemas:
     Message:
       type: object
@@ -80,6 +71,15 @@ components:
               enum:
               - User
               - Institution
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect
