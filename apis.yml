@@ -43,6 +43,9 @@ accessModel:
   generated: '2026-09-03'
   method: derived
 image: https://avatars.githubusercontent.com/u/1130370?s=200&v=4
+x-docs-platform: swagger-ui
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-10-03
 tags:
   - Financial Services
   - Banking
@@ -1907,6 +1910,8 @@ apis:
   humanURL: https://jackhenry.dev/ees/
   baseURL: https://events.jackhenry.com
   tags:
+  - UserInfo
+  tags_raw:
   - User Info
   properties:
   - type: OpenAPI
