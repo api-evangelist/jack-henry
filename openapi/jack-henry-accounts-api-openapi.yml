@@ -63,6 +63,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/Account'
 components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
+    AccountId:
+      name: accountId
+      in: path
+      required: true
+      description: ID of the desired account (UUID format).
+      schema:
+        type: string
+        format: uuid
   schemas:
     Account:
       type: object
@@ -130,23 +147,6 @@ components:
                 type: string
               value:
                 type: string
-  parameters:
-    AccountId:
-      name: accountId
-      in: path
-      required: true
-      description: ID of the desired account (UUID format).
-      schema:
-        type: string
-        format: uuid
-    UserId:
-      name: userId
-      in: path
-      required: true
-      description: ID of the desired user (UUID format).
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect

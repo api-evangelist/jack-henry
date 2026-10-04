@@ -1910,8 +1910,6 @@ apis:
   humanURL: https://jackhenry.dev/ees/
   baseURL: https://events.jackhenry.com
   tags:
-  - UserInfo
-  tags_raw:
   - User Info
   properties:
   - type: OpenAPI

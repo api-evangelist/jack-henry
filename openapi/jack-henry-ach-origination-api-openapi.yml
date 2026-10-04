@@ -66,9 +66,6 @@ paths:
                 $ref: '#/components/schemas/AchTransaction'
 components:
   schemas:
-    AchDebitRequest:
-      allOf:
-      - $ref: '#/components/schemas/AchCreditRequest'
     AchTransaction:
       type: object
       properties:
@@ -91,6 +88,9 @@ components:
         amount:
           type: number
           format: double
+    AchDebitRequest:
+      allOf:
+      - $ref: '#/components/schemas/AchCreditRequest'
     AchCreditRequest:
       type: object
       required:

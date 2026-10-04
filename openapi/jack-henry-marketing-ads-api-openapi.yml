@@ -61,33 +61,6 @@ paths:
                 $ref: '#/components/schemas/Ad'
 components:
   schemas:
-    AdRequest:
-      type: object
-      required:
-      - title
-      - body
-      properties:
-        title:
-          type: string
-        body:
-          type: string
-        imageUrl:
-          type: string
-          format: uri
-        targetUrl:
-          type: string
-          format: uri
-        segmentIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
     Ad:
       type: object
       properties:
@@ -117,6 +90,33 @@ components:
           format: date
         active:
           type: boolean
+    AdRequest:
+      type: object
+      required:
+      - title
+      - body
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        imageUrl:
+          type: string
+          format: uri
+        targetUrl:
+          type: string
+          format: uri
+        segmentIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
   parameters:
     InstitutionId:
       name: institutionId

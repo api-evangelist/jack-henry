@@ -44,6 +44,15 @@ paths:
                     items:
                       $ref: '#/components/schemas/Alert'
 components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
   schemas:
     Alert:
       type: object
@@ -73,15 +82,6 @@ components:
           type: number
         enabled:
           type: boolean
-  parameters:
-    UserId:
-      name: userId
-      in: path
-      required: true
-      description: ID of the desired user (UUID format).
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect

@@ -68,7 +68,41 @@ paths:
     - url: https://api.payments.sandbox.jackhenry.com
       description: Jack Henry Payments sandbox
 components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
   schemas:
+    WireTransferRequest:
+      type: object
+      required:
+      - fromAccountId
+      - beneficiaryName
+      - beneficiaryAccountNumber
+      - beneficiaryBankRoutingNumber
+      - amount
+      properties:
+        fromAccountId:
+          type: string
+          format: uuid
+        beneficiaryName:
+          type: string
+        beneficiaryAccountNumber:
+          type: string
+        beneficiaryBankRoutingNumber:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+          default: USD
+        memo:
+          type: string
     WireTransfer:
       type: object
       properties:
@@ -96,26 +130,27 @@ components:
           - Sent
           - Failed
           - Cancelled
-    WireTransferRequest:
+    WireRequest:
       type: object
       required:
-      - fromAccountId
+      - originatorAccountId
       - beneficiaryName
       - beneficiaryAccountNumber
-      - beneficiaryBankRoutingNumber
+      - beneficiaryRoutingNumber
       - amount
       properties:
-        fromAccountId:
+        originatorAccountId:
           type: string
-          format: uuid
         beneficiaryName:
           type: string
         beneficiaryAccountNumber:
           type: string
-        beneficiaryBankRoutingNumber:
+        beneficiaryRoutingNumber:
           type: string
+          pattern: ^[0-9]{9}$
         amount:
           type: number
+          format: double
         currency:
           type: string
           default: USD
@@ -145,41 +180,6 @@ components:
           - string
           - 'null'
           format: date-time
-    WireRequest:
-      type: object
-      required:
-      - originatorAccountId
-      - beneficiaryName
-      - beneficiaryAccountNumber
-      - beneficiaryRoutingNumber
-      - amount
-      properties:
-        originatorAccountId:
-          type: string
-        beneficiaryName:
-          type: string
-        beneficiaryAccountNumber:
-          type: string
-        beneficiaryRoutingNumber:
-          type: string
-          pattern: ^[0-9]{9}$
-        amount:
-          type: number
-          format: double
-        currency:
-          type: string
-          default: USD
-        memo:
-          type: string
-  parameters:
-    UserId:
-      name: userId
-      in: path
-      required: true
-      description: ID of the desired user (UUID format).
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect
