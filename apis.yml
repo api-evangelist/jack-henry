@@ -83,6 +83,12 @@ specificationVersion: '0.23'
 type: Index
 
 common:
+  - type: Plans
+    url: plans/jack-henry-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/jack-henry-rate-limits.yml
+  - type: FinOps
+    url: finops/jack-henry-finops.yml
   - type: CapabilityMap
     url: capabilities/jack-henry-capability-edges.yml
     name: Jack Henry & Associates Business Capability Map
