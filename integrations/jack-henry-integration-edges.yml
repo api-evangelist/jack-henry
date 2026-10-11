@@ -1,0 +1,18 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/jack-henry/integrations
+- https://zapier.com/apps/jack-henry-associates/integrations
+- https://n8n.io/integrations/jack-henry/
+- https://composio.dev/toolkits/jack-henry
+- https://monid.ai/tools/jack-henry
+checked:
+- https://composio.dev/toolkits/jack-henry
+- https://monid.ai/tools/jack-henry
+- https://n8n.io/integrations/jack-henry/
+- https://zapier.com/apps/jack-henry-associates/integrations
+- https://zapier.com/apps/jack-henry/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
