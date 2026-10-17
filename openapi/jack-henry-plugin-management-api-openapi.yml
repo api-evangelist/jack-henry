@@ -67,6 +67,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Plugin'
 components:
+  parameters:
+    InstitutionId:
+      name: institutionId
+      in: path
+      required: true
+      description: UUID identifying the institution.
+      schema:
+        type: string
+        format: uuid
   schemas:
     Plugin:
       type: object
@@ -92,15 +101,6 @@ components:
           items:
             type: string
             format: uuid
-  parameters:
-    InstitutionId:
-      name: institutionId
-      in: path
-      required: true
-      description: UUID identifying the institution.
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect

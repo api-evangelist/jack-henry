@@ -138,18 +138,18 @@ components:
           type: string
           format: date-time
   parameters:
-    ConsumerId:
-      name: consumerId
-      in: path
-      required: true
-      schema:
-        type: string
-        format: uuid
     InstitutionId:
       name: institutionId
       in: path
       required: true
       description: UUID identifying the institution.
+      schema:
+        type: string
+        format: uuid
+    ConsumerId:
+      name: consumerId
+      in: path
+      required: true
       schema:
         type: string
         format: uuid

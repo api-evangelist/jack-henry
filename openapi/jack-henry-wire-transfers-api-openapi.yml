@@ -68,41 +68,7 @@ paths:
     - url: https://api.payments.sandbox.jackhenry.com
       description: Jack Henry Payments sandbox
 components:
-  parameters:
-    UserId:
-      name: userId
-      in: path
-      required: true
-      description: ID of the desired user (UUID format).
-      schema:
-        type: string
-        format: uuid
   schemas:
-    WireTransferRequest:
-      type: object
-      required:
-      - fromAccountId
-      - beneficiaryName
-      - beneficiaryAccountNumber
-      - beneficiaryBankRoutingNumber
-      - amount
-      properties:
-        fromAccountId:
-          type: string
-          format: uuid
-        beneficiaryName:
-          type: string
-        beneficiaryAccountNumber:
-          type: string
-        beneficiaryBankRoutingNumber:
-          type: string
-        amount:
-          type: number
-        currency:
-          type: string
-          default: USD
-        memo:
-          type: string
     WireTransfer:
       type: object
       properties:
@@ -130,6 +96,31 @@ components:
           - Sent
           - Failed
           - Cancelled
+    WireTransferRequest:
+      type: object
+      required:
+      - fromAccountId
+      - beneficiaryName
+      - beneficiaryAccountNumber
+      - beneficiaryBankRoutingNumber
+      - amount
+      properties:
+        fromAccountId:
+          type: string
+          format: uuid
+        beneficiaryName:
+          type: string
+        beneficiaryAccountNumber:
+          type: string
+        beneficiaryBankRoutingNumber:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+          default: USD
+        memo:
+          type: string
     WireRequest:
       type: object
       required:
@@ -180,6 +171,15 @@ components:
           - string
           - 'null'
           format: date-time
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: ID of the desired user (UUID format).
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     openIdConnect:
       type: openIdConnect

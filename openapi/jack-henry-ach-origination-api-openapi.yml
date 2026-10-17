@@ -88,9 +88,6 @@ components:
         amount:
           type: number
           format: double
-    AchDebitRequest:
-      allOf:
-      - $ref: '#/components/schemas/AchCreditRequest'
     AchCreditRequest:
       type: object
       required:
@@ -124,6 +121,9 @@ components:
           format: date
         memo:
           type: string
+    AchDebitRequest:
+      allOf:
+      - $ref: '#/components/schemas/AchCreditRequest'
   securitySchemes:
     bearerAuth:
       type: http
