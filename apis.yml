@@ -147,7 +147,7 @@ apis:
   baseURL: https://events.jackhenry.com
   tags:
   - Event
-  - Pub-Sub
+  - Pub/Sub
   - Streaming
   - Webhook
   - Real-Time
@@ -1916,6 +1916,8 @@ apis:
   humanURL: https://jackhenry.dev/ees/
   baseURL: https://events.jackhenry.com
   tags:
+  - UserInfo
+  tags_raw:
   - User Info
   properties:
   - type: OpenAPI
