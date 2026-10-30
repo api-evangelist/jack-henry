@@ -1,4 +1,4 @@
-# Jack Henry & Associates (jack-henry)
+# Jack Henry & Associates
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -78,419 +78,258 @@ Enterprise Event System, Operational Data Integration (ODI), and the
 Digital Core. Banno's developer documentation site at jackhenry.dev
 is mirrored at banno.github.io/open-api-docs.
 
-**APIs.json:** [https://github.com/api-evangelist/jack-henry](https://github.com/api-evangelist/jack-henry)
-
-## Scope
-
-- **Type:** Index
-
-## Tags
-
-- Financial Services
-- Banking
-- Core Banking
-- Digital Banking
-- Payments
-- Lending
-- Fraud
-- Open Banking
-- Community Banks
-- Credit Unions
-- Fintech
-- OAuth
-- OpenID Connect
-
-## Timestamps
-
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-23
-
-## APIs
-
-### Banno Consumer API
-
-Build apps and services using the same Consumer API that powers
-Banno Mobile and Online. Provides authenticated, OAuth/OpenID
-Connect protected access to accountholder data — accounts,
-transactions, transfers, alerts, cards, bill pay, ACH, wires,
-Zelle, RDC, documents/statements, messages, and forms — across
-Jack Henry's digital banking platform.
-
-- **Human URL:** [https://jackhenry.dev/open-api-docs/consumer-api/](https://jackhenry.dev/open-api-docs/consumer-api/)
-- **Base URL:** `https://api.banno.com`
-
-#### Tags
-
-- Consumer Banking
-- Accounts
-- Transactions
-- Transfers
-- Bill Pay
-- Zelle
-- ACH
-- Wire Transfers
-- Remote Deposit Capture
-- Cards
-- Alerts
-- Messages
-- OAuth
-- OpenID Connect
-
-#### Properties
-
-- [OpenAPI](openapi/banno-consumer-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/banno-consumer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-consumer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [API Reference](https://banno.github.io/open-api-docs/consumer-api/api-reference/v0/)
-- [Getting Started](https://jackhenry.dev/open-api-docs/consumer-api/getting-started/)
-- [Authentication](https://jackhenry.dev/open-api-docs/consumer-api/overview/authentication/)
-- [Quickstart](https://jackhenry.dev/open-api-docs/consumer-api/quickstarts/)
-- [Sample App](https://github.com/Banno/consumer-api-openid-connect-example)
-- [Capability](capabilities/shared/banno-consumer-api.yaml)
-
-### Banno Admin API
-
-Manage and integrate the back office using the same Admin API that
-Banno uses for its administrative interface. Surfaces institution
-abilities/feature flags, consumer/business administration,
-messaging, alerts, plugin management, segments, ads, RDC, reports,
-offline mode, ACH, wires, Zelle, and OAuth/OpenID administration.
-
-- **Human URL:** [https://jackhenry.dev/open-api-docs/admin-api/](https://jackhenry.dev/open-api-docs/admin-api/)
-- **Base URL:** `https://api.banno.com`
-
-#### Tags
-
-- Back Office
-- Institution Administration
-- Consumer Administration
-- Plugin Management
-- Reports
-- Segments
-- Alerts
-- Messages
-- High-Risk Actions
-- Compliance
-
-#### Properties
-
-- [OpenAPI](openapi/banno-admin-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/banno-admin-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-admin-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [API Reference](https://banno.github.io/open-api-docs/admin-api/api-reference/v0/)
-- [Sample App](https://github.com/Banno/admin-api-openid-connect-example)
-- [Capability](capabilities/shared/banno-admin-api.yaml)
-
-### Banno Plugin Framework
-
-Embed custom cards and expanded views directly into the Banno
-Online and Mobile user dashboard. Plugins are web applications
-(HTML + CSS + JavaScript) hosted on the partner's own infrastructure
-and registered as External Applications inside Banno People. The
-"@jack-henry/banno-plugin-framework-bridge" JavaScript module
-routes events between the hosted plugin and the Banno chrome.
-
-- **Human URL:** [https://jackhenry.dev/open-api-docs/plugins/](https://jackhenry.dev/open-api-docs/plugins/)
-- **Base URL:** `https://digital.garden.banno-uat.com`
-
-#### Tags
-
-- Plugin Framework
-- Embedded Banking
-- Dashboard Cards
-- External Applications
-- Web Components
-- Fintech Integration
-
-#### Properties
-
-- [OpenAPI](openapi/banno-plugin-framework-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/banno-plugin-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-plugin-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [API Reference](https://jackhenry.dev/open-api-docs/plugins/)
-- [Getting Started](https://jackhenry.dev/open-api-docs/plugins/getting-started/)
-- [Tutorial](https://jackhenry.dev/open-api-docs/plugins/tutorials/basicpluginwithapi/)
-- [SDK](https://github.com/Banno/banno-plugin-framework-bridge)
-- [Sample App](https://github.com/Banno/simple-plugin-example)
-- [Sample App](https://github.com/Banno/basic-plugin-example)
-- [Sample App](https://github.com/Banno/simple-announcements-plugin)
-- [Capability](capabilities/shared/banno-plugin-framework.yaml)
-
-### Banno Authentication Framework
-
-Protect user data using OAuth 2.0 and OpenID Connect. Issues
-access tokens, identity tokens, and refresh tokens; defines the
-permissions flow that governs Consumer and Admin API scopes; and
-maps customer identities to existing system IDs via unique
-customer IDs, contact info, or Tax ID.
-
-- **Human URL:** [https://jackhenry.dev/open-api-docs/authentication-framework/](https://jackhenry.dev/open-api-docs/authentication-framework/)
-- **Base URL:** `https://api.banno.com`
-
-#### Tags
-
-- Authentication
-- OAuth
-- OpenID Connect
-- Identity
-- Tokens
-- Permissions
-
-#### Properties
-
-- [OpenAPI](openapi/banno-authentication-framework-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/banno-authentication-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-authentication-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://jackhenry.dev/open-api-docs/authentication-framework/)
-- [Capability](capabilities/shared/banno-authentication-framework.yaml)
-
-### jXchange REST
-
-Translates information between Jack Henry's SilverLake and CIF 20/20
-core platforms and third-party applications via a REST surface.
-Resources span deposits, loans, customers, accounts, transactions,
-and general ledger — the system-of-record contract for community-bank
-cores.
-
-- **Human URL:** [https://jackhenry.dev/jxchange-rest/](https://jackhenry.dev/jxchange-rest/)
-- **Base URL:** `https://jxchange.jackhenry.com`
-
-#### Tags
-
-- Core Banking
-- jXchange
-- SilverLake
-- CIF 20/20
-- Deposits
-- Loans
-- Customers
-- General Ledger
-
-#### Properties
-
-- [OpenAPI](openapi/jxchange-rest-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/jxchange-rest.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jxchange-rest.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://jackhenry.dev/jxchange-rest/)
-- [Capability](capabilities/shared/jxchange-rest.yaml)
-
-### Jack Henry Payments
-
-Jack Henry Payments unifies ACH origination, wire/A2A payments,
-Bill Payments, Remote Deposit Capture (consumer + commercial),
-card acceptance, and peer-to-peer rails behind a developer portal
-with sandbox, SDKs, and downloadable tools. Includes the Payments
-Orchestrator that routes across rails and supports virtual accounts.
-
-- **Human URL:** [https://api.payments.jackhenry.com/developer/](https://api.payments.jackhenry.com/developer/)
-- **Base URL:** `https://api.payments.jackhenry.com`
-
-#### Tags
-
-- Payments
-- ACH
-- Wire Transfers
-- Bill Pay
-- Remote Deposit Capture
-- Cards
-- Zelle
-- Payments Orchestrator
-
-#### Properties
-
-- [OpenAPI](openapi/jack-henry-payments-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/jack-henry-payments.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jack-henry-payments.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Developer Portal](https://api.payments.jackhenry.com/developer/)
-- [Sandbox](https://api.payments.jackhenry.com/developer/)
-- [Capability](capabilities/shared/jack-henry-payments.yaml)
-
-### Enterprise Event System
-
-Real-time, pub/sub-based event streaming surface. Lets institutions
-and partners react to events emitted across Jack Henry's platform
-(account events, transaction events, alert events, user-lifecycle
-events) without polling.
-
-- **Human URL:** [https://jackhenry.dev/ees/](https://jackhenry.dev/ees/)
-- **Base URL:** `https://events.jackhenry.com`
-
-#### Tags
-
-- Events
-- Pub/Sub
-- Streaming
-- Webhooks
-- Real-Time
-
-#### Properties
-
-- [AsyncAPI](asyncapi/enterprise-event-system-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Documentation](https://jackhenry.dev/ees/)
-- [Postman Collection](collections/banno-admin-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-admin-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-authentication-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-authentication-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-consumer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-consumer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-plugin-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-plugin-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/jack-henry-payments.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jack-henry-payments.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/jxchange-rest.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jxchange-rest.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SymXchange
-
-Translation surface for the Symitar credit-union core. Query
-member accounts, post transactions, and execute PowerOn scripts.
-
-- **Human URL:** [https://jackhenry.dev/symxchange-api-docs/](https://jackhenry.dev/symxchange-api-docs/)
-- **Base URL:** `https://symxchange.jackhenry.com`
-
-#### Tags
-
-- Core Banking
-- Symitar
-- Credit Unions
-- PowerOn
-- Member Accounts
-
-#### Properties
-
-- [Documentation](https://jackhenry.dev/symxchange-api-docs/)
-- [SDK](https://github.com/Banno/banno-powerons)
-- [Postman Collection](collections/banno-admin-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-admin-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-authentication-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-authentication-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-consumer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-consumer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-plugin-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-plugin-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/jack-henry-payments.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jack-henry-payments.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/jxchange-rest.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jxchange-rest.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Operational Data Integration (ODI)
-
-Customized bulk-data query interface for institution data.
-Sits alongside Data Hub for deeper analytics access.
-
-- **Human URL:** [https://jackhenry.dev/odi/](https://jackhenry.dev/odi/)
-- **Base URL:** `https://odi.jackhenry.com`
-
-#### Tags
-
-- Data
-- Bulk Data
-- Reporting
-- Analytics
-
-#### Properties
-
-- [Documentation](https://jackhenry.dev/odi/)
-- [Postman Collection](collections/banno-admin-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-admin-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-authentication-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-authentication-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-consumer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-consumer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-plugin-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-plugin-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/jack-henry-payments.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jack-henry-payments.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/jxchange-rest.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jxchange-rest.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Data Hub
-
-Provides deeper access to financial institution data for partners
-building analytics, BI, and personalization solutions on top of
-Jack Henry core systems.
-
-- **Human URL:** [https://jackhenry.dev/data-hub/](https://jackhenry.dev/data-hub/)
-- **Base URL:** `https://datahub.jackhenry.com`
-
-#### Tags
-
-- Data
-- Analytics
-- Reporting
-- Data Sharing
-
-#### Properties
-
-- [Documentation](https://jackhenry.dev/data-hub/)
-- [Postman Collection](collections/banno-admin-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-admin-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-authentication-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-authentication-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-consumer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-consumer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-plugin-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-plugin-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/jack-henry-payments.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jack-henry-payments.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/jxchange-rest.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jxchange-rest.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Digital Core
-
-Cloud-native core banking platform — the next-generation successor
-surface alongside SilverLake, CIF 20/20, and Symitar. Targets
-modern API-first deployments for de novo banks and modernization
-programs.
-
-- **Human URL:** [https://jackhenry.dev/digital-core-api-docs/](https://jackhenry.dev/digital-core-api-docs/)
-- **Base URL:** `https://digital-core.jackhenry.com`
-
-#### Tags
-
-- Core Banking
-- Cloud Native
-- Modernization
-- De Novo
-
-#### Properties
-
-- [Documentation](https://jackhenry.dev/digital-core-api-docs/)
-- [Postman Collection](collections/banno-admin-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-admin-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-authentication-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-authentication-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-consumer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-consumer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/banno-plugin-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/banno-plugin-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/jack-henry-payments.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jack-henry-payments.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/jxchange-rest.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jxchange-rest.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Homepage](https://www.jackhenry.com/)
-- [Developer Portal](https://jackhenry.dev/)
-- [Digital Toolkit](https://jackhenry.dev/digital-toolkit/)
+**Areas:** Financial Services · Banking · Core Banking · Digital Banking · Payments · Lending · Fraud Prevention · Open Banking · Community Banks · Credit Union · Fintech · Authentication
+
+## Jack Henry & Associates on APIs.io
+
+Everything profiled for Jack Henry & Associates is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/jack-henry/](https://apis.io/providers/jack-henry/)** — or go straight to one of the APIs or properties below.
+
+### APIs (42)
+
+- [Enterprise Event System](https://apis.io/apis/jack-henry/enterprise-event-system/) — Real-time, pub/sub-based event streaming surface. Lets institutions and partners react to events emitted across Jack Henry's platform (account events,…
+- [SymXchange](https://apis.io/apis/jack-henry/symxchange/) — Translation surface for the Symitar credit-union core. Query member accounts, post transactions, and execute PowerOn scripts.
+- [Operational Data Integration (ODI)](https://apis.io/apis/jack-henry/operational-data-integration-odi/) — Customized bulk-data query interface for institution data. Sits alongside Data Hub for deeper analytics access.
+- [Data Hub](https://apis.io/apis/jack-henry/data-hub/) — Provides deeper access to financial institution data for partners building analytics, BI, and personalization solutions on top of Jack Henry core systems.
+- [Digital Core](https://apis.io/apis/jack-henry/digital-core/) — Cloud-native core banking platform — the next-generation successor surface alongside SilverLake, CIF 20/20, and Symitar. Targets modern API-first…
+- [Jack Henry & Associates Abilities API](https://apis.io/apis/jack-henry/jack-henry-abilities-api/) — Institution feature-flag map.
+- [Jack Henry & Associates Accounts API](https://apis.io/apis/jack-henry/jack-henry-accounts-api/) — Deposit, loan, line-of-credit, and investment accounts.
+- [Jack Henry & Associates ACH Origination API](https://apis.io/apis/jack-henry/jack-henry-ach-origination-api/) — ACH credit and debit origination.
+- [Jack Henry & Associates Alerts API](https://apis.io/apis/jack-henry/jack-henry-alerts-api/) — Account and security alerts.
+- [Jack Henry & Associates Authorization API](https://apis.io/apis/jack-henry/jack-henry-authorization-api/) — OAuth authorization endpoint.
+- [Jack Henry & Associates Bill Pay API](https://apis.io/apis/jack-henry/jack-henry-bill-pay-api/) — Bill-payment payees and payments.
+- [Jack Henry & Associates Bill Payments API](https://apis.io/apis/jack-henry/jack-henry-bill-payments-api/) — Consumer and small-business bill pay.
+- [Jack Henry & Associates Cards API](https://apis.io/apis/jack-henry/jack-henry-cards-api/) — Debit and credit card management.
+- [Jack Henry & Associates Consumers API](https://apis.io/apis/jack-henry/jack-henry-consumers-api/) — Consumer account administration.
+- [Jack Henry & Associates Customers API](https://apis.io/apis/jack-henry/jack-henry-customers-api/) — Customer (CIF) records.
+- [Jack Henry & Associates Deposit Accounts API](https://apis.io/apis/jack-henry/jack-henry-deposit-accounts-api/) — DDA/savings/CD deposit accounts.
+- [Jack Henry & Associates Discovery API](https://apis.io/apis/jack-henry/jack-henry-discovery-api/) — OpenID Connect discovery and JWKS.
+- [Jack Henry & Associates General Ledger API](https://apis.io/apis/jack-henry/jack-henry-general-ledger-api/) — GL account inquiry.
+- [Jack Henry & Associates High Risk Actions API](https://apis.io/apis/jack-henry/jack-henry-high-risk-actions-api/) — Sensitive operations requiring elevated authorization.
+- [Jack Henry & Associates History API](https://apis.io/apis/jack-henry/jack-henry-history-api/) — Audit and activity history.
+- [Jack Henry & Associates Institution Offline Status API](https://apis.io/apis/jack-henry/jack-henry-institution-offline-status-api/) — Drive scheduled or emergency offline modes.
+- [Jack Henry & Associates Institutions API](https://apis.io/apis/jack-henry/jack-henry-institutions-api/) — Public institution profile lookup.
+- [Jack Henry & Associates Loan Accounts API](https://apis.io/apis/jack-henry/jack-henry-loan-accounts-api/) — Consumer and commercial loans.
+- [Jack Henry & Associates Marketing Ads API](https://apis.io/apis/jack-henry/jack-henry-marketing-ads-api/) — Configure marketing/ad cards in the dashboard.
+- [Jack Henry & Associates Messages API](https://apis.io/apis/jack-henry/jack-henry-messages-api/) — Two-way secure messaging with the institution.
+- [Jack Henry & Associates Payments Orchestrator API](https://apis.io/apis/jack-henry/jack-henry-payments-orchestrator-api/) — Cross-rail routing and virtual accounts.
+- [Jack Henry & Associates Peer To Peer API](https://apis.io/apis/jack-henry/jack-henry-peer-to-peer-api/) — P2P transfers via partner networks.
+- [Jack Henry & Associates Plugin Bridge API](https://apis.io/apis/jack-henry/jack-henry-plugin-bridge-api/) — Bridge handshake and lifecycle.
+- [Jack Henry & Associates Plugin Configuration API](https://apis.io/apis/jack-henry/jack-henry-plugin-configuration-api/) — Plugin metadata published by the host.
+- [Jack Henry & Associates Plugin Management API](https://apis.io/apis/jack-henry/jack-henry-plugin-management-api/) — Configure external applications and plugins.
+- [Jack Henry & Associates Remote Deposit Capture API](https://apis.io/apis/jack-henry/jack-henry-remote-deposit-capture-api/) — Consumer and commercial RDC.
+- [Jack Henry & Associates Reports API](https://apis.io/apis/jack-henry/jack-henry-reports-api/) — Operational and audit reports.
+- [Jack Henry & Associates Routing Numbers API](https://apis.io/apis/jack-henry/jack-henry-routing-numbers-api/) — Routing number validation.
+- [Jack Henry & Associates Segments API](https://apis.io/apis/jack-henry/jack-henry-segments-api/) — User segments for targeted experiences.
+- [Jack Henry & Associates Token API](https://apis.io/apis/jack-henry/jack-henry-token-api/) — OAuth token exchange.
+- [Jack Henry & Associates Transactions API](https://apis.io/apis/jack-henry/jack-henry-transactions-api/) — Posted and pending transactions per account.
+- [Jack Henry & Associates Transfers API](https://apis.io/apis/jack-henry/jack-henry-transfers-api/) — Account-to-account and external transfers.
+- [Jack Henry & Associates User API](https://apis.io/apis/jack-henry/jack-henry-user-api/) — Profile and identity of the authenticated user.
+- [Jack Henry & Associates User Context API](https://apis.io/apis/jack-henry/jack-henry-user-context-api/) — Authenticated user/account context surfaced to a plugin.
+- [Jack Henry & Associates Wire Transfers API](https://apis.io/apis/jack-henry/jack-henry-wire-transfers-api/) — Outbound wire requests.
+- [Jack Henry & Associates Zelle API](https://apis.io/apis/jack-henry/jack-henry-zelle-api/) — Zelle peer-to-peer payments.
+- [Jack Henry & Associates User Info API](https://apis.io/apis/jack-henry/jack-henry-user-info-api/) — OpenID Connect UserInfo endpoint.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Jack Henry Enterprise Event System](https://apis.io/asyncapis/jack-henry/enterprise-event-system-asyncapi/)
+
+#### Event channels (4)
+
+Individual events and webhooks the provider emits.
+
+- [jh.consumer.accounts.v1](https://apis.io/channels/jack-henry/jh-consumer-accounts-v1/)
+- [jh.consumer.alerts.v1](https://apis.io/channels/jack-henry/jh-consumer-alerts-v1/)
+- [jh.consumer.transactions.v1](https://apis.io/channels/jack-henry/jh-consumer-transactions-v1/)
+- [jh.consumer.user-lifecycle.v1](https://apis.io/channels/jack-henry/jh-consumer-user-lifecycle-v1/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Jack Henry Agentic Access](https://apis.io/agentic-access/jack-henry/jack-henry-agentic-access/)
+
+#### JSON Schema (7)
+
+The data models the API reads and writes.
+
+- [Banno Account](https://apis.io/schemas/jack-henry/banno-account/)
+- [Banno Institution Abilities Map](https://apis.io/schemas/jack-henry/banno-institution-abilities/)
+- [Banno Transaction](https://apis.io/schemas/jack-henry/banno-transaction/)
+- [Banno Transfer](https://apis.io/schemas/jack-henry/banno-transfer/)
+- [jXchange Customer](https://apis.io/schemas/jack-henry/jxchange-customer/)
+- [jXchange Loan Account](https://apis.io/schemas/jack-henry/jxchange-loan-account/)
+- [Jack Henry Payments ACH Transaction](https://apis.io/schemas/jack-henry/payments-ach-transaction/)
+
+#### JSON Structure (3)
+
+Data models expressed in JSON Structure.
+
+- [Banno Account Structure](https://apis.io/json-structure/jack-henry/banno-account-structure/)
+- [Banno Transaction Structure](https://apis.io/json-structure/jack-henry/banno-transaction-structure/)
+- [Payments Orchestrator Request Structure](https://apis.io/json-structure/jack-henry/payments-orchestrator-request-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Jack Henry Context](https://apis.io/jsonld/jack-henry/jack-henry-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Jack Henry & Associates Vocabulary](https://apis.io/vocabularies/jack-henry/jack-henry-vocabulary/)
+
+#### Examples (10)
+
+Example requests and responses.
+
+- [Banno Admin Institution Abilities Response Example](https://apis.io/examples/jack-henry/banno-admin-institution-abilities-response-example/)
+- [Banno Consumer Create Transfer Request Example](https://apis.io/examples/jack-henry/banno-consumer-create-transfer-request-example/)
+- [Banno Consumer Create Transfer Response Example](https://apis.io/examples/jack-henry/banno-consumer-create-transfer-response-example/)
+- [Banno Consumer List Accounts Response Example](https://apis.io/examples/jack-henry/banno-consumer-list-accounts-response-example/)
+- [Banno Consumer List Transactions Response Example](https://apis.io/examples/jack-henry/banno-consumer-list-transactions-response-example/)
+- [Jxchange Customer Response Example](https://apis.io/examples/jack-henry/jxchange-customer-response-example/)
+- [Payments Ach Credit Request Example](https://apis.io/examples/jack-henry/payments-ach-credit-request-example/)
+- [Payments Ach Credit Response Example](https://apis.io/examples/jack-henry/payments-ach-credit-response-example/)
+- [Payments Orchestrator Route Request Example](https://apis.io/examples/jack-henry/payments-orchestrator-route-request-example/)
+- [Payments Orchestrator Route Response Example](https://apis.io/examples/jack-henry/payments-orchestrator-route-response-example/)
+
+#### Collections (43)
+
+Postman and Open Collection request collections.
+
+- [Banno Admin API](https://apis.io/collections/jack-henry/open-banno-admin-api/)
+- [Banno Authentication Framework](https://apis.io/collections/jack-henry/open-banno-authentication-framework/)
+- [Banno Consumer API](https://apis.io/collections/jack-henry/open-banno-consumer-api/)
+- [Banno Plugin Framework](https://apis.io/collections/jack-henry/open-banno-plugin-framework/)
+- [Banno Admin Abilities API](https://apis.io/collections/jack-henry/open-jack-henry-abilities-api/)
+- [Banno Admin Abilities Accounts API](https://apis.io/collections/jack-henry/open-jack-henry-accounts-api/)
+- [Banno Admin Abilities ACH Origination API](https://apis.io/collections/jack-henry/open-jack-henry-ach-origination-api/)
+- [Banno Admin Abilities Alerts API](https://apis.io/collections/jack-henry/open-jack-henry-alerts-api/)
+- [Banno Admin Abilities Authorization API](https://apis.io/collections/jack-henry/open-jack-henry-authorization-api/)
+- [Banno Admin Abilities Bill Pay API](https://apis.io/collections/jack-henry/open-jack-henry-bill-pay-api/)
+- [Banno Admin Abilities Bill Payments API](https://apis.io/collections/jack-henry/open-jack-henry-bill-payments-api/)
+- [Banno Admin Abilities Cards API](https://apis.io/collections/jack-henry/open-jack-henry-cards-api/)
+- [Banno Admin Abilities Consumers API](https://apis.io/collections/jack-henry/open-jack-henry-consumers-api/)
+- [Banno Admin Abilities Customers API](https://apis.io/collections/jack-henry/open-jack-henry-customers-api/)
+- [Banno Admin Abilities Deposit Accounts API](https://apis.io/collections/jack-henry/open-jack-henry-deposit-accounts-api/)
+- [Banno Admin Abilities Discovery API](https://apis.io/collections/jack-henry/open-jack-henry-discovery-api/)
+- [Banno Admin Abilities General Ledger API](https://apis.io/collections/jack-henry/open-jack-henry-general-ledger-api/)
+- [Banno Admin Abilities High Risk Actions API](https://apis.io/collections/jack-henry/open-jack-henry-high-risk-actions-api/)
+- [Banno Admin Abilities History API](https://apis.io/collections/jack-henry/open-jack-henry-history-api/)
+- [Banno Admin Abilities Institution Offline Status API](https://apis.io/collections/jack-henry/open-jack-henry-institution-offline-status-api/)
+- [Banno Admin Abilities Institutions API](https://apis.io/collections/jack-henry/open-jack-henry-institutions-api/)
+- [Banno Admin Abilities Loan Accounts API](https://apis.io/collections/jack-henry/open-jack-henry-loan-accounts-api/)
+- [Banno Admin Abilities Marketing Ads API](https://apis.io/collections/jack-henry/open-jack-henry-marketing-ads-api/)
+- [Banno Admin Abilities Messages API](https://apis.io/collections/jack-henry/open-jack-henry-messages-api/)
+- [Jack Henry Payments](https://apis.io/collections/jack-henry/open-jack-henry-payments/)
+- …and 18 more published on APIs.io
+
+#### Governance rules (6)
+
+Spectral rulesets for the provider's contracts.
+
+- [Jack Henry & Associates — banno admin api rules](https://apis.io/rules/jack-henry/banno-admin-api-rules/)
+- [Jack Henry & Associates — banno consumer api rules](https://apis.io/rules/jack-henry/banno-consumer-api-rules/)
+- [Jack Henry & Associates — asyncapi rules](https://apis.io/rules/jack-henry/jack-henry-asyncapi-spectral-rules/)
+- [Jack Henry & Associates — jsonschema rules](https://apis.io/rules/jack-henry/jack-henry-jsonschema-spectral-rules/)
+- [Jack Henry & Associates — payments rules](https://apis.io/rules/jack-henry/jack-henry-payments-rules/)
+- [Jack Henry & Associates — jxchange rest rules](https://apis.io/rules/jack-henry/jxchange-rest-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Jack Henry Authentication](https://apis.io/security/jack-henry/jack-henry-authentication/)
+- [Jack Henry Domain Security](https://apis.io/security/jack-henry/jack-henry-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Jack Henry Plans Pricing](https://apis.io/plans/jack-henry/jack-henry-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Jack Henry Rate Limits](https://apis.io/rate-limits/jack-henry/jack-henry-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Jack Henry Finops](https://apis.io/finops/jack-henry/jack-henry-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.jackhenry.com/)
 - [Documentation](https://banno.github.io/open-api-docs/)
-- [Blog](https://www.jackhenry.com/fintalk)
-- [Press Releases](https://ir.jackhenry.com/news-releases)
-- [Investor Relations](https://ir.jackhenry.com/)
-- [Git Hub](https://github.com/Banno)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/banno-digital-toolkit)
 - [Support](https://jackhenry.dev/support/)
-- [Status](https://status.banno.com/)
-- [Terms of Service](https://www.jackhenry.com/legal/terms-of-use)
-- [Privacy Policy](https://www.jackhenry.com/legal/privacy)
-- [Careers](https://www.jackhenry.com/who-we-are/careers)
-- [Twitter X](https://x.com/JackHenryAssoc)
-- [LinkedIn](https://www.linkedin.com/company/jack-henry-associates/)
-- [YouTube](https://www.youtube.com/user/JackHenryAssociates)
+- [Blog](https://www.jackhenry.com/fintalk)
+- [Terms of service](https://www.jackhenry.com/legal/terms-of-use)
+- [Privacy policy](https://www.jackhenry.com/legal/privacy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kinlane@apievangelist.com
-**URL:** https://kinlane.com
+**Kin Score 35.7** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 72.3 |
+| Contract quality | 54.1 |
+| Contract governance | 13.6 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 66.7 |
+| Access clarity | 5.3 |
+
+**Agent readiness 24.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | mostly |
+
+**Regulatory alignment 13.4** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/jack-henry/](https://apis.io/providers/jack-henry/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Jack Henry & Associates: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/jack-henry/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
